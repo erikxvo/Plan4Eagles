@@ -302,7 +302,7 @@ function createCourseBlock(course, uniqueId) {
   const height = calculateDuration(course.startTime, course.endTime);
 
   block.style.top = `${topPosition}px`;
-  block.style.height = `${height - 20}px`;
+  block.style.height = `${height - 2}px`;
 
   block.innerHTML = `
     <strong>${course.code}.${course.section}</strong><br>
