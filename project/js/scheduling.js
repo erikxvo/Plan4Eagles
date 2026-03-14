@@ -36,6 +36,7 @@ function getCourseColor(uniqueId) {
 
 let courseData = [];
 const scheduledCourses = new Set();
+const scheduledCourseIndices = new Map(); // uniqueId -> courseData index
 
 async function loadCourseData() {
   try {
@@ -198,13 +199,8 @@ function calculateDuration(startTime, endTime) {
 
 function hasTimeConflict(newCourse) {
   for (const day of newCourse.days) {
-    const existingCourses = Array.from(scheduledCourses)
-      .map((id) => {
-        const courseIndex = courseData.findIndex(
-          (c) => `${c.code}-${c.section}` === id
-        );
-        return courseData[courseIndex];
-      })
+    const existingCourses = Array.from(scheduledCourseIndices.values())
+      .map((index) => courseData[index])
       .filter((course) => course && course.days.includes(day));
 
     for (const existing of existingCourses) {
@@ -279,6 +275,7 @@ function addCourseToSchedule(courseId, save = true) {
   });
 
   scheduledCourses.add(uniqueId);
+  scheduledCourseIndices.set(uniqueId, courseId);
 
   if (save) saveSchedule();
 
@@ -335,6 +332,7 @@ function removeCourseFromSchedule(uniqueId) {
   blocks.forEach((block) => block.remove());
 
   scheduledCourses.delete(uniqueId);
+  scheduledCourseIndices.delete(uniqueId);
   courseColors.delete(uniqueId);
 
   saveSchedule();
@@ -402,10 +400,8 @@ function loadSchedule() {
 function updateCreditCounter() {
   let totalCredits = 0;
 
-  scheduledCourses.forEach((uniqueId) => {
-    const course = courseData.find(
-      (c) => `${c.code}-${c.section}` === uniqueId
-    );
+  scheduledCourseIndices.forEach((index) => {
+    const course = courseData[index];
     if (course) {
       totalCredits += course.credits;
     }
@@ -444,6 +440,7 @@ if (resetBtn) {
     }
 
     scheduledCourses.clear();
+    scheduledCourseIndices.clear();
     courseColors.clear();
     colorIndex = 0;
     localStorage.removeItem(`bc_career_planner_schedule_${currentSemester}`);
@@ -494,10 +491,8 @@ if (exportBtn) {
       courses: [],
     };
 
-    scheduledCourses.forEach((uniqueId) => {
-      const course = courseData.find(
-        (c) => `${c.code}-${c.section}` === uniqueId
-      );
+    scheduledCourseIndices.forEach((index) => {
+      const course = courseData[index];
       if (course) {
         exportData.courses.push({
           name: course.name,
@@ -544,6 +539,7 @@ function clearScheduleDisplay() {
   document.querySelectorAll(".course-block").forEach((block) => block.remove());
 
   scheduledCourses.clear();
+  scheduledCourseIndices.clear();
   courseColors.clear();
   colorIndex = 0;
 
