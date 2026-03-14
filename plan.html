@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4-Year Planner | Plan4Eagles</title>
+
+    <link rel="stylesheet" href="project/style/global.css" />
+    <link rel="stylesheet" href="project/style/plan.css" />
+  </head>
+
+  <body>
+    <header class="navbar">
+      <h1 class="logo">Plan4Eagles</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="scheduling.html">Scheduling</a>
+        <a href="plan.html" class="active">4-Year Plan</a>
+        <a href="opportunities.html">Opportunities</a>
+      </nav>
+    </header>
+
+    <div class="planner-container">
+      <aside class="requirements">
+        <h2>BC Core (MCAS)</h2>
+        <button id="reset-plan-btn" class="btn-primary" style="width:100%; margin-bottom:15px;">
+          Reset 4-Year Plan
+        </button>
+
+        <div class="req-progress"></div>
+
+        <ul>
+          <li><label><input type="checkbox" /><span>Writing</span></label></li>
+          <li><label><input type="checkbox" /><span>Literature</span></label></li>
+          <li><label><input type="checkbox" /><span>Arts</span></label></li>
+          <li><label><input type="checkbox" /><span>Math</span></label></li>
+          <li><label><input type="checkbox" /><span>History I</span></label></li>
+          <li><label><input type="checkbox" /><span>History II</span></label></li>
+          <li><label><input type="checkbox" /><span>Philosophy I</span></label></li>
+          <li><label><input type="checkbox" /><span>Philosophy II</span></label></li>
+          <li><label><input type="checkbox" /><span>Social Science</span></label></li>
+          <li><label><input type="checkbox" /><span>Social Science</span></label></li>
+          <li><label><input type="checkbox" /><span>Natural Science</span></label></li>
+          <li><label><input type="checkbox" /><span>Natural Science</span></label></li>
+          <li><label><input type="checkbox" /><span>Theology (CT)</span></label></li>
+          <li><label><input type="checkbox" /><span>Theology (STT)</span></label></li>
+          <li><label><input type="checkbox" /><span>Cultural Diversity</span></label></li>
+          <li><label><input type="checkbox" /><span>Language Proficiency</span></label></li>
+        </ul>
+
+        <hr class="req-divider" />
+
+        <h2>Major Requirements</h2>
+        <label class="major-label" for="major-select">Select a major:</label>
+        <select id="major-select" class="major-select">
+          <option value="">-- choose a major --</option>
+        </select>
+
+        <ul id="major-req-list" class="major-req-list">
+          <li class="empty">Choose a major to see its classes.</li>
+        </ul>
+
+        <hr class="req-divider" />
+
+        <h2>GPA Calculator</h2>
+        <div class="gpa-display">
+          <span class="gpa-value" id="gpa-value">--</span>
+          <span class="gpa-label">Cumulative GPA</span>
+        </div>
+        <div class="gpa-summary" id="gpa-summary"></div>
+      </aside>
+
+      <main class="year-grid"></main>
+    </div>
+
+    <script src="project/js/plan.js"></script>
+  </body>
+</html>

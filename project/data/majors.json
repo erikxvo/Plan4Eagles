@@ -1,0 +1,196 @@
+[
+  {
+    "id": "cs-ba",
+    "name": "Computer Science (BA)",
+    "type": "major",
+    "requirements": [
+      "Computer Science 1 (CSCI 1101)",
+      "Computer Science 2 (CSCI 1102)",
+      "Data Structures (CSCI 1103)",
+      "Computer Systems (CSCI 2271)",
+      "Computer Organization (CSCI 2272)",
+      "Logic and Computation (CSCI 2243)",
+      "Randomness and Computation (CSCI 2244)",
+      "Algorithms (CSCI 3383)",
+      "2000 Elective",
+      "3000 Elective 1",
+      "3000 Elective 2",
+      "Calculus II (MATH 1103)",
+      "Linear Algebra (MATH 2210)"
+    ],
+    "suggestions": [
+      { "name": "CSCI 3360 Human-AI Interaction", "reason": "Great for UX/UI interest" },
+      { "name": "CSCI 2254 Web Application Development", "reason": "Builds portfolio projects" },
+      { "name": "CSCI 2267 Computers and Society", "reason": "Fulfills Social/Ethical cluster" }
+    ]
+  },
+  {
+    "id": "cs-bs",
+    "name": "Computer Science (BS)",
+    "type": "major",
+    "requirements": [
+      "Computer Science 1 (CSCI 1101)",
+      "Computer Science 2 (CSCI 1102)",
+      "Data Structures (CSCI 1103)",
+      "Computer Systems (CSCI 2271)",
+      "Computer Organization (CSCI 2272)",
+      "Logic and Computation (CSCI 2243)",
+      "Randomness and Computation (CSCI 2244)",
+      "Algorithms (CSCI 3383)",
+      "Social & Ethical Issues cluster (CSCI 2260-2268)",
+      "3000 Elective 1",
+      "3000 Elective 2",
+      "3000 Elective 3",
+      "Calculus II (MATH 1103)",
+      "Multivariable Calculus (MATH 2202)",
+      "Linear Algebra (MATH 2210)",
+      "Math 3000+ (except Probability)",
+      "Science Component (2-sem sequence)"
+    ],
+    "suggestions": [
+      { "name": "MATH 4426 Probability", "reason": "Essential for quantitative analysis" },
+      { "name": "CSCI 3345 Machine Learning", "reason": "High industry demand" },
+      { "name": "CSCI 3356 Programming Languages", "reason": "Strong foundation for grad school" }
+    ]
+  },
+  {
+    "id": "math-ba",
+    "name": "Mathematics (BA)",
+    "type": "major",
+    "requirements": [
+      "Calculus I (MATH 1102)",
+      "Calculus II (MATH 1103/1105)",
+      "Multivariable Calculus (MATH 2202/2203)",
+      "Linear Algebra (MATH 2210/2211)",
+      "Intro to Abstract Math (MATH 2216)",
+      "Intro to Abstract Algebra (MATH 3310)",
+      "Intro to Analysis (MATH 3320)",
+      "Math Elective 1 (3312/3322 or 4400+)",
+      "Math Elective 2 (3312/3322 or 4400+)",
+      "Math Elective 3 (3312/3322 or 4400+)",
+      "Math Elective 4 (3312/3322 or 4400+)",
+      "Math Elective 5 (3312/3322 or 4400+)",
+      "Math Elective 6 (3312/3322 or 4400+)"
+    ],
+    "suggestions": [
+      { "name": "MATH 4430 Intro to Number Theory", "reason": "Classic pure math topic" },
+      { "name": "MATH 4451 Euclidean and Non-Euclidean Geometry", "reason": "Good for teaching careers" }
+    ]
+  },
+  {
+    "id": "math-bs",
+    "name": "Mathematics (BS)",
+    "type": "major",
+    "requirements": [
+      "Calculus I (MATH 1102)",
+      "Calculus II (MATH 1103/1105)",
+      "Multivariable Calculus (MATH 2202/2203)",
+      "Linear Algebra (MATH 2210/2211)",
+      "Intro to Abstract Math (MATH 2216)",
+      "Algebra I (MATH 3311)",
+      "Algebra II (MATH 3312)",
+      "Analysis I (MATH 3321)",
+      "Analysis II (MATH 3322)",
+      "Complex Variables (MATH 4460)",
+      "Math Elective 1 (4000+)",
+      "Math Elective 2 (4000+)",
+      "Math Elective 3 (4000+)",
+      "Math Elective 4 (4000+)",
+      "Science/CS/Econ Elective 1",
+      "Science/CS/Econ Elective 2",
+      "Science/CS/Econ Elective 3",
+      "Science/CS/Econ Elective 4"
+    ],
+    "suggestions": [
+      { "name": "MATH 4462 Topology", "reason": "Essential for grad school" },
+      { "name": "MATH 4440 Dynamical Systems", "reason": "Advanced theoretical topic" }
+    ]
+  },
+  {
+    "id": "econ-ba",
+    "name": "Economics (BA)",
+    "type": "major",
+    "requirements": [
+      "Principles of Economics (ECON 1101)",
+      "Statistics (ECON 1151)",
+      "Microeconomic Theory (ECON 2201/2203)",
+      "Macroeconomic Theory (ECON 2202/2204)",
+      "Econometric Methods (ECON 2228)",
+      "Econ Elective 1",
+      "Econ Elective 2",
+      "Econ Elective 3 (3000+)",
+      "Econ Elective 4 (3000+)",
+      "Econ Elective 5 (3000+)",
+      "Econ Elective 6 (3000+)"
+    ],
+    "suggestions": [
+      { "name": "ECON 3327 Financial Econometrics", "reason": "Great for finance roles" },
+      { "name": "ECON 3308 Game Theory in Economics", "reason": "Strategic decision making" }
+    ]
+  },
+  {
+    "id": "biology-ba",
+    "name": "Biology (BA)",
+    "type": "major",
+    "requirements": [
+      "General Biology I (BIOL 1300)",
+      "General Biology II (BIOL 1400)",
+      "Cell Biology (BIOL 2010)",
+      "Genetics (BIOL 3030)",
+      "General Chemistry I (CHEM 1109)",
+      "General Chemistry II (CHEM 1110)",
+      "General Physics I (PHYS 2100)",
+      "Biology Elective 1 (2000+)",
+      "Biology Elective 2 (3000+)",
+      "Biology Elective 3 (3000+)",
+      "Calculus I (MATH 1100)",
+      "Statistics (ECON 1151 or MATH equiv)"
+    ],
+    "suggestions": [
+      { "name": "BIOL 4050 Molecular Biology", "reason": "Foundation for research and grad school" },
+      { "name": "CHEM 3361 Organic Chemistry I", "reason": "Required for medical school" }
+    ]
+  },
+  {
+    "id": "psych-ba",
+    "name": "Psychology (BA)",
+    "type": "major",
+    "requirements": [
+      "Principles of Psychology (PSYC 1110)",
+      "Research Methods (PSYC 2280)",
+      "Statistics for Psychology (PSYC 2290)",
+      "Cognitive Psychology (PSYC 3310)",
+      "Social Psychology (PSYC 3340)",
+      "Developmental Psychology (PSYC 3320)",
+      "Abnormal Psychology (PSYC 3350)",
+      "Psychology Elective 1 (3000+)",
+      "Psychology Elective 2 (3000+)",
+      "Psychology Elective 3 (3000+)"
+    ],
+    "suggestions": [
+      { "name": "PSYC 4490 Neuroscience", "reason": "Growing intersection with psychology" },
+      { "name": "PSYC 4410 Clinical Psychology", "reason": "Good for clinical grad programs" }
+    ]
+  },
+  {
+    "id": "poli-sci-ba",
+    "name": "Political Science (BA)",
+    "type": "major",
+    "requirements": [
+      "American Government (POLI 1041)",
+      "Intro to International Relations (POLI 1081)",
+      "Comparative Politics (POLI 2401)",
+      "Political Theory (POLI 2301)",
+      "Research Methods (POLI 2500)",
+      "Poli Sci Elective 1 (3000+)",
+      "Poli Sci Elective 2 (3000+)",
+      "Poli Sci Elective 3 (3000+)",
+      "Poli Sci Elective 4 (3000+)",
+      "Poli Sci Elective 5 (3000+)"
+    ],
+    "suggestions": [
+      { "name": "POLI 3361 Constitutional Law", "reason": "Essential for pre-law students" },
+      { "name": "POLI 3380 American Foreign Policy", "reason": "Great for IR careers" }
+    ]
+  }
+]

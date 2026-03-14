@@ -1,0 +1,134 @@
+[
+  {
+    "id": 1,
+    "title": "Software Engineering Intern",
+    "company": "Fidelity Investments",
+    "location": "Boston, MA",
+    "type": "Internship",
+    "majors": ["cs-ba", "cs-bs", "math-bs"],
+    "description": "Build and maintain full-stack applications. Work with agile teams on financial technology products.",
+    "url": "https://app.joinhandshake.com",
+    "posted": "2026-01-15"
+  },
+  {
+    "id": 2,
+    "title": "Data Analyst Intern",
+    "company": "State Street Corporation",
+    "location": "Boston, MA",
+    "type": "Internship",
+    "majors": ["cs-ba", "cs-bs", "math-ba", "math-bs", "econ-ba"],
+    "description": "Analyze financial datasets, build dashboards, and support data-driven decision making.",
+    "url": "https://app.joinhandshake.com",
+    "posted": "2026-01-10"
+  },
+  {
+    "id": 3,
+    "title": "Research Assistant - Neuroscience Lab",
+    "company": "Boston College Psychology Dept.",
+    "location": "Chestnut Hill, MA",
+    "type": "Research",
+    "majors": ["psych-ba", "biology-ba"],
+    "description": "Assist with fMRI studies and data collection for cognitive neuroscience research.",
+    "url": "#",
+    "posted": "2026-01-20"
+  },
+  {
+    "id": 4,
+    "title": "Economic Policy Intern",
+    "company": "Federal Reserve Bank of Boston",
+    "location": "Boston, MA",
+    "type": "Internship",
+    "majors": ["econ-ba", "math-ba", "math-bs", "poli-sci-ba"],
+    "description": "Support economic research and policy analysis. Assist with data visualization and report writing.",
+    "url": "https://app.joinhandshake.com",
+    "posted": "2026-01-18"
+  },
+  {
+    "id": 5,
+    "title": "Campus Tour Guide",
+    "company": "BC Office of Admissions",
+    "location": "Chestnut Hill, MA",
+    "type": "On-Campus Job",
+    "majors": ["cs-ba", "cs-bs", "math-ba", "math-bs", "econ-ba", "biology-ba", "psych-ba", "poli-sci-ba"],
+    "description": "Lead prospective student and family tours. Share your BC experience.",
+    "url": "#",
+    "posted": "2026-01-22"
+  },
+  {
+    "id": 6,
+    "title": "Machine Learning Research Intern",
+    "company": "MIT Lincoln Laboratory",
+    "location": "Lexington, MA",
+    "type": "Internship",
+    "majors": ["cs-bs", "math-bs"],
+    "description": "Apply ML techniques to defense and humanitarian problems. Strong math background required.",
+    "url": "https://app.joinhandshake.com",
+    "posted": "2026-01-12"
+  },
+  {
+    "id": 7,
+    "title": "Pre-Law Society President",
+    "company": "BC Student Organizations",
+    "location": "Chestnut Hill, MA",
+    "type": "Club",
+    "majors": ["poli-sci-ba", "econ-ba"],
+    "description": "Lead the Pre-Law Society. Organize mock trials, speaker events, and LSAT prep sessions.",
+    "url": "#",
+    "posted": "2026-01-05"
+  },
+  {
+    "id": 8,
+    "title": "Teaching Assistant - Intro Biology",
+    "company": "BC Biology Department",
+    "location": "Chestnut Hill, MA",
+    "type": "On-Campus Job",
+    "majors": ["biology-ba"],
+    "description": "Assist with lab sections, hold office hours, and grade assignments for BIOL 1300.",
+    "url": "#",
+    "posted": "2026-01-25"
+  },
+  {
+    "id": 9,
+    "title": "Investment Banking Summer Analyst",
+    "company": "Goldman Sachs",
+    "location": "New York, NY",
+    "type": "Internship",
+    "majors": ["econ-ba", "math-ba", "math-bs", "cs-bs"],
+    "description": "Quantitative analysis, financial modeling, and client presentations in the investment banking division.",
+    "url": "https://app.joinhandshake.com",
+    "posted": "2026-01-08"
+  },
+  {
+    "id": 10,
+    "title": "Clinical Research Coordinator",
+    "company": "Boston Children's Hospital",
+    "location": "Boston, MA",
+    "type": "Internship",
+    "majors": ["psych-ba", "biology-ba"],
+    "description": "Coordinate clinical trials, manage patient data, and support principal investigators.",
+    "url": "https://app.joinhandshake.com",
+    "posted": "2026-01-14"
+  },
+  {
+    "id": 11,
+    "title": "CS Teaching Assistant",
+    "company": "BC Computer Science Dept.",
+    "location": "Chestnut Hill, MA",
+    "type": "On-Campus Job",
+    "majors": ["cs-ba", "cs-bs"],
+    "description": "Hold office hours, lead lab sections, and assist students in CSCI 1101 or 1102.",
+    "url": "#",
+    "posted": "2026-01-20"
+  },
+  {
+    "id": 12,
+    "title": "Quantitative Researcher Intern",
+    "company": "Two Sigma",
+    "location": "New York, NY",
+    "type": "Internship",
+    "majors": ["cs-bs", "math-bs"],
+    "description": "Apply mathematical and statistical models to financial markets. Python and ML experience preferred.",
+    "url": "https://app.joinhandshake.com",
+    "posted": "2026-01-06"
+  }
+]

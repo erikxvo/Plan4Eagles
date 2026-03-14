@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plan4Eagles | Home</title>
+
+    <link rel="stylesheet" href="project/style/global.css" />
+    <link rel="stylesheet" href="project/style/home.css" />
+  </head>
+
+  <body>
+    <header class="navbar">
+      <h1 class="logo">Plan4Eagles</h1>
+      <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="scheduling.html">Scheduling</a>
+        <a href="plan.html">4-Year Plan</a>
+        <a href="opportunities.html">Opportunities</a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <aside class="left-panel">
+        <div class="profile-section">
+          <h2>Your Profile</h2>
+        </div>
+
+        <div class="panel-section">
+          <h3>Major</h3>
+          <ul id="major-list">
+            <!-- populated by JS -->
+          </ul>
+        </div>
+
+        <div class="panel-section">
+          <h3>Suggestions</h3>
+          <ul id="suggestions">
+            <li>Select a major in the 4-Year Plan to see suggestions.</li>
+          </ul>
+        </div>
+
+        <div class="panel-section">
+          <h3>Quick Stats</h3>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-value" id="stat-credits">--</span>
+              <span class="stat-label">Credits Planned</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value" id="stat-reqs">--</span>
+              <span class="stat-label">Reqs Completed</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Right Grid -->
+      <main class="right-grid">
+        <div class="tile" onclick="goTo('scheduling.html')">
+          <div class="tile-icon">&#128197;</div>
+          <h3>Scheduling</h3>
+          <p>Plan your next semester with smart conflict detection.</p>
+        </div>
+
+        <div class="tile" onclick="goTo('opportunities.html')">
+          <div class="tile-icon">&#128188;</div>
+          <h3>Opportunities</h3>
+          <p>Internships, research, and clubs tailored to your major.</p>
+        </div>
+
+        <div class="tile" onclick="goTo('plan.html')">
+          <div class="tile-icon">&#128218;</div>
+          <h3>4-Year Planner</h3>
+          <p>Visualize your degree timeline and requirements.</p>
+        </div>
+
+        <div class="tile disabled">
+          <div class="tile-icon">&#128196;</div>
+          <h3>Upload Degree Audit</h3>
+          <p>Import your degree audit to auto-track progress.</p>
+          <span class="coming-soon-badge">Coming Soon</span>
+        </div>
+      </main>
+    </div>
+
+    <script src="project/js/main.js"></script>
+  </body>
+</html>
