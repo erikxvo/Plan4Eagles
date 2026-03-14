@@ -39,7 +39,7 @@ const scheduledCourses = new Set();
 
 async function loadCourseData() {
   try {
-    const response = await fetch("/project/data/courses.json");
+    const response = await fetch("project/data/courses.json");
     courseData = await response.json();
     populateDeptFilter();
     populateCourseList();
