@@ -152,3 +152,27 @@ h1, h2, h3, h4, h5, h6 {
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* ============================
+   MOBILE NAVBAR
+   ============================ */
+
+@media (max-width: 640px) {
+  .navbar {
+    padding: 0 12px;
+    height: 50px;
+  }
+
+  .logo {
+    font-size: 17px;
+  }
+
+  .navbar nav {
+    gap: 2px;
+  }
+
+  .navbar nav a {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+}
