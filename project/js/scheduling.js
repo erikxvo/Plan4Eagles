@@ -11,7 +11,6 @@ function getCourseColor(uniqueId) {
   }
 
   const colors = [
-    { bg: "#fff8d9", border: "#d4bd7a" },
     { bg: "#ffe8cc", border: "#d4a66f" },
     { bg: "#ffd4d4", border: "#d48a8a" },
     { bg: "#d4f0ff", border: "#7ab8d4" },
