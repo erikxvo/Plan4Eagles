@@ -45,6 +45,11 @@ async function loadCourseData() {
     populateDeptFilter();
     populateCourseList();
 
+    const semesterDataFilter = document.getElementById("semester-data-filter");
+    if (semesterDataFilter) {
+      semesterDataFilter.addEventListener("change", filterCourseList);
+    }
+
     const semesterSelect = document.getElementById("semester-select");
     if (semesterSelect && semesterSelect.value) {
       loadSchedule();
@@ -133,6 +138,7 @@ function populateCourseList() {
 
     li.dataset.courseId = index;
     li.dataset.dept = course.code.replace(/[0-9]/g, "");
+    li.dataset.semester = course.semester;
     li.addEventListener("click", () => addCourseToSchedule(index, true));
 
     courseList.appendChild(li);
@@ -146,8 +152,10 @@ function populateCourseList() {
 function filterCourseList() {
   const searchBox = document.getElementById("search-box");
   const deptFilter = document.getElementById("dept-filter");
+  const semesterFilter = document.getElementById("semester-data-filter");
   const searchTerm = searchBox ? searchBox.value.toLowerCase() : "";
   const selectedDept = deptFilter ? deptFilter.value : "";
+  const selectedSemester = semesterFilter ? semesterFilter.value : "";
 
   const courseListItems = document.querySelectorAll(
     ".course-search #course-list li"
@@ -156,11 +164,14 @@ function filterCourseList() {
   courseListItems.forEach((item) => {
     const courseText = item.textContent.toLowerCase();
     const dept = item.dataset.dept;
+    const semester = item.dataset.semester;
 
     const matchesSearch = !searchTerm || courseText.includes(searchTerm);
     const matchesDept = !selectedDept || dept === selectedDept;
+    const matchesSemester = !selectedSemester || semester === selectedSemester;
 
-    item.style.display = matchesSearch && matchesDept ? "block" : "none";
+    item.style.display =
+      matchesSearch && matchesDept && matchesSemester ? "block" : "none";
   });
 }
 

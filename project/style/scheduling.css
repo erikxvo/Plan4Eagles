@@ -43,11 +43,15 @@
   border-color: #8e0c03;
 }
 
-/* DEPARTMENT FILTER */
+/* FILTERS */
 .filter-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   margin-bottom: 12px;
 }
 
+.semester-data-filter,
 .dept-filter {
   width: 100%;
   padding: 8px 10px;
@@ -61,6 +65,7 @@
   font-family: 'Nunito', sans-serif;
 }
 
+.semester-data-filter:focus,
 .dept-filter:focus {
   outline: 2px solid #8e0c03;
   border-color: #8e0c03;
