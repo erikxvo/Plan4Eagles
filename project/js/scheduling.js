@@ -38,10 +38,101 @@ let courseData = [];
 const scheduledCourses = new Set();
 const scheduledCourseIndices = new Map(); // uniqueId -> courseData index
 
+// ==========================
+// DYNAMIC GRID RANGE
+// ==========================
+
+const SLOT_HEIGHT = 45; // pixels per 30-minute slot
+const DEFAULT_START_HOUR = 9;
+const DEFAULT_END_HOUR = 17;
+
+let gridStartHour = DEFAULT_START_HOUR;
+let gridEndHour = DEFAULT_END_HOUR;
+
+/**
+ * Scans courseData to find the earliest start time and latest end time.
+ * Rounds start DOWN and end UP to the nearest hour.
+ * Falls back to 9AM-5PM if courseData is empty.
+ */
+function computeGridRange() {
+  if (courseData.length === 0) {
+    gridStartHour = DEFAULT_START_HOUR;
+    gridEndHour = DEFAULT_END_HOUR;
+    return;
+  }
+
+  let earliestMinutes = Infinity;
+  let latestMinutes = -Infinity;
+
+  courseData.forEach((course) => {
+    const [sh, sm] = course.startTime.split(":").map(Number);
+    const [eh, em] = course.endTime.split(":").map(Number);
+    const startTotal = sh * 60 + sm;
+    const endTotal = eh * 60 + em;
+
+    if (startTotal < earliestMinutes) earliestMinutes = startTotal;
+    if (endTotal > latestMinutes) latestMinutes = endTotal;
+  });
+
+  gridStartHour = Math.floor(earliestMinutes / 60);
+  gridEndHour = Math.ceil(latestMinutes / 60);
+
+  if (gridEndHour <= gridStartHour) {
+    gridEndHour = gridStartHour + 1;
+  }
+}
+
+/**
+ * Generates time-slot labels for every 30-minute interval from
+ * gridStartHour to gridEndHour. Also sets the height of all
+ * .day-slots containers to match.
+ */
+function buildTimeGrid() {
+  const timeColumn = document.getElementById("time-column");
+  if (!timeColumn) return;
+
+  // Remove any existing time-slot divs (keep the time-header)
+  timeColumn.querySelectorAll(".time-slot").forEach((el) => el.remove());
+
+  const totalSlots = (gridEndHour - gridStartHour) * 2;
+  const totalHeight = totalSlots * SLOT_HEIGHT;
+
+  // Generate a time-slot div for each 30-minute interval
+  for (let i = 0; i < totalSlots; i++) {
+    const totalMinutes = gridStartHour * 60 + i * 30;
+    const hour = Math.floor(totalMinutes / 60);
+    const minutes = totalMinutes % 60;
+
+    const slot = document.createElement("div");
+    slot.classList.add("time-slot");
+    slot.textContent = formatTime(
+      `${hour.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}`
+    );
+    timeColumn.appendChild(slot);
+  }
+
+  // Update all day-slots containers: height and background gradient
+  document.querySelectorAll(".day-slots").forEach((daySlot) => {
+    daySlot.style.height = `${totalHeight}px`;
+    daySlot.style.background = `repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent ${SLOT_HEIGHT - 1}px,
+      #f5f0e8 ${SLOT_HEIGHT - 1}px,
+      #f5f0e8 ${SLOT_HEIGHT}px
+    )`;
+  });
+}
+
 async function loadCourseData() {
   try {
     const response = await fetch("project/data/courses.json");
     courseData = await response.json();
+
+    // Compute grid time range from data and build the time labels
+    computeGridRange();
+    buildTimeGrid();
+
     populateDeptFilter();
     populateCourseList();
 
@@ -189,8 +280,8 @@ function formatTime(time24) {
 
 function timeToPosition(time24) {
   const [hours, minutes] = time24.split(":").map(Number);
-  const totalMinutes = hours * 60 + minutes - 9 * 60;
-  return (totalMinutes / 30) * 45;
+  const totalMinutes = hours * 60 + minutes - gridStartHour * 60;
+  return (totalMinutes / 30) * SLOT_HEIGHT;
 }
 
 function calculateDuration(startTime, endTime) {
@@ -201,7 +292,7 @@ function calculateDuration(startTime, endTime) {
   const endTotal = endHours * 60 + endMinutes;
 
   const durationMinutes = endTotal - startTotal;
-  return (durationMinutes / 30) * 45;
+  return (durationMinutes / 30) * SLOT_HEIGHT;
 }
 
 // ==========================

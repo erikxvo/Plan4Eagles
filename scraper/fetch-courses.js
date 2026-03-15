@@ -266,11 +266,6 @@ function transformCourse(bcCourse) {
   // Skip courses we can't parse schedule for
   if (!schedule) return null;
 
-  // Skip courses outside 9AM-5PM (our schedule grid doesn't show them)
-  const startHour = parseInt(schedule.startTime.split(":")[0]);
-  const endHour = parseInt(schedule.endTime.split(":")[0]);
-  if (startHour < 9 || endHour > 17) return null;
-
   // Skip weekend classes
   if (schedule.days.some((d) => d === "Sa" || d === "Su")) return null;
 
