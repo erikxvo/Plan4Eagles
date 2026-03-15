@@ -140,32 +140,67 @@ function parseRoomSchedule(roomSchedule) {
     return null;
   }
 
+  // Normalize "12:00 Noon" to "12:00PM" so the regex can parse it
+  roomSchedule = roomSchedule.replace(/12:00 Noon/g, "12:00PM");
+
+  // Some entries have notes or split room/schedule separated by semicolons, e.g.:
+  //   "Stokes Hall 121N TuTh 01:30PM-02:45PM;US Residents Section"
+  //   "McGuinn Hall B-14;W 12:30PM-01:00PM"
+  // Try each segment until one parses successfully
+  const segments = roomSchedule.split(";").map((s) => s.trim());
+
+  for (const segment of segments) {
+    const result = parseScheduleSegment(segment);
+    if (result) {
+      // If parsed without a room, check other segments for room info
+      if (!result.room) {
+        for (const other of segments) {
+          const trimmed = other.trim();
+          if (trimmed !== segment && !parseScheduleSegment(trimmed)) {
+            result.room = trimmed;
+            break;
+          }
+        }
+      }
+      return result;
+    }
+  }
+
+  return null;
+}
+
+/**
+ * Tries to parse a single schedule segment (no semicolons).
+ * Returns { room, days, startTime, endTime } or null.
+ */
+function parseScheduleSegment(text) {
   // Pattern: <room info> <days> <start>-<end>
   // Days can be: M, Tu, W, Th, F, Sa, Su (and combinations)
   const scheduleRegex = /^(.*?)\s+((?:M|Tu|W|Th|F|Sa|Su)+)\s+(\d{1,2}:\d{2}(?:AM|PM))-(\d{1,2}:\d{2}(?:AM|PM))$/;
-  const match = roomSchedule.match(scheduleRegex);
+  const match = text.match(scheduleRegex);
 
-  if (!match) {
-    // Try without room info (some entries have just days and times)
-    const noRoomRegex = /^((?:M|Tu|W|Th|F|Sa|Su)+)\s+(\d{1,2}:\d{2}(?:AM|PM))-(\d{1,2}:\d{2}(?:AM|PM))$/;
-    const noRoomMatch = roomSchedule.match(noRoomRegex);
-    if (noRoomMatch) {
-      return {
-        room: "",
-        days: parseDayString(noRoomMatch[1]),
-        startTime: convertTo24Hour(noRoomMatch[2]),
-        endTime: convertTo24Hour(noRoomMatch[3]),
-      };
-    }
-    return null;
+  if (match) {
+    return {
+      room: match[1].trim(),
+      days: parseDayString(match[2]),
+      startTime: convertTo24Hour(match[3]),
+      endTime: convertTo24Hour(match[4]),
+    };
   }
 
-  return {
-    room: match[1].trim(),
-    days: parseDayString(match[2]),
-    startTime: convertTo24Hour(match[3]),
-    endTime: convertTo24Hour(match[4]),
-  };
+  // Try without room info (some entries have just days and times)
+  const noRoomRegex = /^((?:M|Tu|W|Th|F|Sa|Su)+)\s+(\d{1,2}:\d{2}(?:AM|PM))-(\d{1,2}:\d{2}(?:AM|PM))$/;
+  const noRoomMatch = text.match(noRoomRegex);
+  if (noRoomMatch) {
+    return {
+      room: "",
+      days: parseDayString(noRoomMatch[1]),
+      startTime: convertTo24Hour(noRoomMatch[2]),
+      endTime: convertTo24Hour(noRoomMatch[3]),
+    };
+  }
+
+  return null;
 }
 
 /**
