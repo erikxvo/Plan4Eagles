@@ -339,7 +339,7 @@ async function main() {
   console.log(`After department filter: ${filtered.length}`);
 
   if (config.undergraduateOnly) {
-    filtered = filtered.filter((c) => c.student_level === "Undergraduate");
+    filtered = filtered.filter((c) => c.student_level === "Undergraduate" || c.student_level === "Both");
     console.log(`After undergraduate filter: ${filtered.length}`);
   }
 
