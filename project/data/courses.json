@@ -12903,7 +12903,7 @@
     "description": "An introductory course in coding based on Python (a language suitable for all business and analytics programs) and SQL (Structured Query Language--the main language for working with databases). The course emphasizes coding literacy and teaches coding skills that are relevant for business decision ma",
     "prerequisites": [],
     "coreRequirement": null,
-    "room": "Fulton Hall 453",
+    "room": "Fulton Hall 425",
     "semester": "2026FALL"
   },
   {
@@ -13361,6 +13361,28 @@
     "section": "01",
     "credits": 3,
     "days": [
+      "T",
+      "Th"
+    ],
+    "startTime": "09:00",
+    "endTime": "10:15",
+    "professor": "Prof. Beebe",
+    "description": "This course provides an intensive introduction to methodologies for applying statistical economic techniques to problems in a variety of disciplines. Techniques for both time series and cross-sectional data will be explored, and real data and cases will be used extensively.",
+    "prerequisites": [
+      "BZAN1135",
+      "BZAN1137",
+      "MCAN1137"
+    ],
+    "coreRequirement": null,
+    "room": "Fulton Hall 453",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "BZAN3385",
+    "name": "Applied Statistical Modeling",
+    "section": "01",
+    "credits": 3,
+    "days": [
       "M",
       "W"
     ],
@@ -13608,6 +13630,24 @@
     "semester": "2026SPRG"
   },
   {
+    "code": "CHEM1105",
+    "name": "Chemistry and Society I",
+    "section": "01",
+    "credits": 3,
+    "days": [
+      "T",
+      "Th"
+    ],
+    "startTime": "15:00",
+    "endTime": "16:15",
+    "professor": "Prof. Keen",
+    "description": "For non-science majors or for those who do not require a lab science course. This is a two-semester sequence with the emphasis during the first semester placed on basic chemical principles and their application to environmental issues. Topics covered include air and water pollution, global warming, ",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Fulton Hall 511 (Auditorium)",
+    "semester": "2026FALL"
+  },
+  {
     "code": "CHEM1106",
     "name": "Chemistry and Society II",
     "section": "01",
@@ -13626,6 +13666,508 @@
     "coreRequirement": "Natural Science",
     "room": "Fulton Hall 511 (Auditorium)",
     "semester": "2026SPRG"
+  },
+  {
+    "code": "CHEM1109",
+    "name": "General Chemistry I",
+    "section": "01",
+    "credits": 3,
+    "days": [
+      "M",
+      "W",
+      "F"
+    ],
+    "startTime": "09:00",
+    "endTime": "09:50",
+    "professor": "Prof. Hartmann",
+    "description": "This course is intended for students whose major interest is science or medicine. It offers a rigorous introduction to the principles of chemistry with special emphasis on quantitative relationships and chemical equilibrium and the structures of atoms, molecules, and crystals. The properties of the ",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Devlin Hall 8",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1109",
+    "name": "General Chemistry I",
+    "section": "02",
+    "credits": 3,
+    "days": [
+      "M"
+    ],
+    "startTime": "12:00",
+    "endTime": "12:50",
+    "professor": "Prof. Hartmann",
+    "description": "This course is intended for students whose major interest is science or medicine. It offers a rigorous introduction to the principles of chemistry with special emphasis on quantitative relationships and chemical equilibrium and the structures of atoms, molecules, and crystals. The properties of the ",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Merkert Chemistry Center 129",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1109",
+    "name": "General Chemistry I",
+    "section": "03",
+    "credits": 3,
+    "days": [
+      "M"
+    ],
+    "startTime": "13:00",
+    "endTime": "13:50",
+    "professor": "Prof. Hartmann",
+    "description": "This course is intended for students whose major interest is science or medicine. It offers a rigorous introduction to the principles of chemistry with special emphasis on quantitative relationships and chemical equilibrium and the structures of atoms, molecules, and crystals. The properties of the ",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Merkert Chemistry Center 129",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1109",
+    "name": "General Chemistry I",
+    "section": "04",
+    "credits": 3,
+    "days": [
+      "T"
+    ],
+    "startTime": "15:00",
+    "endTime": "15:50",
+    "professor": "Prof. Hartmann",
+    "description": "This course is intended for students whose major interest is science or medicine. It offers a rigorous introduction to the principles of chemistry with special emphasis on quantitative relationships and chemical equilibrium and the structures of atoms, molecules, and crystals. The properties of the ",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Merkert Chemistry Center 129",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1109",
+    "name": "General Chemistry I",
+    "section": "05",
+    "credits": 3,
+    "days": [
+      "T"
+    ],
+    "startTime": "16:00",
+    "endTime": "16:50",
+    "professor": "Prof. Hartmann",
+    "description": "This course is intended for students whose major interest is science or medicine. It offers a rigorous introduction to the principles of chemistry with special emphasis on quantitative relationships and chemical equilibrium and the structures of atoms, molecules, and crystals. The properties of the ",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Merkert Chemistry Center 129",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1109",
+    "name": "General Chemistry I",
+    "section": "06",
+    "credits": 3,
+    "days": [
+      "W"
+    ],
+    "startTime": "11:00",
+    "endTime": "11:50",
+    "professor": "Prof. Hartmann",
+    "description": "This course is intended for students whose major interest is science or medicine. It offers a rigorous introduction to the principles of chemistry with special emphasis on quantitative relationships and chemical equilibrium and the structures of atoms, molecules, and crystals. The properties of the ",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Merkert Chemistry Center 129",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1109",
+    "name": "General Chemistry I",
+    "section": "07",
+    "credits": 3,
+    "days": [
+      "W"
+    ],
+    "startTime": "17:00",
+    "endTime": "17:50",
+    "professor": "Prof. Hartmann",
+    "description": "This course is intended for students whose major interest is science or medicine. It offers a rigorous introduction to the principles of chemistry with special emphasis on quantitative relationships and chemical equilibrium and the structures of atoms, molecules, and crystals. The properties of the ",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Merkert Chemistry Center 129",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1109",
+    "name": "General Chemistry I",
+    "section": "08",
+    "credits": 3,
+    "days": [
+      "M",
+      "W",
+      "F"
+    ],
+    "startTime": "12:00",
+    "endTime": "12:50",
+    "professor": "Prof. Fox",
+    "description": "This course is intended for students whose major interest is science or medicine. It offers a rigorous introduction to the principles of chemistry with special emphasis on quantitative relationships and chemical equilibrium and the structures of atoms, molecules, and crystals. The properties of the ",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Merkert Chemistry Center 127",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1109",
+    "name": "General Chemistry I",
+    "section": "09",
+    "credits": 3,
+    "days": [
+      "M"
+    ],
+    "startTime": "15:00",
+    "endTime": "15:50",
+    "professor": "Prof. Fox",
+    "description": "This course is intended for students whose major interest is science or medicine. It offers a rigorous introduction to the principles of chemistry with special emphasis on quantitative relationships and chemical equilibrium and the structures of atoms, molecules, and crystals. The properties of the ",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Merkert Chemistry Center 129",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1109",
+    "name": "General Chemistry I",
+    "section": "10",
+    "credits": 3,
+    "days": [
+      "W"
+    ],
+    "startTime": "10:00",
+    "endTime": "10:50",
+    "professor": "Prof. Fox",
+    "description": "This course is intended for students whose major interest is science or medicine. It offers a rigorous introduction to the principles of chemistry with special emphasis on quantitative relationships and chemical equilibrium and the structures of atoms, molecules, and crystals. The properties of the ",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Merkert Chemistry Center 129",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1109",
+    "name": "General Chemistry I",
+    "section": "11",
+    "credits": 3,
+    "days": [
+      "W"
+    ],
+    "startTime": "13:00",
+    "endTime": "13:50",
+    "professor": "Prof. Fox",
+    "description": "This course is intended for students whose major interest is science or medicine. It offers a rigorous introduction to the principles of chemistry with special emphasis on quantitative relationships and chemical equilibrium and the structures of atoms, molecules, and crystals. The properties of the ",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Merkert Chemistry Center 129",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1109",
+    "name": "General Chemistry I",
+    "section": "12",
+    "credits": 3,
+    "days": [
+      "Th"
+    ],
+    "startTime": "15:00",
+    "endTime": "15:50",
+    "professor": "Prof. Fox",
+    "description": "This course is intended for students whose major interest is science or medicine. It offers a rigorous introduction to the principles of chemistry with special emphasis on quantitative relationships and chemical equilibrium and the structures of atoms, molecules, and crystals. The properties of the ",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Merkert Chemistry Center 129",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1109",
+    "name": "General Chemistry I",
+    "section": "13",
+    "credits": 3,
+    "days": [
+      "F"
+    ],
+    "startTime": "11:00",
+    "endTime": "11:50",
+    "professor": "Prof. Fox",
+    "description": "This course is intended for students whose major interest is science or medicine. It offers a rigorous introduction to the principles of chemistry with special emphasis on quantitative relationships and chemical equilibrium and the structures of atoms, molecules, and crystals. The properties of the ",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Merkert Chemistry Center 129",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1109",
+    "name": "General Chemistry I",
+    "section": "14",
+    "credits": 3,
+    "days": [
+      "F"
+    ],
+    "startTime": "14:00",
+    "endTime": "14:50",
+    "professor": "Prof. Fox",
+    "description": "This course is intended for students whose major interest is science or medicine. It offers a rigorous introduction to the principles of chemistry with special emphasis on quantitative relationships and chemical equilibrium and the structures of atoms, molecules, and crystals. The properties of the ",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Merkert Chemistry Center 129",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1109",
+    "name": "General Chemistry I",
+    "section": "15",
+    "credits": 3,
+    "days": [
+      "M",
+      "W",
+      "F"
+    ],
+    "startTime": "13:00",
+    "endTime": "13:50",
+    "professor": "Prof. Fox",
+    "description": "This course is intended for students whose major interest is science or medicine. It offers a rigorous introduction to the principles of chemistry with special emphasis on quantitative relationships and chemical equilibrium and the structures of atoms, molecules, and crystals. The properties of the ",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Merkert Chemistry Center 127",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1109",
+    "name": "General Chemistry I",
+    "section": "16",
+    "credits": 3,
+    "days": [
+      "M"
+    ],
+    "startTime": "09:00",
+    "endTime": "09:50",
+    "professor": "Prof. Fox",
+    "description": "This course is intended for students whose major interest is science or medicine. It offers a rigorous introduction to the principles of chemistry with special emphasis on quantitative relationships and chemical equilibrium and the structures of atoms, molecules, and crystals. The properties of the ",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Merkert Chemistry Center 129",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1109",
+    "name": "General Chemistry I",
+    "section": "17",
+    "credits": 3,
+    "days": [
+      "M"
+    ],
+    "startTime": "11:00",
+    "endTime": "11:50",
+    "professor": "Prof. Fox",
+    "description": "This course is intended for students whose major interest is science or medicine. It offers a rigorous introduction to the principles of chemistry with special emphasis on quantitative relationships and chemical equilibrium and the structures of atoms, molecules, and crystals. The properties of the ",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Merkert Chemistry Center 129",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1109",
+    "name": "General Chemistry I",
+    "section": "18",
+    "credits": 3,
+    "days": [
+      "T"
+    ],
+    "startTime": "17:00",
+    "endTime": "17:50",
+    "professor": "Prof. Fox",
+    "description": "This course is intended for students whose major interest is science or medicine. It offers a rigorous introduction to the principles of chemistry with special emphasis on quantitative relationships and chemical equilibrium and the structures of atoms, molecules, and crystals. The properties of the ",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Merkert Chemistry Center 129",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1109",
+    "name": "General Chemistry I",
+    "section": "19",
+    "credits": 3,
+    "days": [
+      "W"
+    ],
+    "startTime": "14:00",
+    "endTime": "14:50",
+    "professor": "Prof. Fox",
+    "description": "This course is intended for students whose major interest is science or medicine. It offers a rigorous introduction to the principles of chemistry with special emphasis on quantitative relationships and chemical equilibrium and the structures of atoms, molecules, and crystals. The properties of the ",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Merkert Chemistry Center 129",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1109",
+    "name": "General Chemistry I",
+    "section": "20",
+    "credits": 3,
+    "days": [
+      "W"
+    ],
+    "startTime": "15:00",
+    "endTime": "15:50",
+    "professor": "Prof. Fox",
+    "description": "This course is intended for students whose major interest is science or medicine. It offers a rigorous introduction to the principles of chemistry with special emphasis on quantitative relationships and chemical equilibrium and the structures of atoms, molecules, and crystals. The properties of the ",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Merkert Chemistry Center 129",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1109",
+    "name": "General Chemistry I",
+    "section": "21",
+    "credits": 3,
+    "days": [
+      "F"
+    ],
+    "startTime": "12:00",
+    "endTime": "12:50",
+    "professor": "Prof. Fox",
+    "description": "This course is intended for students whose major interest is science or medicine. It offers a rigorous introduction to the principles of chemistry with special emphasis on quantitative relationships and chemical equilibrium and the structures of atoms, molecules, and crystals. The properties of the ",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Merkert Chemistry Center 129",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1109",
+    "name": "General Chemistry I",
+    "section": "22",
+    "credits": 3,
+    "days": [
+      "M",
+      "W",
+      "F"
+    ],
+    "startTime": "09:00",
+    "endTime": "09:50",
+    "professor": "Prof. Hartmann",
+    "description": "This course is intended for students whose major interest is science or medicine. It offers a rigorous introduction to the principles of chemistry with special emphasis on quantitative relationships and chemical equilibrium and the structures of atoms, molecules, and crystals. The properties of the ",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Devlin Hall 8",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1109",
+    "name": "General Chemistry I",
+    "section": "23",
+    "credits": 3,
+    "days": [
+      "T",
+      "Th"
+    ],
+    "startTime": "12:00",
+    "endTime": "13:15",
+    "professor": "Prof. Keen",
+    "description": "This course is intended for students whose major interest is science or medicine. It offers a rigorous introduction to the principles of chemistry with special emphasis on quantitative relationships and chemical equilibrium and the structures of atoms, molecules, and crystals. The properties of the ",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Merkert Chemistry Center 127",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1109",
+    "name": "General Chemistry I",
+    "section": "24",
+    "credits": 3,
+    "days": [
+      "M"
+    ],
+    "startTime": "14:00",
+    "endTime": "14:50",
+    "professor": "Prof. Keen",
+    "description": "This course is intended for students whose major interest is science or medicine. It offers a rigorous introduction to the principles of chemistry with special emphasis on quantitative relationships and chemical equilibrium and the structures of atoms, molecules, and crystals. The properties of the ",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Merkert Chemistry Center 129",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1109",
+    "name": "General Chemistry I",
+    "section": "25",
+    "credits": 3,
+    "days": [
+      "M"
+    ],
+    "startTime": "16:00",
+    "endTime": "16:50",
+    "professor": "Prof. Keen",
+    "description": "This course is intended for students whose major interest is science or medicine. It offers a rigorous introduction to the principles of chemistry with special emphasis on quantitative relationships and chemical equilibrium and the structures of atoms, molecules, and crystals. The properties of the ",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Merkert Chemistry Center 129",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1109",
+    "name": "General Chemistry I",
+    "section": "26",
+    "credits": 3,
+    "days": [
+      "W"
+    ],
+    "startTime": "13:00",
+    "endTime": "13:50",
+    "professor": "Prof. Keen",
+    "description": "This course is intended for students whose major interest is science or medicine. It offers a rigorous introduction to the principles of chemistry with special emphasis on quantitative relationships and chemical equilibrium and the structures of atoms, molecules, and crystals. The properties of the ",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Merkert Chemistry Center 130",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1109",
+    "name": "General Chemistry I",
+    "section": "27",
+    "credits": 3,
+    "days": [
+      "W"
+    ],
+    "startTime": "16:00",
+    "endTime": "16:50",
+    "professor": "Prof. Keen",
+    "description": "This course is intended for students whose major interest is science or medicine. It offers a rigorous introduction to the principles of chemistry with special emphasis on quantitative relationships and chemical equilibrium and the structures of atoms, molecules, and crystals. The properties of the ",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Merkert Chemistry Center 129",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1109",
+    "name": "General Chemistry I",
+    "section": "28",
+    "credits": 3,
+    "days": [
+      "F"
+    ],
+    "startTime": "10:00",
+    "endTime": "10:50",
+    "professor": "Prof. Keen",
+    "description": "This course is intended for students whose major interest is science or medicine. It offers a rigorous introduction to the principles of chemistry with special emphasis on quantitative relationships and chemical equilibrium and the structures of atoms, molecules, and crystals. The properties of the ",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Merkert Chemistry Center 129",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1109",
+    "name": "General Chemistry I",
+    "section": "29",
+    "credits": 3,
+    "days": [
+      "F"
+    ],
+    "startTime": "13:00",
+    "endTime": "13:50",
+    "professor": "Prof. Keen",
+    "description": "This course is intended for students whose major interest is science or medicine. It offers a rigorous introduction to the principles of chemistry with special emphasis on quantitative relationships and chemical equilibrium and the structures of atoms, molecules, and crystals. The properties of the ",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Merkert Chemistry Center 129",
+    "semester": "2026FALL"
   },
   {
     "code": "CHEM1110",
@@ -14217,6 +14759,244 @@
     "semester": "2026SPRG"
   },
   {
+    "code": "CHEM1111",
+    "name": "General Chemistry Laboratory I",
+    "section": "01",
+    "credits": 1,
+    "days": [
+      "M"
+    ],
+    "startTime": "10:00",
+    "endTime": "12:50",
+    "professor": "Prof. Grimaud",
+    "description": "Laboratory required of all students enrolled in CHEM1109. One three-hour period per week. Experiments reflect and apply the principles learned in the lecture course. Computers are used to both acquire and analyze data. The semester concludes with a group project where students are required to design",
+    "prerequisites": [],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 116",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1111",
+    "name": "General Chemistry Laboratory I",
+    "section": "02",
+    "credits": 1,
+    "days": [
+      "T"
+    ],
+    "startTime": "09:00",
+    "endTime": "11:50",
+    "professor": "Prof. Chatterjee",
+    "description": "Laboratory required of all students enrolled in CHEM1109. One three-hour period per week. Experiments reflect and apply the principles learned in the lecture course. Computers are used to both acquire and analyze data. The semester concludes with a group project where students are required to design",
+    "prerequisites": [],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 116",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1111",
+    "name": "General Chemistry Laboratory I",
+    "section": "03",
+    "credits": 1,
+    "days": [
+      "W"
+    ],
+    "startTime": "10:00",
+    "endTime": "12:50",
+    "professor": "Prof. Bao",
+    "description": "Laboratory required of all students enrolled in CHEM1109. One three-hour period per week. Experiments reflect and apply the principles learned in the lecture course. Computers are used to both acquire and analyze data. The semester concludes with a group project where students are required to design",
+    "prerequisites": [],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 116",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1111",
+    "name": "General Chemistry Laboratory I",
+    "section": "04",
+    "credits": 1,
+    "days": [
+      "Th"
+    ],
+    "startTime": "09:00",
+    "endTime": "11:50",
+    "professor": "Prof. Gao",
+    "description": "Laboratory required of all students enrolled in CHEM1109. One three-hour period per week. Experiments reflect and apply the principles learned in the lecture course. Computers are used to both acquire and analyze data. The semester concludes with a group project where students are required to design",
+    "prerequisites": [],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 116",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1111",
+    "name": "General Chemistry Laboratory I",
+    "section": "05",
+    "credits": 1,
+    "days": [
+      "F"
+    ],
+    "startTime": "10:00",
+    "endTime": "12:50",
+    "professor": "Prof. Niu",
+    "description": "Laboratory required of all students enrolled in CHEM1109. One three-hour period per week. Experiments reflect and apply the principles learned in the lecture course. Computers are used to both acquire and analyze data. The semester concludes with a group project where students are required to design",
+    "prerequisites": [],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 116",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1111",
+    "name": "General Chemistry Laboratory I",
+    "section": "06",
+    "credits": 1,
+    "days": [
+      "M"
+    ],
+    "startTime": "14:00",
+    "endTime": "16:50",
+    "professor": "Prof. Fox",
+    "description": "Laboratory required of all students enrolled in CHEM1109. One three-hour period per week. Experiments reflect and apply the principles learned in the lecture course. Computers are used to both acquire and analyze data. The semester concludes with a group project where students are required to design",
+    "prerequisites": [],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 116",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1111",
+    "name": "General Chemistry Laboratory I",
+    "section": "07",
+    "credits": 1,
+    "days": [
+      "T"
+    ],
+    "startTime": "13:30",
+    "endTime": "16:20",
+    "professor": "Prof. Wang",
+    "description": "Laboratory required of all students enrolled in CHEM1109. One three-hour period per week. Experiments reflect and apply the principles learned in the lecture course. Computers are used to both acquire and analyze data. The semester concludes with a group project where students are required to design",
+    "prerequisites": [],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 116",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1111",
+    "name": "General Chemistry Laboratory I",
+    "section": "08",
+    "credits": 1,
+    "days": [
+      "W"
+    ],
+    "startTime": "14:00",
+    "endTime": "16:50",
+    "professor": "Prof. Mohanty",
+    "description": "Laboratory required of all students enrolled in CHEM1109. One three-hour period per week. Experiments reflect and apply the principles learned in the lecture course. Computers are used to both acquire and analyze data. The semester concludes with a group project where students are required to design",
+    "prerequisites": [],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 116",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1111",
+    "name": "General Chemistry Laboratory I",
+    "section": "09",
+    "credits": 1,
+    "days": [
+      "Th"
+    ],
+    "startTime": "13:30",
+    "endTime": "16:20",
+    "professor": "Prof. Waegele",
+    "description": "Laboratory required of all students enrolled in CHEM1109. One three-hour period per week. Experiments reflect and apply the principles learned in the lecture course. Computers are used to both acquire and analyze data. The semester concludes with a group project where students are required to design",
+    "prerequisites": [],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 116",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1111",
+    "name": "General Chemistry Laboratory I",
+    "section": "10",
+    "credits": 1,
+    "days": [
+      "F"
+    ],
+    "startTime": "14:00",
+    "endTime": "16:50",
+    "professor": "Prof. Zhou",
+    "description": "Laboratory required of all students enrolled in CHEM1109. One three-hour period per week. Experiments reflect and apply the principles learned in the lecture course. Computers are used to both acquire and analyze data. The semester concludes with a group project where students are required to design",
+    "prerequisites": [],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 116",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1111",
+    "name": "General Chemistry Laboratory I",
+    "section": "11",
+    "credits": 1,
+    "days": [
+      "M"
+    ],
+    "startTime": "17:30",
+    "endTime": "20:20",
+    "professor": "Prof. Young",
+    "description": "Laboratory required of all students enrolled in CHEM1109. One three-hour period per week. Experiments reflect and apply the principles learned in the lecture course. Computers are used to both acquire and analyze data. The semester concludes with a group project where students are required to design",
+    "prerequisites": [],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 116",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1111",
+    "name": "General Chemistry Laboratory I",
+    "section": "12",
+    "credits": 1,
+    "days": [
+      "T"
+    ],
+    "startTime": "17:30",
+    "endTime": "20:20",
+    "professor": "Prof. Parr",
+    "description": "Laboratory required of all students enrolled in CHEM1109. One three-hour period per week. Experiments reflect and apply the principles learned in the lecture course. Computers are used to both acquire and analyze data. The semester concludes with a group project where students are required to design",
+    "prerequisites": [],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 116",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1111",
+    "name": "General Chemistry Laboratory I",
+    "section": "13",
+    "credits": 1,
+    "days": [
+      "W"
+    ],
+    "startTime": "17:30",
+    "endTime": "20:20",
+    "professor": "Prof. Jayasundera",
+    "description": "Laboratory required of all students enrolled in CHEM1109. One three-hour period per week. Experiments reflect and apply the principles learned in the lecture course. Computers are used to both acquire and analyze data. The semester concludes with a group project where students are required to design",
+    "prerequisites": [],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 116",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1111",
+    "name": "General Chemistry Laboratory I",
+    "section": "14",
+    "credits": 1,
+    "days": [
+      "Th"
+    ],
+    "startTime": "17:30",
+    "endTime": "20:20",
+    "professor": "Prof. Parr",
+    "description": "Laboratory required of all students enrolled in CHEM1109. One three-hour period per week. Experiments reflect and apply the principles learned in the lecture course. Computers are used to both acquire and analyze data. The semester concludes with a group project where students are required to design",
+    "prerequisites": [],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 116",
+    "semester": "2026FALL"
+  },
+  {
     "code": "CHEM1112",
     "name": "General Chemistry Laboratory II",
     "section": "01",
@@ -14476,6 +15256,58 @@
     "semester": "2026SPRG"
   },
   {
+    "code": "CHEM1117",
+    "name": "Honors Modern Chemistry I",
+    "section": "01",
+    "credits": 3,
+    "days": [
+      "T",
+      "Th"
+    ],
+    "startTime": "09:00",
+    "endTime": "10:15",
+    "professor": "Prof. Grimaud",
+    "description": "This course is intended for students from any major (including undecided) with a strong foundation and interest in chemistry. CHEM1117 begins with the theoretical description of atomic and molecular structure and with examples of modern experimental techniques for visualizing and manipulating indivi",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Merkert Chemistry Center 130",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1117",
+    "name": "Honors Modern Chemistry I",
+    "section": "02",
+    "credits": 3,
+    "days": [
+      "T"
+    ],
+    "startTime": "18:00",
+    "endTime": "18:50",
+    "professor": "Prof. Grimaud",
+    "description": "This course is intended for students from any major (including undecided) with a strong foundation and interest in chemistry. CHEM1117 begins with the theoretical description of atomic and molecular structure and with examples of modern experimental techniques for visualizing and manipulating indivi",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Merkert Chemistry Center 127",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1117",
+    "name": "Honors Modern Chemistry I",
+    "section": "03",
+    "credits": 3,
+    "days": [
+      "W"
+    ],
+    "startTime": "18:00",
+    "endTime": "18:50",
+    "professor": "Prof. Grimaud",
+    "description": "This course is intended for students from any major (including undecided) with a strong foundation and interest in chemistry. CHEM1117 begins with the theoretical description of atomic and molecular structure and with examples of modern experimental techniques for visualizing and manipulating indivi",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Merkert Chemistry Center 127",
+    "semester": "2026FALL"
+  },
+  {
     "code": "CHEM1118",
     "name": "Honors Modern Chemistry II",
     "section": "01",
@@ -14534,6 +15366,40 @@
     "semester": "2026SPRG"
   },
   {
+    "code": "CHEM1119",
+    "name": "Honors Modern Chemistry Laboratory I",
+    "section": "01",
+    "credits": 1,
+    "days": [
+      "M"
+    ],
+    "startTime": "13:00",
+    "endTime": "16:00",
+    "professor": "Prof. Young",
+    "description": "Laboratory required for all students enrolled in CHEM1117. This laboratory course stresses discovery-based experiments. It uses state-of-the-art instrumentation to illustrate the principles discussed in CHEM1117-1118 and introduces students to techniques used in modern chemical research. One three-h",
+    "prerequisites": [],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 120",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1119",
+    "name": "Honors Modern Chemistry Laboratory I",
+    "section": "02",
+    "credits": 1,
+    "days": [
+      "M"
+    ],
+    "startTime": "17:30",
+    "endTime": "20:30",
+    "professor": "Prof. Young",
+    "description": "Laboratory required for all students enrolled in CHEM1117. This laboratory course stresses discovery-based experiments. It uses state-of-the-art instrumentation to illustrate the principles discussed in CHEM1117-1118 and introduces students to techniques used in modern chemical research. One three-h",
+    "prerequisites": [],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 120",
+    "semester": "2026FALL"
+  },
+  {
     "code": "CHEM1120",
     "name": "Honors Modern Chemistry Laboratory II",
     "section": "01",
@@ -14570,6 +15436,57 @@
     "coreRequirement": null,
     "room": "Merkert Chemistry Center 120",
     "semester": "2026SPRG"
+  },
+  {
+    "code": "CHEM1127",
+    "name": "Gateway: General Chemistry Discussion I",
+    "section": "01",
+    "credits": 1,
+    "days": [
+      "Th"
+    ],
+    "startTime": "16:30",
+    "endTime": "17:20",
+    "professor": "Prof. Hartmann",
+    "description": "Required of all students in Gateway General Chemistry. Discussion will offer a comprehensive review of the material presented in lecture, with a focus on the key mathematical and chemical concepts needed for problem-solving, in a small group setting.",
+    "prerequisites": [],
+    "coreRequirement": null,
+    "room": "Higgins Hall 265",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1127",
+    "name": "Gateway: General Chemistry Discussion I",
+    "section": "02",
+    "credits": 1,
+    "days": [
+      "Th"
+    ],
+    "startTime": "17:30",
+    "endTime": "18:20",
+    "professor": "Prof. Hartmann",
+    "description": "Required of all students in Gateway General Chemistry. Discussion will offer a comprehensive review of the material presented in lecture, with a focus on the key mathematical and chemical concepts needed for problem-solving, in a small group setting.",
+    "prerequisites": [],
+    "coreRequirement": null,
+    "room": "Higgins Hall 265",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1127",
+    "name": "Gateway: General Chemistry Discussion I",
+    "section": "03",
+    "credits": 1,
+    "days": [
+      "M"
+    ],
+    "startTime": "15:00",
+    "endTime": "15:50",
+    "professor": "Prof. Hartmann",
+    "description": "Required of all students in Gateway General Chemistry. Discussion will offer a comprehensive review of the material presented in lecture, with a focus on the key mathematical and chemical concepts needed for problem-solving, in a small group setting.",
+    "prerequisites": [],
+    "coreRequirement": null,
+    "room": "Higgins Hall 280",
+    "semester": "2026FALL"
   },
   {
     "code": "CHEM1128",
@@ -14621,6 +15538,454 @@
     "coreRequirement": null,
     "room": "Higgins Hall 280",
     "semester": "2026SPRG"
+  },
+  {
+    "code": "CHEM1161",
+    "name": "Life Science Chemistry",
+    "section": "01",
+    "credits": 3,
+    "days": [
+      "T",
+      "Th"
+    ],
+    "startTime": "10:30",
+    "endTime": "11:45",
+    "professor": "Prof. Hartmann",
+    "description": "This course first introduces basic chemical principles in preparation for a discussion of the chemistry of living systems that forms the major part of the course. Organic chemical concepts will be introduced as necessary, and applications will be made wherever possible to physiological processes and",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Merkert Chemistry Center 127",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1161",
+    "name": "Life Science Chemistry",
+    "section": "02",
+    "credits": 3,
+    "days": [
+      "M"
+    ],
+    "startTime": "17:00",
+    "endTime": "17:50",
+    "professor": "Prof. Hartmann",
+    "description": "This course first introduces basic chemical principles in preparation for a discussion of the chemistry of living systems that forms the major part of the course. Organic chemical concepts will be introduced as necessary, and applications will be made wherever possible to physiological processes and",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Merkert Chemistry Center 129",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1161",
+    "name": "Life Science Chemistry",
+    "section": "03",
+    "credits": 3,
+    "days": [
+      "M"
+    ],
+    "startTime": "18:00",
+    "endTime": "18:50",
+    "professor": "Prof. Hartmann",
+    "description": "This course first introduces basic chemical principles in preparation for a discussion of the chemistry of living systems that forms the major part of the course. Organic chemical concepts will be introduced as necessary, and applications will be made wherever possible to physiological processes and",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Merkert Chemistry Center 130",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1161",
+    "name": "Life Science Chemistry",
+    "section": "04",
+    "credits": 3,
+    "days": [
+      "T"
+    ],
+    "startTime": "14:00",
+    "endTime": "14:50",
+    "professor": "Prof. Hartmann",
+    "description": "This course first introduces basic chemical principles in preparation for a discussion of the chemistry of living systems that forms the major part of the course. Organic chemical concepts will be introduced as necessary, and applications will be made wherever possible to physiological processes and",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Merkert Chemistry Center 129",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1161",
+    "name": "Life Science Chemistry",
+    "section": "05",
+    "credits": 3,
+    "days": [
+      "Th"
+    ],
+    "startTime": "14:00",
+    "endTime": "14:50",
+    "professor": "Prof. Hartmann",
+    "description": "This course first introduces basic chemical principles in preparation for a discussion of the chemistry of living systems that forms the major part of the course. Organic chemical concepts will be introduced as necessary, and applications will be made wherever possible to physiological processes and",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Merkert Chemistry Center 129",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1163",
+    "name": "Life Science Chemistry Laboratory",
+    "section": "01",
+    "credits": 1,
+    "days": [
+      "W"
+    ],
+    "startTime": "09:00",
+    "endTime": "11:45",
+    "professor": "Prof. Fox",
+    "description": "A laboratory course that includes experiments illustrating chemical principles and the properties of compounds consistent with CHEM1161.",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Merkert Chemistry Center 018",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM1163",
+    "name": "Life Science Chemistry Laboratory",
+    "section": "02",
+    "credits": 1,
+    "days": [
+      "F"
+    ],
+    "startTime": "09:00",
+    "endTime": "11:45",
+    "professor": "Prof. Fox",
+    "description": "A laboratory course that includes experiments illustrating chemical principles and the properties of compounds consistent with CHEM1161.",
+    "prerequisites": [],
+    "coreRequirement": "Natural Science",
+    "room": "Merkert Chemistry Center 018",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM2231",
+    "name": "Organic Chemistry I",
+    "section": "01",
+    "credits": 3,
+    "days": [
+      "M",
+      "W",
+      "F"
+    ],
+    "startTime": "09:00",
+    "endTime": "09:50",
+    "professor": "Prof. Zhang",
+    "description": "An introduction to the chemistry, properties, and uses of organic compounds. The correlation of structure with properties, reaction mechanisms, and the modern approach to structural and synthetic problems are stressed throughout. In the laboratory, the aim is acquisition of sound experimental techni",
+    "prerequisites": [
+      "CHEM1110",
+      "CHEM1012"
+    ],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 127",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM2231",
+    "name": "Organic Chemistry I",
+    "section": "02",
+    "credits": 3,
+    "days": [
+      "M"
+    ],
+    "startTime": "14:00",
+    "endTime": "14:50",
+    "professor": "Prof. Zhang",
+    "description": "An introduction to the chemistry, properties, and uses of organic compounds. The correlation of structure with properties, reaction mechanisms, and the modern approach to structural and synthetic problems are stressed throughout. In the laboratory, the aim is acquisition of sound experimental techni",
+    "prerequisites": [
+      "CHEM1110",
+      "CHEM1012"
+    ],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 130",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM2231",
+    "name": "Organic Chemistry I",
+    "section": "03",
+    "credits": 3,
+    "days": [
+      "M"
+    ],
+    "startTime": "15:00",
+    "endTime": "15:50",
+    "professor": "Prof. Zhang",
+    "description": "An introduction to the chemistry, properties, and uses of organic compounds. The correlation of structure with properties, reaction mechanisms, and the modern approach to structural and synthetic problems are stressed throughout. In the laboratory, the aim is acquisition of sound experimental techni",
+    "prerequisites": [
+      "CHEM1110",
+      "CHEM1012"
+    ],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 127",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM2231",
+    "name": "Organic Chemistry I",
+    "section": "04",
+    "credits": 3,
+    "days": [
+      "W"
+    ],
+    "startTime": "16:00",
+    "endTime": "16:50",
+    "professor": "Prof. Zhang",
+    "description": "An introduction to the chemistry, properties, and uses of organic compounds. The correlation of structure with properties, reaction mechanisms, and the modern approach to structural and synthetic problems are stressed throughout. In the laboratory, the aim is acquisition of sound experimental techni",
+    "prerequisites": [
+      "CHEM1110",
+      "CHEM1012"
+    ],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 127",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM2231",
+    "name": "Organic Chemistry I",
+    "section": "05",
+    "credits": 3,
+    "days": [
+      "W"
+    ],
+    "startTime": "17:00",
+    "endTime": "17:50",
+    "professor": "Prof. Zhang",
+    "description": "An introduction to the chemistry, properties, and uses of organic compounds. The correlation of structure with properties, reaction mechanisms, and the modern approach to structural and synthetic problems are stressed throughout. In the laboratory, the aim is acquisition of sound experimental techni",
+    "prerequisites": [
+      "CHEM1110",
+      "CHEM1012"
+    ],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 127",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM2231",
+    "name": "Organic Chemistry I",
+    "section": "06",
+    "credits": 3,
+    "days": [
+      "M",
+      "W",
+      "F"
+    ],
+    "startTime": "10:00",
+    "endTime": "10:50",
+    "professor": "Prof. Deak",
+    "description": "An introduction to the chemistry, properties, and uses of organic compounds. The correlation of structure with properties, reaction mechanisms, and the modern approach to structural and synthetic problems are stressed throughout. In the laboratory, the aim is acquisition of sound experimental techni",
+    "prerequisites": [
+      "CHEM1110",
+      "CHEM1012"
+    ],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 127",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM2231",
+    "name": "Organic Chemistry I",
+    "section": "07",
+    "credits": 3,
+    "days": [
+      "T"
+    ],
+    "startTime": "17:00",
+    "endTime": "17:50",
+    "professor": "Prof. Deak",
+    "description": "An introduction to the chemistry, properties, and uses of organic compounds. The correlation of structure with properties, reaction mechanisms, and the modern approach to structural and synthetic problems are stressed throughout. In the laboratory, the aim is acquisition of sound experimental techni",
+    "prerequisites": [
+      "CHEM1110",
+      "CHEM1012"
+    ],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 127",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM2231",
+    "name": "Organic Chemistry I",
+    "section": "08",
+    "credits": 3,
+    "days": [
+      "W"
+    ],
+    "startTime": "14:00",
+    "endTime": "14:50",
+    "professor": "Prof. Deak",
+    "description": "An introduction to the chemistry, properties, and uses of organic compounds. The correlation of structure with properties, reaction mechanisms, and the modern approach to structural and synthetic problems are stressed throughout. In the laboratory, the aim is acquisition of sound experimental techni",
+    "prerequisites": [
+      "CHEM1110",
+      "CHEM1012"
+    ],
+    "coreRequirement": null,
+    "room": "245 Beacon Street Room 125A",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM2231",
+    "name": "Organic Chemistry I",
+    "section": "09",
+    "credits": 3,
+    "days": [
+      "F"
+    ],
+    "startTime": "13:00",
+    "endTime": "13:50",
+    "professor": "Prof. Deak",
+    "description": "An introduction to the chemistry, properties, and uses of organic compounds. The correlation of structure with properties, reaction mechanisms, and the modern approach to structural and synthetic problems are stressed throughout. In the laboratory, the aim is acquisition of sound experimental techni",
+    "prerequisites": [
+      "CHEM1110",
+      "CHEM1012"
+    ],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 130",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM2231",
+    "name": "Organic Chemistry I",
+    "section": "10",
+    "credits": 3,
+    "days": [
+      "F"
+    ],
+    "startTime": "14:00",
+    "endTime": "14:50",
+    "professor": "Prof. Deak",
+    "description": "An introduction to the chemistry, properties, and uses of organic compounds. The correlation of structure with properties, reaction mechanisms, and the modern approach to structural and synthetic problems are stressed throughout. In the laboratory, the aim is acquisition of sound experimental techni",
+    "prerequisites": [
+      "CHEM1110",
+      "CHEM1012"
+    ],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 130",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM2231",
+    "name": "Organic Chemistry I",
+    "section": "11",
+    "credits": 3,
+    "days": [
+      "M",
+      "W",
+      "F"
+    ],
+    "startTime": "10:00",
+    "endTime": "10:50",
+    "professor": "Prof. Deak",
+    "description": "An introduction to the chemistry, properties, and uses of organic compounds. The correlation of structure with properties, reaction mechanisms, and the modern approach to structural and synthetic problems are stressed throughout. In the laboratory, the aim is acquisition of sound experimental techni",
+    "prerequisites": [
+      "CHEM1110",
+      "CHEM1012"
+    ],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 127",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM2231",
+    "name": "Organic Chemistry I",
+    "section": "12",
+    "credits": 3,
+    "days": [
+      "M",
+      "W",
+      "F"
+    ],
+    "startTime": "11:00",
+    "endTime": "11:50",
+    "professor": "Prof. Snapper",
+    "description": "An introduction to the chemistry, properties, and uses of organic compounds. The correlation of structure with properties, reaction mechanisms, and the modern approach to structural and synthetic problems are stressed throughout. In the laboratory, the aim is acquisition of sound experimental techni",
+    "prerequisites": [
+      "CHEM1110",
+      "CHEM1012"
+    ],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 127",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM2231",
+    "name": "Organic Chemistry I",
+    "section": "13",
+    "credits": 3,
+    "days": [
+      "M"
+    ],
+    "startTime": "16:00",
+    "endTime": "16:50",
+    "professor": "Prof. Snapper",
+    "description": "An introduction to the chemistry, properties, and uses of organic compounds. The correlation of structure with properties, reaction mechanisms, and the modern approach to structural and synthetic problems are stressed throughout. In the laboratory, the aim is acquisition of sound experimental techni",
+    "prerequisites": [
+      "CHEM1110",
+      "CHEM1012"
+    ],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 127",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM2231",
+    "name": "Organic Chemistry I",
+    "section": "14",
+    "credits": 3,
+    "days": [
+      "M"
+    ],
+    "startTime": "17:00",
+    "endTime": "17:50",
+    "professor": "Prof. Snapper",
+    "description": "An introduction to the chemistry, properties, and uses of organic compounds. The correlation of structure with properties, reaction mechanisms, and the modern approach to structural and synthetic problems are stressed throughout. In the laboratory, the aim is acquisition of sound experimental techni",
+    "prerequisites": [
+      "CHEM1110",
+      "CHEM1012"
+    ],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 127",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM2231",
+    "name": "Organic Chemistry I",
+    "section": "15",
+    "credits": 3,
+    "days": [
+      "Th"
+    ],
+    "startTime": "15:00",
+    "endTime": "15:50",
+    "professor": "Prof. Snapper",
+    "description": "An introduction to the chemistry, properties, and uses of organic compounds. The correlation of structure with properties, reaction mechanisms, and the modern approach to structural and synthetic problems are stressed throughout. In the laboratory, the aim is acquisition of sound experimental techni",
+    "prerequisites": [
+      "CHEM1110",
+      "CHEM1012"
+    ],
+    "coreRequirement": null,
+    "room": "245 Beacon Street Room 125",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM2231",
+    "name": "Organic Chemistry I",
+    "section": "16",
+    "credits": 3,
+    "days": [
+      "Th"
+    ],
+    "startTime": "16:00",
+    "endTime": "16:50",
+    "professor": "Prof. Snapper",
+    "description": "An introduction to the chemistry, properties, and uses of organic compounds. The correlation of structure with properties, reaction mechanisms, and the modern approach to structural and synthetic problems are stressed throughout. In the laboratory, the aim is acquisition of sound experimental techni",
+    "prerequisites": [
+      "CHEM1110",
+      "CHEM1012"
+    ],
+    "coreRequirement": null,
+    "room": "245 Beacon Street Room 125",
+    "semester": "2026FALL"
   },
   {
     "code": "CHEM2232",
@@ -14971,6 +16336,186 @@
     "semester": "2026SPRG"
   },
   {
+    "code": "CHEM2233",
+    "name": "Organic Chemistry Laboratory I",
+    "section": "01",
+    "credits": 1,
+    "days": [
+      "M"
+    ],
+    "startTime": "12:00",
+    "endTime": "15:50",
+    "professor": "Prof. Snapper",
+    "description": "Laboratory required of all students enrolled in CHEM2231. One four-hour period per week. Students acquire fundamental organic lab techniques in the context of principles learned in the lecture course. The semester concludes with a group project where students are required to design their own experim",
+    "prerequisites": [
+      "CHEM1112",
+      "CHEM1014"
+    ],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 018",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM2233",
+    "name": "Organic Chemistry Laboratory I",
+    "section": "02",
+    "credits": 1,
+    "days": [
+      "T"
+    ],
+    "startTime": "12:00",
+    "endTime": "15:50",
+    "professor": "Prof. Liu",
+    "description": "Laboratory required of all students enrolled in CHEM2231. One four-hour period per week. Students acquire fundamental organic lab techniques in the context of principles learned in the lecture course. The semester concludes with a group project where students are required to design their own experim",
+    "prerequisites": [
+      "CHEM1112",
+      "CHEM1014"
+    ],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 018",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM2233",
+    "name": "Organic Chemistry Laboratory I",
+    "section": "03",
+    "credits": 1,
+    "days": [
+      "W"
+    ],
+    "startTime": "12:15",
+    "endTime": "16:05",
+    "professor": "Prof. Deak",
+    "description": "Laboratory required of all students enrolled in CHEM2231. One four-hour period per week. Students acquire fundamental organic lab techniques in the context of principles learned in the lecture course. The semester concludes with a group project where students are required to design their own experim",
+    "prerequisites": [
+      "CHEM1112",
+      "CHEM1014"
+    ],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 018",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM2233",
+    "name": "Organic Chemistry Laboratory I",
+    "section": "04",
+    "credits": 1,
+    "days": [
+      "Th"
+    ],
+    "startTime": "12:00",
+    "endTime": "15:50",
+    "professor": "Prof. Morken",
+    "description": "Laboratory required of all students enrolled in CHEM2231. One four-hour period per week. Students acquire fundamental organic lab techniques in the context of principles learned in the lecture course. The semester concludes with a group project where students are required to design their own experim",
+    "prerequisites": [
+      "CHEM1112",
+      "CHEM1014"
+    ],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 018",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM2233",
+    "name": "Organic Chemistry Laboratory I",
+    "section": "05",
+    "credits": 1,
+    "days": [
+      "F"
+    ],
+    "startTime": "13:00",
+    "endTime": "16:50",
+    "professor": "Prof. Zhang",
+    "description": "Laboratory required of all students enrolled in CHEM2231. One four-hour period per week. Students acquire fundamental organic lab techniques in the context of principles learned in the lecture course. The semester concludes with a group project where students are required to design their own experim",
+    "prerequisites": [
+      "CHEM1112",
+      "CHEM1014"
+    ],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 018",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM2233",
+    "name": "Organic Chemistry Laboratory I",
+    "section": "06",
+    "credits": 1,
+    "days": [
+      "M"
+    ],
+    "startTime": "17:00",
+    "endTime": "20:50",
+    "professor": "Prof. Young",
+    "description": "Laboratory required of all students enrolled in CHEM2231. One four-hour period per week. Students acquire fundamental organic lab techniques in the context of principles learned in the lecture course. The semester concludes with a group project where students are required to design their own experim",
+    "prerequisites": [
+      "CHEM1112",
+      "CHEM1014"
+    ],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 018",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM2233",
+    "name": "Organic Chemistry Laboratory I",
+    "section": "07",
+    "credits": 1,
+    "days": [
+      "T"
+    ],
+    "startTime": "17:00",
+    "endTime": "20:50",
+    "professor": "Prof. Parr",
+    "description": "Laboratory required of all students enrolled in CHEM2231. One four-hour period per week. Students acquire fundamental organic lab techniques in the context of principles learned in the lecture course. The semester concludes with a group project where students are required to design their own experim",
+    "prerequisites": [
+      "CHEM1112",
+      "CHEM1014"
+    ],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 018",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM2233",
+    "name": "Organic Chemistry Laboratory I",
+    "section": "08",
+    "credits": 1,
+    "days": [
+      "W"
+    ],
+    "startTime": "17:00",
+    "endTime": "20:50",
+    "professor": "Prof. Jayasundera",
+    "description": "Laboratory required of all students enrolled in CHEM2231. One four-hour period per week. Students acquire fundamental organic lab techniques in the context of principles learned in the lecture course. The semester concludes with a group project where students are required to design their own experim",
+    "prerequisites": [
+      "CHEM1112",
+      "CHEM1014"
+    ],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 018",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM2233",
+    "name": "Organic Chemistry Laboratory I",
+    "section": "09",
+    "credits": 1,
+    "days": [
+      "Th"
+    ],
+    "startTime": "17:00",
+    "endTime": "20:50",
+    "professor": "Prof. Parr",
+    "description": "Laboratory required of all students enrolled in CHEM2231. One four-hour period per week. Students acquire fundamental organic lab techniques in the context of principles learned in the lecture course. The semester concludes with a group project where students are required to design their own experim",
+    "prerequisites": [
+      "CHEM1112",
+      "CHEM1014"
+    ],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 018",
+    "semester": "2026FALL"
+  },
+  {
     "code": "CHEM2234",
     "name": "Organic Chemistry Laboratory II",
     "section": "01",
@@ -15160,6 +16705,40 @@
     "semester": "2026SPRG"
   },
   {
+    "code": "CHEM2237",
+    "name": "Gateway: Organic Chemistry Discussion I",
+    "section": "01",
+    "credits": 1,
+    "days": [
+      "W"
+    ],
+    "startTime": "14:00",
+    "endTime": "14:50",
+    "professor": "Prof. Deak",
+    "description": "Required of all students in Gateway Organic Chemistry. Discussion will offer a fairly comprehensive review of the material presented in lecture, with a focus on the key concepts needed for problem-solving in a small group setting.",
+    "prerequisites": [],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 127",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM2237",
+    "name": "Gateway: Organic Chemistry Discussion I",
+    "section": "02",
+    "credits": 1,
+    "days": [
+      "W"
+    ],
+    "startTime": "15:00",
+    "endTime": "15:50",
+    "professor": "Prof. Deak",
+    "description": "Required of all students in Gateway Organic Chemistry. Discussion will offer a fairly comprehensive review of the material presented in lecture, with a focus on the key concepts needed for problem-solving in a small group setting.",
+    "prerequisites": [],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 127",
+    "semester": "2026FALL"
+  },
+  {
     "code": "CHEM2238",
     "name": "Gateway: Organic Chemistry Discussion II",
     "section": "01",
@@ -15175,6 +16754,73 @@
     "coreRequirement": null,
     "room": "Merkert Chemistry Center 130",
     "semester": "2026SPRG"
+  },
+  {
+    "code": "CHEM2241",
+    "name": "Honors Organic Chemistry I",
+    "section": "01",
+    "credits": 3,
+    "days": [
+      "T",
+      "Th"
+    ],
+    "startTime": "09:00",
+    "endTime": "10:15",
+    "professor": "Prof. Deak",
+    "description": "This course is a continuation of the CHEM1117-1118 honors sequence and will concentrate on the structure, bonding, and reactivity of organic compounds. Particular emphasis will be placed on stereochemistry, conformational analysis, reaction mechanisms, principles of organic synthesis, and modern spe",
+    "prerequisites": [
+      "CHEM1118",
+      "CHEM1117",
+      "CHEM1119",
+      "CHEM1120"
+    ],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 129",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM2241",
+    "name": "Honors Organic Chemistry I",
+    "section": "02",
+    "credits": 3,
+    "days": [
+      "T"
+    ],
+    "startTime": "18:00",
+    "endTime": "18:50",
+    "professor": "Prof. Deak",
+    "description": "This course is a continuation of the CHEM1117-1118 honors sequence and will concentrate on the structure, bonding, and reactivity of organic compounds. Particular emphasis will be placed on stereochemistry, conformational analysis, reaction mechanisms, principles of organic synthesis, and modern spe",
+    "prerequisites": [
+      "CHEM1118",
+      "CHEM1117",
+      "CHEM1119",
+      "CHEM1120"
+    ],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 129",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM2241",
+    "name": "Honors Organic Chemistry I",
+    "section": "03",
+    "credits": 3,
+    "days": [
+      "W"
+    ],
+    "startTime": "18:00",
+    "endTime": "18:50",
+    "professor": "Prof. Deak",
+    "description": "This course is a continuation of the CHEM1117-1118 honors sequence and will concentrate on the structure, bonding, and reactivity of organic compounds. Particular emphasis will be placed on stereochemistry, conformational analysis, reaction mechanisms, principles of organic synthesis, and modern spe",
+    "prerequisites": [
+      "CHEM1118",
+      "CHEM1117",
+      "CHEM1119",
+      "CHEM1120"
+    ],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 129",
+    "semester": "2026FALL"
   },
   {
     "code": "CHEM2242",
@@ -15233,6 +16879,63 @@
     "coreRequirement": null,
     "room": "Merkert Chemistry Center 129",
     "semester": "2026SPRG"
+  },
+  {
+    "code": "CHEM2243",
+    "name": "Honors Organic Chemistry I Laboratory",
+    "section": "01",
+    "credits": 3,
+    "days": [
+      "W"
+    ],
+    "startTime": "12:15",
+    "endTime": "16:15",
+    "professor": "Prof. Young",
+    "description": "Laboratory course required for students enrolled in Honors Organic Chemistry (CHEM2241). Students will be instructed in experimental techniques relevant to research in contemporary organic chemistry. It will solidify concepts that are taught in lecture and provide a forum for discovery-based learnin",
+    "prerequisites": [
+      "CHEM1120"
+    ],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 21",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM2243",
+    "name": "Honors Organic Chemistry I Laboratory",
+    "section": "02",
+    "credits": 3,
+    "days": [
+      "Th"
+    ],
+    "startTime": "12:00",
+    "endTime": "16:00",
+    "professor": "Prof. Young",
+    "description": "Laboratory course required for students enrolled in Honors Organic Chemistry (CHEM2241). Students will be instructed in experimental techniques relevant to research in contemporary organic chemistry. It will solidify concepts that are taught in lecture and provide a forum for discovery-based learnin",
+    "prerequisites": [
+      "CHEM1120"
+    ],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 21",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM2243",
+    "name": "Honors Organic Chemistry I Laboratory",
+    "section": "03",
+    "credits": 3,
+    "days": [
+      "M"
+    ],
+    "startTime": "15:00",
+    "endTime": "15:50",
+    "professor": "Prof. Morken",
+    "description": "Laboratory course required for students enrolled in Honors Organic Chemistry (CHEM2241). Students will be instructed in experimental techniques relevant to research in contemporary organic chemistry. It will solidify concepts that are taught in lecture and provide a forum for discovery-based learnin",
+    "prerequisites": [
+      "CHEM1120"
+    ],
+    "coreRequirement": null,
+    "room": "Higgins Hall 225",
+    "semester": "2026FALL"
   },
   {
     "code": "CHEM3322",
@@ -15342,6 +17045,152 @@
     "semester": "2026SPRG"
   },
   {
+    "code": "CHEM3351",
+    "name": "Analytical Chemistry",
+    "section": "01",
+    "credits": 4,
+    "days": [
+      "M",
+      "W",
+      "F"
+    ],
+    "startTime": "11:00",
+    "endTime": "11:50",
+    "professor": "Prof. Metz",
+    "description": "Designed primarily for sophomore and junior students, this course is an introduction to the principles and practice of analytical chemistry, including the statistical analysis of data and widely-used chemical methods and instrumental approaches such as chromatography, spectrophotometry, and electroc",
+    "prerequisites": [
+      "CHEM1110",
+      "CHEM1012",
+      "CHEM1118",
+      "CHEM1112",
+      "CHEM1014",
+      "CHEM1120"
+    ],
+    "coreRequirement": null,
+    "room": "Higgins Hall 310",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM3351",
+    "name": "Analytical Chemistry",
+    "section": "02",
+    "credits": 3,
+    "days": [
+      "W"
+    ],
+    "startTime": "13:00",
+    "endTime": "17:00",
+    "professor": "Prof. Metz",
+    "description": "Designed primarily for sophomore and junior students, this course is an introduction to the principles and practice of analytical chemistry, including the statistical analysis of data and widely-used chemical methods and instrumental approaches such as chromatography, spectrophotometry, and electroc",
+    "prerequisites": [
+      "CHEM1110",
+      "CHEM1012",
+      "CHEM1118",
+      "CHEM1112",
+      "CHEM1014",
+      "CHEM1120"
+    ],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 120",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM3351",
+    "name": "Analytical Chemistry",
+    "section": "03",
+    "credits": 3,
+    "days": [
+      "W"
+    ],
+    "startTime": "17:00",
+    "endTime": "21:00",
+    "professor": "Prof. Metz",
+    "description": "Designed primarily for sophomore and junior students, this course is an introduction to the principles and practice of analytical chemistry, including the statistical analysis of data and widely-used chemical methods and instrumental approaches such as chromatography, spectrophotometry, and electroc",
+    "prerequisites": [
+      "CHEM1110",
+      "CHEM1012",
+      "CHEM1118",
+      "CHEM1112",
+      "CHEM1014",
+      "CHEM1120"
+    ],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 120",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM3351",
+    "name": "Analytical Chemistry",
+    "section": "04",
+    "credits": 3,
+    "days": [
+      "Th"
+    ],
+    "startTime": "13:00",
+    "endTime": "17:00",
+    "professor": "Prof. Metz",
+    "description": "Designed primarily for sophomore and junior students, this course is an introduction to the principles and practice of analytical chemistry, including the statistical analysis of data and widely-used chemical methods and instrumental approaches such as chromatography, spectrophotometry, and electroc",
+    "prerequisites": [
+      "CHEM1110",
+      "CHEM1012",
+      "CHEM1118",
+      "CHEM1112",
+      "CHEM1014",
+      "CHEM1120"
+    ],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 120",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM3351",
+    "name": "Analytical Chemistry",
+    "section": "06",
+    "credits": 3,
+    "days": [
+      "T"
+    ],
+    "startTime": "15:00",
+    "endTime": "15:50",
+    "professor": "Prof. Dept",
+    "description": "Designed primarily for sophomore and junior students, this course is an introduction to the principles and practice of analytical chemistry, including the statistical analysis of data and widely-used chemical methods and instrumental approaches such as chromatography, spectrophotometry, and electroc",
+    "prerequisites": [
+      "CHEM1110",
+      "CHEM1012",
+      "CHEM1118",
+      "CHEM1112",
+      "CHEM1014",
+      "CHEM1120"
+    ],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 127",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM3351",
+    "name": "Analytical Chemistry",
+    "section": "07",
+    "credits": 3,
+    "days": [
+      "W"
+    ],
+    "startTime": "14:00",
+    "endTime": "14:50",
+    "professor": "Prof. Dept",
+    "description": "Designed primarily for sophomore and junior students, this course is an introduction to the principles and practice of analytical chemistry, including the statistical analysis of data and widely-used chemical methods and instrumental approaches such as chromatography, spectrophotometry, and electroc",
+    "prerequisites": [
+      "CHEM1110",
+      "CHEM1012",
+      "CHEM1118",
+      "CHEM1112",
+      "CHEM1014",
+      "CHEM1120"
+    ],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 130",
+    "semester": "2026FALL"
+  },
+  {
     "code": "CHEM3356",
     "name": "Introduction to Mass Spectrometry and Its Applications",
     "section": "01",
@@ -15361,6 +17210,134 @@
     "coreRequirement": null,
     "room": "245 Beacon Street Room 230",
     "semester": "2026SPRG"
+  },
+  {
+    "code": "CHEM4461",
+    "name": "Biochemistry I",
+    "section": "01",
+    "credits": 3,
+    "days": [
+      "T",
+      "Th"
+    ],
+    "startTime": "09:00",
+    "endTime": "10:15",
+    "professor": "Prof. Niu",
+    "description": "This course is the first of a two-semester introductory-level sequence in biochemistry. Topics in the first semester focus primarily on the structure, function and biosynthesis of the major biomolecules. Additionally, this course provides an introduction into thermodynamics, kinetics and mechanisms ",
+    "prerequisites": [
+      "CHEM2232",
+      "CHEM2012",
+      "CHEM2241"
+    ],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 127",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM4461",
+    "name": "Biochemistry I",
+    "section": "02",
+    "credits": 3,
+    "days": [
+      "W"
+    ],
+    "startTime": "18:00",
+    "endTime": "18:50",
+    "professor": "Prof. Dept",
+    "description": "This course is the first of a two-semester introductory-level sequence in biochemistry. Topics in the first semester focus primarily on the structure, function and biosynthesis of the major biomolecules. Additionally, this course provides an introduction into thermodynamics, kinetics and mechanisms ",
+    "prerequisites": [
+      "CHEM2232",
+      "CHEM2012",
+      "CHEM2241"
+    ],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 130",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM4461",
+    "name": "Biochemistry I",
+    "section": "03",
+    "credits": 3,
+    "days": [
+      "W"
+    ],
+    "startTime": "19:00",
+    "endTime": "19:50",
+    "professor": "Prof. Dept",
+    "description": "This course is the first of a two-semester introductory-level sequence in biochemistry. Topics in the first semester focus primarily on the structure, function and biosynthesis of the major biomolecules. Additionally, this course provides an introduction into thermodynamics, kinetics and mechanisms ",
+    "prerequisites": [
+      "CHEM2232",
+      "CHEM2012",
+      "CHEM2241"
+    ],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 130",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM4461",
+    "name": "Biochemistry I",
+    "section": "04",
+    "credits": 3,
+    "days": [
+      "T",
+      "Th"
+    ],
+    "startTime": "13:30",
+    "endTime": "14:45",
+    "professor": "Prof. Zhou",
+    "description": "This course is the first of a two-semester introductory-level sequence in biochemistry. Topics in the first semester focus primarily on the structure, function and biosynthesis of the major biomolecules. Additionally, this course provides an introduction into thermodynamics, kinetics and mechanisms ",
+    "prerequisites": [
+      "CHEM2232",
+      "CHEM2012",
+      "CHEM2241"
+    ],
+    "coreRequirement": null,
+    "room": "Higgins Hall 300",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM4461",
+    "name": "Biochemistry I",
+    "section": "05",
+    "credits": 3,
+    "days": [
+      "T"
+    ],
+    "startTime": "18:00",
+    "endTime": "18:50",
+    "professor": "Prof. Dept",
+    "description": "This course is the first of a two-semester introductory-level sequence in biochemistry. Topics in the first semester focus primarily on the structure, function and biosynthesis of the major biomolecules. Additionally, this course provides an introduction into thermodynamics, kinetics and mechanisms ",
+    "prerequisites": [
+      "CHEM2232",
+      "CHEM2012",
+      "CHEM2241"
+    ],
+    "coreRequirement": null,
+    "room": "Lyons Hall 202",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM4461",
+    "name": "Biochemistry I",
+    "section": "06",
+    "credits": 3,
+    "days": [
+      "T"
+    ],
+    "startTime": "19:00",
+    "endTime": "19:50",
+    "professor": "Prof. Dept",
+    "description": "This course is the first of a two-semester introductory-level sequence in biochemistry. Topics in the first semester focus primarily on the structure, function and biosynthesis of the major biomolecules. Additionally, this course provides an introduction into thermodynamics, kinetics and mechanisms ",
+    "prerequisites": [
+      "CHEM2232",
+      "CHEM2012",
+      "CHEM2241"
+    ],
+    "coreRequirement": null,
+    "room": "Lyons Hall 202",
+    "semester": "2026FALL"
   },
   {
     "code": "CHEM4462",
@@ -15466,6 +17443,41 @@
     "semester": "2026SPRG"
   },
   {
+    "code": "CHEM4475",
+    "name": "Physical Chemistry I",
+    "section": "01",
+    "credits": 3,
+    "days": [
+      "T",
+      "Th"
+    ],
+    "startTime": "10:30",
+    "endTime": "11:45",
+    "professor": "Prof. Mohanty",
+    "description": "This course deals with the foundations and applications of thermodynamics and reaction kinetics. Topics include: (1) classical thermodynamics, including the Laws of Thermodynamics, Helmholtz and Gibbs energies, chemical potential, and thermodynamic descriptions of phase equilibria and chemical equil",
+    "prerequisites": [],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 129",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM4475",
+    "name": "Physical Chemistry I",
+    "section": "02",
+    "credits": 3,
+    "days": [
+      "M"
+    ],
+    "startTime": "18:00",
+    "endTime": "18:50",
+    "professor": "Prof. Dept",
+    "description": "This course deals with the foundations and applications of thermodynamics and reaction kinetics. Topics include: (1) classical thermodynamics, including the Laws of Thermodynamics, Helmholtz and Gibbs energies, chemical potential, and thermodynamic descriptions of phase equilibria and chemical equil",
+    "prerequisites": [],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 129",
+    "semester": "2026FALL"
+  },
+  {
     "code": "CHEM4476",
     "name": "Physical Chemistry II",
     "section": "01",
@@ -15523,6 +17535,23 @@
     "semester": "2026SPRG"
   },
   {
+    "code": "CHEM5515",
+    "name": "Building Biotech Companies: From Molecular Innovation to Market Impact",
+    "section": "01",
+    "credits": 3,
+    "days": [
+      "T"
+    ],
+    "startTime": "18:00",
+    "endTime": "20:30",
+    "professor": "Prof. Dept",
+    "description": "This course examines how molecular and chemical innovation becomes venture-backed biotechnology companies and ultimately approved medicines. Emphasis is placed on therapeutic modality selection, translational decision-making, and company creation, rather than on detailed medicinal chemistry optimiza",
+    "prerequisites": [],
+    "coreRequirement": null,
+    "room": "Higgins Hall 263",
+    "semester": "2026FALL"
+  },
+  {
     "code": "CHEM5523",
     "name": "Organometallic Chemistry",
     "section": "01",
@@ -15539,6 +17568,59 @@
     "coreRequirement": null,
     "room": "Merkert Chemistry Center 130",
     "semester": "2026SPRG"
+  },
+  {
+    "code": "CHEM5531",
+    "name": "Modern Methods in Organic Synthesis I",
+    "section": "01",
+    "credits": 3,
+    "days": [
+      "M",
+      "W"
+    ],
+    "startTime": "09:00",
+    "endTime": "10:15",
+    "professor": "Prof. Morken",
+    "description": "Survey and analysis of reactions employed in the synthesis of medicinally significant compounds. An in-depth understanding of the mechanistic details for each transformation will be emphasized. Topics will relate fundamental structural and electronic properties to issues of chemical reactivity. An e",
+    "prerequisites": [],
+    "coreRequirement": null,
+    "room": "Mcguinn Hall 30",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM5537",
+    "name": "Mechanistic Organic Chemistry",
+    "section": "01",
+    "credits": 3,
+    "days": [
+      "T",
+      "Th"
+    ],
+    "startTime": "10:30",
+    "endTime": "11:45",
+    "professor": "Prof. Liu",
+    "description": "This course will explore factors influencing organic reaction mechanisms and methods for their determination. A partial list of the topics to be covered includes chemical bonding and consequences for structure and reactivity; steric, electronic, and stereoelectronic effects; conformational analysis;",
+    "prerequisites": [],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 130",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM5539",
+    "name": "Principles and Applications of NMR Spectroscopy",
+    "section": "01",
+    "credits": 3,
+    "days": [
+      "T"
+    ],
+    "startTime": "18:00",
+    "endTime": "20:30",
+    "professor": "Prof. Jayasundera",
+    "description": "Nuclear Magnetic Resonance (NMR) is an indispensable tool for all organic chemists. This course will introduce the theory of NMR spectroscopy with concurrent experiments that illustrate these concepts firsthand, so that the subject matter is easier to absorb. Applications of NMR in biochemistry will",
+    "prerequisites": [],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 130",
+    "semester": "2026FALL"
   },
   {
     "code": "CHEM5540",
@@ -15641,6 +17723,67 @@
     "semester": "2026SPRG"
   },
   {
+    "code": "CHEM5560",
+    "name": "Principles of Chemical Biology",
+    "section": "01",
+    "credits": 3,
+    "days": [
+      "T",
+      "Th"
+    ],
+    "startTime": "09:00",
+    "endTime": "10:15",
+    "professor": "Prof. Chatterjee",
+    "description": "An introduction to the chemistry of biological macromolecules, including proteins, nucleic acids, and carbohydrates. Students will learn the structure and nomenclature of the monomer building blocks as well as the macromolecules. Chemical principles that define secondary and tertiary biomolecular st",
+    "prerequisites": [
+      "CHEM2232"
+    ],
+    "coreRequirement": null,
+    "room": "Campion Hall 204",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM5567",
+    "name": "Chemical Biology: Structure and Function",
+    "section": "01",
+    "credits": 3,
+    "days": [
+      "T",
+      "Th"
+    ],
+    "startTime": "12:00",
+    "endTime": "13:15",
+    "professor": "Prof. Weerapana",
+    "description": "A major component of chemical biology is the application of chemical tools to the study of biological systems. This course will provide an overview of techniques such as genome sequencing, mass spectrometry-based proteomics, fluorescence imaging and unnatural amino-acid incorporation into proteins, ",
+    "prerequisites": [
+      "CHEM2231",
+      "CHEM4465",
+      "CHEM4461",
+      "CHEM4462"
+    ],
+    "coreRequirement": null,
+    "room": "Mcguinn Hall 29",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "CHEM5572",
+    "name": "Fundamental Concepts in Heterogeneous Catalysis",
+    "section": "01",
+    "credits": 3,
+    "days": [
+      "T",
+      "Th"
+    ],
+    "startTime": "12:00",
+    "endTime": "13:15",
+    "professor": "Prof. Waegele",
+    "description": "Heterogeneous catalysis is central to our modern world, enabling the production of fertilizers, the synthesis of plastics, and the removal of pollutants from exhaust. The transition to renewable energy sources and the need for sustainable industrial processes require the development of novel types o",
+    "prerequisites": [],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 129",
+    "semester": "2026FALL"
+  },
+  {
     "code": "CHEM5575",
     "name": "Introduction to Spectroscopy",
     "section": "01",
@@ -15659,6 +17802,28 @@
     "semester": "2026SPRG"
   },
   {
+    "code": "CHEM5579",
+    "name": "Thermodynamics and Statistical Mechanics",
+    "section": "01",
+    "credits": 3,
+    "days": [
+      "M",
+      "W",
+      "F"
+    ],
+    "startTime": "12:00",
+    "endTime": "12:50",
+    "professor": "Prof. Bao",
+    "description": "This course deals with the foundations and applications of thermodynamics and equilibrium statistical mechanics. Topics include thermodynamic laws, microcanonical, canonical, and grand ensembles and its applications to a variety of problems in physical and biophysical chemistry. Advanced topics such",
+    "prerequisites": [
+      "CHEM4475",
+      "CHEM4476"
+    ],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 130",
+    "semester": "2026FALL"
+  },
+  {
     "code": "CHEM5581",
     "name": "Solid State Chemistry",
     "section": "01",
@@ -15675,6 +17840,25 @@
     "coreRequirement": null,
     "room": "Merkert Chemistry Center 129",
     "semester": "2026SPRG"
+  },
+  {
+    "code": "CHEM6676",
+    "name": "Physical Chemistry: Principles and Applications",
+    "section": "01",
+    "credits": 3,
+    "days": [
+      "M",
+      "W",
+      "F"
+    ],
+    "startTime": "09:00",
+    "endTime": "09:50",
+    "professor": "Prof. Dept",
+    "description": "This course intends to build a solid and rigorous foundation for chemistry graduate students to understand chemistry and materials at the microscopic level, and study the physical nature of bonding and chemical reaction dynamics quantitatively. We focus on fundamental principles of quantum mechanics",
+    "prerequisites": [],
+    "coreRequirement": null,
+    "room": "Merkert Chemistry Center 130",
+    "semester": "2026FALL"
   },
   {
     "code": "CLAS1010",
@@ -39844,7 +42028,7 @@
   },
   {
     "code": "FILM3390",
-    "name": "Audio Design",
+    "name": "Audio Production",
     "section": "01",
     "credits": 3,
     "days": [
@@ -59162,6 +61346,40 @@
     "semester": "2026SPRG"
   },
   {
+    "code": "NELC1123",
+    "name": "Elementary Arabic Practicum",
+    "section": "01",
+    "credits": 1,
+    "days": [
+      "T"
+    ],
+    "startTime": "11:00",
+    "endTime": "11:50",
+    "professor": "Prof. Department",
+    "description": "Required exercises and conversational practice to supplement Elementary Arabic I/II.",
+    "prerequisites": [],
+    "coreRequirement": null,
+    "room": "Gasson Hall 301",
+    "semester": "2026FALL"
+  },
+  {
+    "code": "NELC1123",
+    "name": "Elementary Arabic Practicum",
+    "section": "02",
+    "credits": 1,
+    "days": [
+      "Th"
+    ],
+    "startTime": "11:00",
+    "endTime": "11:50",
+    "professor": "Prof. Department",
+    "description": "Required exercises and conversational practice to supplement Elementary Arabic I/II.",
+    "prerequisites": [],
+    "coreRequirement": null,
+    "room": "Gasson Hall 301",
+    "semester": "2026FALL"
+  },
+  {
     "code": "NELC1124",
     "name": "Elementary Arabic Practicum",
     "section": "01",
@@ -61250,24 +63468,6 @@
     "coreRequirement": "Philosophy",
     "room": "Stokes Hall 403N",
     "semester": "2026SPRG"
-  },
-  {
-    "code": "PHIL1070",
-    "name": "Philosophy of the Person I",
-    "section": "06",
-    "credits": 3,
-    "days": [
-      "T",
-      "Th"
-    ],
-    "startTime": "09:00",
-    "endTime": "10:15",
-    "professor": "Prof. Zheng",
-    "description": "This course introduces students to philosophical reflection and to its history through the presentation and discussion of the writings of major thinkers from ancient, medieval, modern, and contemporary periods. The course is designed to show how fundamental and enduring questions about the universe ",
-    "prerequisites": [],
-    "coreRequirement": "Philosophy",
-    "room": "Fulton Hall 425",
-    "semester": "2026FALL"
   },
   {
     "code": "PHIL1070",
@@ -67042,7 +69242,7 @@
   },
   {
     "code": "PHIL3135",
-    "name": "Boethius and Dante",
+    "name": "Dante's Sinners in Inferno and Purgatory",
     "section": "01",
     "credits": 3,
     "days": [
@@ -67053,7 +69253,7 @@
     "startTime": "13:00",
     "endTime": "13:50",
     "professor": "Prof. Kim",
-    "description": "We will read BoethiusConsolation of Philosophyin comparison with Dante'sDivine Comedy, while looking at the influence of the philosophicalprosimetrumon the theological poem and its Medieval interpretation. Focus will be on the role of the female teachers,Philosophiaand Beatrice, whose philosophical ",
+    "description": "Dante Alighieri (1265-1321) puts popes, cardinals, priests, emperors, kings, and politicians, among many others, in Hell, which he structures according to theEthicsof Aristotle. Based on the seven capital sins in the Christian theology, Dante organizes Purgatory in a way in which these historical fi",
     "prerequisites": [],
     "coreRequirement": null,
     "room": "Stokes Hall 115N",
@@ -81065,7 +83265,7 @@
     ],
     "startTime": "15:00",
     "endTime": "16:15",
-    "professor": "Prof. Cronin",
+    "professor": "Prof. Gordon",
     "description": "Freshmen only The course introduces students to the Judeo-Christian Biblical texts and to the writings of such foundational thinkers as Plato, Aristotle, Augustine, Aquinas, Luther, Bacon, Descartes, Hobbes, Locke, Kant, Hegel, and Kierkegaard. The first semester considers the birth of the self-crit",
     "prerequisites": [],
     "coreRequirement": "Theology",
@@ -81082,7 +83282,7 @@
     ],
     "startTime": "18:00",
     "endTime": "20:30",
-    "professor": "Prof. Cronin",
+    "professor": "Prof. Gordon",
     "description": "Freshmen only The course introduces students to the Judeo-Christian Biblical texts and to the writings of such foundational thinkers as Plato, Aristotle, Augustine, Aquinas, Luther, Bacon, Descartes, Hobbes, Locke, Kant, Hegel, and Kierkegaard. The first semester considers the birth of the self-crit",
     "prerequisites": [],
     "coreRequirement": "Theology",
@@ -81662,24 +83862,6 @@
   {
     "code": "THEO1090",
     "name": "Perspectives on Western Culture I/Perspectives I",
-    "section": "37",
-    "credits": 3,
-    "days": [
-      "T",
-      "Th"
-    ],
-    "startTime": "13:30",
-    "endTime": "14:45",
-    "professor": "Prof. Magri",
-    "description": "Freshmen only The course introduces students to the Judeo-Christian Biblical texts and to the writings of such foundational thinkers as Plato, Aristotle, Augustine, Aquinas, Luther, Bacon, Descartes, Hobbes, Locke, Kant, Hegel, and Kierkegaard. The first semester considers the birth of the self-crit",
-    "prerequisites": [],
-    "coreRequirement": "Theology",
-    "room": "Stokes Hall 111S",
-    "semester": "2026FALL"
-  },
-  {
-    "code": "THEO1090",
-    "name": "Perspectives on Western Culture I/Perspectives I",
     "section": "38",
     "credits": 3,
     "days": [
@@ -81687,7 +83869,7 @@
     ],
     "startTime": "18:00",
     "endTime": "20:30",
-    "professor": "Prof. Magri",
+    "professor": "Prof. Constas",
     "description": "Freshmen only The course introduces students to the Judeo-Christian Biblical texts and to the writings of such foundational thinkers as Plato, Aristotle, Augustine, Aquinas, Luther, Bacon, Descartes, Hobbes, Locke, Kant, Hegel, and Kierkegaard. The first semester considers the birth of the self-crit",
     "prerequisites": [],
     "coreRequirement": "Theology",
@@ -81882,7 +84064,7 @@
     ],
     "startTime": "15:00",
     "endTime": "16:15",
-    "professor": "Prof. Floyd",
+    "professor": "Prof. Cronin",
     "description": "Freshmen only The course introduces students to the Judeo-Christian Biblical texts and to the writings of such foundational thinkers as Plato, Aristotle, Augustine, Aquinas, Luther, Bacon, Descartes, Hobbes, Locke, Kant, Hegel, and Kierkegaard. The first semester considers the birth of the self-crit",
     "prerequisites": [],
     "coreRequirement": "Theology",
@@ -81899,7 +84081,7 @@
     ],
     "startTime": "18:00",
     "endTime": "20:30",
-    "professor": "Prof. Floyd",
+    "professor": "Prof. Cronin",
     "description": "Freshmen only The course introduces students to the Judeo-Christian Biblical texts and to the writings of such foundational thinkers as Plato, Aristotle, Augustine, Aquinas, Luther, Bacon, Descartes, Hobbes, Locke, Kant, Hegel, and Kierkegaard. The first semester considers the birth of the self-crit",
     "prerequisites": [],
     "coreRequirement": "Theology",
@@ -81918,7 +84100,7 @@
     ],
     "startTime": "10:00",
     "endTime": "10:50",
-    "professor": "Prof. Tacelli",
+    "professor": "Prof. Department",
     "description": "Freshmen only The course introduces students to the Judeo-Christian Biblical texts and to the writings of such foundational thinkers as Plato, Aristotle, Augustine, Aquinas, Luther, Bacon, Descartes, Hobbes, Locke, Kant, Hegel, and Kierkegaard. The first semester considers the birth of the self-crit",
     "prerequisites": [],
     "coreRequirement": "Theology",
@@ -81935,7 +84117,7 @@
     ],
     "startTime": "18:00",
     "endTime": "20:30",
-    "professor": "Prof. Tacelli",
+    "professor": "Prof. Department",
     "description": "Freshmen only The course introduces students to the Judeo-Christian Biblical texts and to the writings of such foundational thinkers as Plato, Aristotle, Augustine, Aquinas, Luther, Bacon, Descartes, Hobbes, Locke, Kant, Hegel, and Kierkegaard. The first semester considers the birth of the self-crit",
     "prerequisites": [],
     "coreRequirement": "Theology",
@@ -83544,13 +85726,13 @@
       "W",
       "F"
     ],
-    "startTime": "14:00",
-    "endTime": "14:50",
+    "startTime": "09:00",
+    "endTime": "09:50",
     "professor": "Prof. Department",
     "description": "The purpose of this course is to introduce students to the dynamics of theological reflection in an academic setting. Framed as a quest for truth, transformation, and justice, the course invites students to explore key questions and themes of enduring human significance in conversation with the clas",
     "prerequisites": [],
     "coreRequirement": "Theology",
-    "room": "Stokes Hall 401N",
+    "room": "Stokes Hall 215N",
     "semester": "2026FALL"
   },
   {
@@ -83922,6 +86104,25 @@
     "coreRequirement": "Theology",
     "room": "Gasson Hall 302",
     "semester": "2026SPRG"
+  },
+  {
+    "code": "THEO1420",
+    "name": "The Everlasting Covenant: The Hebrew Bible",
+    "section": "02",
+    "credits": 3,
+    "days": [
+      "M",
+      "W",
+      "F"
+    ],
+    "startTime": "09:00",
+    "endTime": "09:50",
+    "professor": "Prof. Department",
+    "description": "The Hebrew Bible/Old Testament has been an influential and often fundamental source for many modern, Western views of God, nature, human beings, a just society, and the origin and destiny of humanity and the world. An intelligent, serious reading of the Hebrew Bible raises most of the enduring quest",
+    "prerequisites": [],
+    "coreRequirement": "Theology",
+    "room": "245 Beacon Street Room 229",
+    "semester": "2026FALL"
   },
   {
     "code": "THEO1420",
@@ -84748,13 +86949,13 @@
       "W",
       "F"
     ],
-    "startTime": "09:00",
-    "endTime": "09:50",
+    "startTime": "14:00",
+    "endTime": "14:50",
     "professor": "Prof. Lee",
     "description": "It has been said that to know one religion is to know none. In this course, we seek to gain an understanding of two of the major world religions, Christianity and Hinduism, through a comparative and dialogical approach of the ways in which these traditions have come to terms with some of the basic e",
     "prerequisites": [],
     "coreRequirement": "Cultural Diversity,Theology",
-    "room": "Stokes Hall 215N",
+    "room": "Stokes Hall 401N",
     "semester": "2026FALL"
   },
   {
@@ -86051,7 +88252,7 @@
   },
   {
     "code": "THTR1039",
-    "name": "Theatre Production Lab III: Assistant Stage Manager",
+    "name": "Theatre Production Lab III: Assistant Stage Manager Prep",
     "section": "01",
     "credits": 1,
     "days": [
@@ -86060,7 +88261,7 @@
     "startTime": "17:00",
     "endTime": "18:30",
     "professor": "Prof. Traub",
-    "description": "Every department production has two or more assistant stage managers. These students help the stage manager to run rehearsals and are in charge of backstage during performances. ASMs must be at many of the regular rehearsals and at all of the technical and dress rehearsals and performances for the s",
+    "description": "This is the Prep Lab portion of the Assistant Stage Manager Lab. You must also register for THTR 1019, the Run Lab portion. Assistant Stage Managers help the stage manager to run rehearsals and are in charge of backstage during performances. ASMs must be at all of the regular rehearsals and at all o",
     "prerequisites": [],
     "coreRequirement": null,
     "room": "BY ARRANGEMENT",
@@ -86068,7 +88269,7 @@
   },
   {
     "code": "THTR1049",
-    "name": "Advanced Production Lab: Stage Manager",
+    "name": "Advanced Production Lab: Stage Manager Prep",
     "section": "01",
     "credits": 2,
     "days": [
@@ -86077,7 +88278,7 @@
     "startTime": "17:00",
     "endTime": "18:30",
     "professor": "Prof. Traub",
-    "description": "Once students gain experience as an assistant stage manager, they may advance to the two credit Stage Management lab. The stage manger works alongside the director on a production and is in charge of organizing rehearsals, communicating with the production team, and running performances. Stage manag",
+    "description": "This is the Prep Lab portion of the Stage Manager Lab. You must also register for THTR 1029, the Run Lab portion. Once students gain experience as an assistant stage manager (at least twice, except for special circumstances), they may advance to the Stage Management lab. The stage manager works alon",
     "prerequisites": [],
     "coreRequirement": null,
     "room": "BY ARRANGEMENT",
