@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scheduling | Plan4Eagles</title>
+
+    <link rel="stylesheet" href="project/style/global.css" />
+    <link rel="stylesheet" href="project/style/scheduling.css" />
+  </head>
+
+  <body>
+    <header class="navbar">
+      <h1 class="logo">Plan4Eagles</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="scheduling.html" class="active">Scheduling</a>
+        <a href="plan.html">4-Year Plan</a>
+        <a href="opportunities.html">Opportunities</a>
+      </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <div class="schedule-container">
+      <!-- LEFT: COURSE SEARCH -->
+      <aside class="course-search">
+        <h2>Course List</h2>
+        <input id="search-box" type="text" placeholder="Search courses..." />
+        <div class="filter-row">
+          <select id="semester-data-filter" class="semester-data-filter">
+            <option value="">All Semesters</option>
+            <option value="2026FALL">Fall 2026</option>
+            <option value="2026SPRG">Spring 2026</option>
+          </select>
+          <select id="dept-filter" class="dept-filter">
+            <option value="">All Departments</option>
+          </select>
+        </div>
+        <button id="export-schedule-btn" class="btn-secondary" style="width:100%; margin-bottom:10px;">Export to 4-Year Plan</button>
+        <button id="reset-schedule-btn" class="btn-primary" style="width:100%; margin-bottom:15px;">Reset Schedule</button>
+        <ul id="course-list"></ul>
+      </aside>
+
+      <!-- RIGHT: TIME GRID -->
+      <main class="week-grid">
+        <div class="schedule-header">
+          <h2 class="title">Weekly Schedule</h2>
+          <div class="schedule-controls">
+            <select id="semester-select" class="semester-select">
+              <option value="">Select Semester</option>
+              <option value="freshman-fall">Freshman Fall</option>
+              <option value="freshman-spring">Freshman Spring</option>
+              <option value="sophomore-fall">Sophomore Fall</option>
+              <option value="sophomore-spring">Sophomore Spring</option>
+              <option value="junior-fall">Junior Fall</option>
+              <option value="junior-spring">Junior Spring</option>
+              <option value="senior-fall">Senior Fall</option>
+              <option value="senior-spring">Senior Spring</option>
+            </select>
+            <div id="credit-counter">
+              Total Credits: <span id="total-credits">0</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="schedule-grid">
+          <!-- Time labels column -->
+          <div class="time-column" id="time-column">
+            <div class="time-header"></div>
+            <!-- Time slots generated dynamically by scheduling.js -->
+          </div>
+
+          <!-- Monday -->
+          <div class="day-column">
+            <div class="day-header">Monday</div>
+            <div class="day-slots" data-day="M"></div>
+          </div>
+
+          <!-- Tuesday -->
+          <div class="day-column">
+            <div class="day-header">Tuesday</div>
+            <div class="day-slots" data-day="T"></div>
+          </div>
+
+          <!-- Wednesday -->
+          <div class="day-column">
+            <div class="day-header">Wednesday</div>
+            <div class="day-slots" data-day="W"></div>
+          </div>
+
+          <!-- Thursday -->
+          <div class="day-column">
+            <div class="day-header">Thursday</div>
+            <div class="day-slots" data-day="Th"></div>
+          </div>
+
+          <!-- Friday -->
+          <div class="day-column">
+            <div class="day-header">Friday</div>
+            <div class="day-slots" data-day="F"></div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="project/js/scheduling.js"></script>
+  </body>
+</html>

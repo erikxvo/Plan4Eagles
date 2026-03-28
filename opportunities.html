@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Opportunities | Plan4Eagles</title>
+
+    <link rel="stylesheet" href="project/style/global.css" />
+    <link rel="stylesheet" href="project/style/opportunities.css" />
+  </head>
+
+  <body>
+    <header class="navbar">
+      <h1 class="logo">Plan4Eagles</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="scheduling.html">Scheduling</a>
+        <a href="plan.html">4-Year Plan</a>
+        <a href="opportunities.html" class="active">Opportunities</a>
+      </nav>
+    </header>
+
+    <div class="opp-container">
+      <!-- Header -->
+      <div class="opp-header">
+        <div>
+          <h2>Career Opportunities</h2>
+          <p class="opp-subtitle">Internships, research, clubs, and jobs tailored to your major.</p>
+        </div>
+        <a id="handshake-btn" href="https://app.joinhandshake.com/stu/postings" target="_blank" class="btn-primary handshake-link">
+          Open Handshake
+        </a>
+      </div>
+
+      <!-- Filters -->
+      <div class="filter-bar">
+        <select id="type-filter" class="opp-filter">
+          <option value="">All Types</option>
+          <option value="Internship">Internships</option>
+          <option value="Research">Research</option>
+          <option value="On-Campus Job">On-Campus Jobs</option>
+          <option value="Club">Clubs</option>
+        </select>
+        <label class="major-filter-label">
+          <input type="checkbox" id="major-filter-toggle" checked />
+          Show only my major
+        </label>
+      </div>
+
+      <!-- Opportunity Cards -->
+      <div id="opp-list" class="opp-list">
+        <p class="loading-text">Loading opportunities...</p>
+      </div>
+    </div>
+
+    <script src="project/js/opportunities.js"></script>
+  </body>
+</html>
