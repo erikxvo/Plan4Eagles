@@ -1,0 +1,210 @@
+/* ============================
+   OPPORTUNITIES PAGE STYLES
+   ============================ */
+
+.oppContainer {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 28px 24px;
+}
+
+.oppHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.oppHeader h2 {
+  color: #8e0c03;
+  font-size: 24px;
+}
+
+.oppSubtitle {
+  color: #666;
+  font-size: 14px;
+  margin: 4px 0 0 0;
+}
+
+.handshakeLink {
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+/* FILTER BAR */
+.filterBar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding: 14px 18px;
+  background: #fff;
+  border: 1px solid #efe7d8;
+  border-radius: 12px;
+}
+
+.oppFilter {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1.5px solid #d8cab2;
+  background: #fffdf7;
+  font-size: 14px;
+  font-weight: 600;
+  color: #5a4a3a;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+}
+
+.oppFilter:focus {
+  outline: 2px solid #8e0c03;
+  border-color: #8e0c03;
+}
+
+.majorFilterLabel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #5a4a3a;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.majorFilterLabel input[type="checkbox"] {
+  accent-color: #8e0c03;
+  width: 16px;
+  height: 16px;
+}
+
+/* OPPORTUNITY LIST */
+.oppList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.noResults {
+  text-align: center;
+  color: #888;
+  padding: 40px 0;
+  font-size: 15px;
+}
+
+/* OPPORTUNITY CARD */
+.oppCard {
+  background: #ffffff;
+  border: 1px solid #efe7d8;
+  border-radius: 14px;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.oppCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.oppCardBody {
+  flex: 1;
+}
+
+.oppCardTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #8e0c03;
+  margin: 0 0 4px 0;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.oppCardCompany {
+  font-size: 14px;
+  font-weight: 600;
+  color: #3a3a3a;
+  margin: 0 0 6px 0;
+}
+
+.oppCardDesc {
+  font-size: 13px;
+  color: #666;
+  margin: 0 0 10px 0;
+  line-height: 1.4;
+}
+
+.oppCardMeta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.oppTag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.oppTagType {
+  background: #f0ebe3;
+  color: #7a6a55;
+}
+
+.oppTagLocation {
+  background: #e8f0ff;
+  color: #4a6a9a;
+}
+
+.oppTagDate {
+  background: #f5f5f5;
+  color: #888;
+}
+
+.oppCardAction {
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.oppApplyBtn {
+  display: inline-block;
+  padding: 8px 16px;
+  background: #b59a57;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.oppApplyBtn:hover {
+  background: #9a814a;
+}
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+  .oppHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .filterBar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .oppCard {
+    flex-direction: column;
+  }
+
+  .oppCardAction {
+    align-self: flex-start;
+  }
+}

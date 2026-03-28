@@ -1,0 +1,267 @@
+/* ============================
+   4-YEAR PLANNER STYLES
+   ============================ */
+
+.plannerContainer {
+  display: flex;
+  height: calc(100vh - 60px);
+  overflow: hidden;
+  background: #f6f1e9;
+}
+
+/* LEFT CHECKLIST */
+.plannerContainer :global(.requirements) {
+  width: 280px;
+  background: #ffffff;
+  padding: 20px;
+  border-right: 2px solid #eee0c6;
+  overflow-y: auto;
+}
+
+.plannerContainer :global(.requirements h2) {
+  color: #8e0c03;
+  margin-bottom: 6px;
+  font-size: 20px;
+}
+
+.plannerContainer :global(.req-progress) {
+  font-size: 13px;
+  color: #7a6a55;
+  margin-bottom: 14px;
+}
+
+.plannerContainer :global(.requirements ul) {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.plannerContainer :global(.requirements li) {
+  margin-bottom: 10px;
+}
+
+.plannerContainer :global(.requirements li label) {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #5a4a3a;
+  cursor: pointer;
+}
+
+.plannerContainer :global(.requirements input[type="checkbox"]) {
+  accent-color: #8e0c03;
+  width: 16px;
+  height: 16px;
+}
+
+.plannerContainer :global(.requirements input[type="checkbox"]:checked + span) {
+  text-decoration: line-through;
+  color: #b7aa96;
+}
+
+/* GPA DISPLAY */
+.plannerContainer :global(.gpa-display) {
+  text-align: center;
+  padding: 16px;
+  background: #faf7f2;
+  border: 1px solid #efe7d8;
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+
+.plannerContainer :global(.gpa-value) {
+  display: block;
+  font-size: 32px;
+  font-weight: 700;
+  color: #8e0c03;
+  font-family: 'Quicksand', sans-serif;
+  line-height: 1.2;
+}
+
+.plannerContainer :global(.gpa-label) {
+  display: block;
+  font-size: 12px;
+  color: #7a6a55;
+  margin-top: 4px;
+}
+
+.plannerContainer :global(.gpa-summary) {
+  font-size: 12px;
+  color: #999;
+  text-align: center;
+}
+
+/* RIGHT GRID */
+.yearGrid {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+/* YEAR BLOCK */
+.plannerContainer :global(.year-block) {
+  background: #ffffff;
+  border: 2px solid #efe7d8;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.04);
+}
+
+.plannerContainer :global(.year-block h3) {
+  color: #8e0c03;
+  margin-bottom: 12px;
+  font-size: 20px;
+}
+
+/* SEMESTERS */
+.plannerContainer :global(.semesters) {
+  display: flex;
+  gap: 15px;
+}
+
+.plannerContainer :global(.semester) {
+  flex: 1;
+  background: #faf7f2;
+  border-radius: 12px;
+  padding: 12px;
+  border: 1px solid #e8dcc7;
+}
+
+.plannerContainer :global(.semester h4) {
+  color: #b59a57;
+  margin-bottom: 6px;
+  font-size: 16px;
+}
+
+/* TABLE INSIDE SEMESTER */
+.plannerContainer :global(.semester-table) {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 6px;
+}
+
+.plannerContainer :global(.semester-header),
+.plannerContainer :global(.semester-footer),
+.plannerContainer :global(.course-row) {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1.2fr;
+  column-gap: 6px;
+  align-items: center;
+}
+
+.plannerContainer :global(.semester-header span) {
+  font-weight: 600;
+  font-size: 12px;
+  color: #6b5d4a;
+}
+
+.plannerContainer :global(.course-row input),
+.plannerContainer :global(.course-row select) {
+  width: 100%;
+  padding: 4px 6px;
+  font-size: 13px;
+  border-radius: 6px;
+  border: 1px solid #e6dccb;
+  background: #fffdf8;
+  font-family: 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.plannerContainer :global(.grade-select) {
+  font-size: 12px;
+  padding: 4px 2px;
+  cursor: pointer;
+}
+
+.plannerContainer :global(.credit-input) {
+  text-align: center;
+}
+
+.plannerContainer :global(.course-input:focus),
+.plannerContainer :global(.credit-input:focus),
+.plannerContainer :global(.grade-select:focus) {
+  outline: 2px solid #8e0c03;
+  outline-offset: 0;
+  background: #ffffff;
+}
+
+.plannerContainer :global(.semester-footer) {
+  margin-top: 4px;
+  padding-top: 6px;
+  border-top: 1px solid #e0d6c5;
+  font-size: 13px;
+  font-weight: 600;
+  color: #6b5d4a;
+}
+
+.plannerContainer :global(.semester-gpa) {
+  text-align: center;
+  font-size: 12px;
+  color: #8e0c03;
+}
+
+/* YEAR TOTAL */
+.plannerContainer :global(.year-total-row) {
+  margin-top: 12px;
+  padding-top: 8px;
+  border-top: 1px solid #e3d7c0;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 13px;
+  color: #4d3e2f;
+}
+
+/* DIVIDER & MAJOR */
+.plannerContainer :global(.req-divider) {
+  margin: 14px 0;
+  border: none;
+  border-top: 1px solid #e0d6c5;
+}
+
+.plannerContainer :global(.major-label) {
+  display: block;
+  font-size: 13px;
+  color: #6b5d4a;
+  margin-bottom: 4px;
+}
+
+.plannerContainer :global(.major-select) {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 4px 6px;
+  font-size: 13px;
+  border-radius: 6px;
+  border: 1px solid #e6dccb;
+  background: #fffdf8;
+}
+
+.plannerContainer :global(.major-req-list .empty) {
+  font-size: 13px;
+  color: #7a6a55;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .plannerContainer {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .plannerContainer :global(.requirements) {
+    width: 100%;
+    border-right: none;
+    border-bottom: 2px solid #eee0c6;
+  }
+
+  .yearGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .plannerContainer :global(.semesters) {
+    flex-direction: column;
+  }
+}
