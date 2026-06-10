@@ -1,16 +1,18 @@
 {
-  "name": "html-css",
+  "name": "plan4eagles",
   "version": "1.0.0",
-  "description": "A template for HTML and CSS",
+  "description": "Academic planning platform for Boston College students — course scheduling, 4-year degree planning, GPA tracking, and curated opportunity resources.",
   "main": "index.html",
   "scripts": {
-    "start": "serve"
+    "start": "serve",
+    "scrape": "node scraper/fetch-courses.js"
   },
   "keywords": [
-    "html",
-    "css"
+    "boston-college",
+    "course-scheduling",
+    "degree-planner"
   ],
-  "author": "Ives van Hoorne",
+  "author": "erikxvo",
   "license": "MIT",
   "devDependencies": {
     "serve": "11.2.0"

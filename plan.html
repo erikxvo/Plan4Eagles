@@ -23,7 +23,7 @@
     <div class="planner-container">
       <aside class="requirements">
         <h2>BC Core (MCAS)</h2>
-        <button id="reset-plan-btn" class="btn-primary" style="width:100%; margin-bottom:15px;">
+        <button id="reset-plan-btn" class="btn-primary btn-block reset-plan-btn">
           Reset 4-Year Plan
         </button>
 
@@ -39,9 +39,9 @@
           <li><label><input type="checkbox" /><span>Philosophy I</span></label></li>
           <li><label><input type="checkbox" /><span>Philosophy II</span></label></li>
           <li><label><input type="checkbox" /><span>Social Science</span></label></li>
-          <li><label><input type="checkbox" /><span>Social Science</span></label></li>
+          <li><label><input type="checkbox" /><span>Social Science II</span></label></li>
           <li><label><input type="checkbox" /><span>Natural Science</span></label></li>
-          <li><label><input type="checkbox" /><span>Natural Science</span></label></li>
+          <li><label><input type="checkbox" /><span>Natural Science II</span></label></li>
           <li><label><input type="checkbox" /><span>Theology (CT)</span></label></li>
           <li><label><input type="checkbox" /><span>Theology (STT)</span></label></li>
           <li><label><input type="checkbox" /><span>Cultural Diversity</span></label></li>
@@ -60,19 +60,41 @@
           <li class="empty">Choose a major to see its classes.</li>
         </ul>
 
+        <p class="disclaimer-text">
+          Unofficial planning templates for selected programs. Always confirm
+          graduation requirements with your academic advisor and the official
+          Boston College catalog.
+        </p>
+
         <hr class="req-divider" />
 
-        <h2>GPA Calculator</h2>
+        <h2 id="gpa">GPA Calculator</h2>
         <div class="gpa-display">
           <span class="gpa-value" id="gpa-value">--</span>
           <span class="gpa-label">Cumulative GPA</span>
         </div>
         <div class="gpa-summary" id="gpa-summary"></div>
+        <p class="hint-text gpa-hint">
+          Enter credits and a grade for each course below. Each semester also
+          shows its own GPA in the last column of its totals row.
+        </p>
+
+        <hr class="req-divider" />
+
+        <div class="plan-totals">
+          <span class="plan-totals-label">Total credits planned</span>
+          <span class="plan-totals-value" id="total-planned">0</span>
+        </div>
       </aside>
 
-      <main class="year-grid"></main>
+      <main class="plan-main">
+        <p id="plan-status" class="grid-status" hidden></p>
+        <div class="year-grid"></div>
+      </main>
     </div>
 
+    <script src="project/js/storage.js"></script>
+    <script src="project/js/ui.js"></script>
     <script src="project/js/plan.js"></script>
   </body>
 </html>

@@ -22,68 +22,107 @@
 
     <div class="container">
       <aside class="left-panel">
-        <div class="profile-section">
-          <h2>Your Profile</h2>
+        <!-- First-visit guided path (shown when there is no saved data) -->
+        <div id="onboarding" class="onboarding" hidden>
+          <h2>Welcome to Plan4Eagles</h2>
+          <p class="hint-text">
+            Plan your BC degree in a few steps — everything is saved in your
+            browser.
+          </p>
+          <ol class="onboarding-steps">
+            <li><a href="plan.html">Choose your major</a> in the 4-Year Plan</li>
+            <li><a href="scheduling.html">Build your weekly schedule</a> from real BC courses</li>
+            <li>Export classes into your 4-year plan</li>
+            <li><a href="plan.html">Review degree progress and GPA</a></li>
+            <li><a href="opportunities.html">Explore opportunities</a> for your major</li>
+          </ol>
         </div>
 
-        <div class="panel-section">
-          <h3>Major</h3>
-          <ul id="major-list">
-            <!-- populated by JS -->
-          </ul>
-        </div>
+        <div id="profile-content">
+          <div class="profile-section">
+            <h2>Your Profile</h2>
+          </div>
 
-        <div class="panel-section">
-          <h3>Suggestions</h3>
-          <ul id="suggestions">
-            <li>Select a major in the 4-Year Plan to see suggestions.</li>
-          </ul>
-        </div>
+          <div class="panel-section">
+            <h3>Major</h3>
+            <ul id="major-list">
+              <!-- populated by JS -->
+            </ul>
+          </div>
 
-        <div class="panel-section">
-          <h3>Quick Stats</h3>
-          <div class="stats-grid">
-            <div class="stat-item">
-              <span class="stat-value" id="stat-credits">--</span>
-              <span class="stat-label">Credits Planned</span>
+          <div class="panel-section">
+            <h3>Next Step</h3>
+            <p id="next-step" class="next-step"></p>
+          </div>
+
+          <div class="panel-section">
+            <h3>Quick Stats</h3>
+            <div class="stats-grid">
+              <div class="stat-item">
+                <span class="stat-value" id="stat-credits">--</span>
+                <span class="stat-label">Credits Planned</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value" id="stat-reqs">--</span>
+                <span class="stat-label">Requirements Done</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value" id="stat-gpa">--</span>
+                <span class="stat-label">GPA</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value" id="stat-scheduled">--</span>
+                <span class="stat-label" id="stat-scheduled-label">Scheduled Credits</span>
+              </div>
             </div>
-            <div class="stat-item">
-              <span class="stat-value" id="stat-reqs">--</span>
-              <span class="stat-label">Reqs Completed</span>
-            </div>
+          </div>
+
+          <div class="panel-section">
+            <h3>Suggestions</h3>
+            <ul id="suggestions">
+              <li>Select a major in the 4-Year Plan to see suggestions.</li>
+            </ul>
           </div>
         </div>
       </aside>
 
       <!-- Right Grid -->
       <main class="right-grid">
-        <div class="tile" onclick="goTo('scheduling.html')">
-          <div class="tile-icon">&#128197;</div>
+        <a class="tile" href="scheduling.html">
+          <div class="tile-icon" aria-hidden="true">&#128197;</div>
           <h3>Scheduling</h3>
-          <p>Plan your next semester with smart conflict detection.</p>
-        </div>
+          <p>Build a weekly schedule from real BC course sections, with conflict detection.</p>
+        </a>
 
-        <div class="tile" onclick="goTo('opportunities.html')">
-          <div class="tile-icon">&#128188;</div>
-          <h3>Opportunities</h3>
-          <p>Internships, research, and clubs tailored to your major.</p>
-        </div>
-
-        <div class="tile" onclick="goTo('plan.html')">
-          <div class="tile-icon">&#128218;</div>
+        <a class="tile" href="plan.html">
+          <div class="tile-icon" aria-hidden="true">&#128218;</div>
           <h3>4-Year Planner</h3>
-          <p>Visualize your degree timeline and requirements.</p>
-        </div>
+          <p>Map all eight semesters and track core and major requirements.</p>
+        </a>
 
-        <div class="tile disabled">
-          <div class="tile-icon">&#128196;</div>
-          <h3>Upload Degree Audit</h3>
-          <p>Import your degree audit to auto-track progress.</p>
-          <span class="coming-soon-badge">Coming Soon</span>
-        </div>
+        <a class="tile" href="plan.html#gpa">
+          <div class="tile-icon" aria-hidden="true">&#128202;</div>
+          <h3>GPA Calculator</h3>
+          <p>Enter grades in your plan to see semester and cumulative GPA.</p>
+        </a>
+
+        <a class="tile" href="opportunities.html">
+          <div class="tile-icon" aria-hidden="true">&#128188;</div>
+          <h3>Opportunities</h3>
+          <p>Official BC resources for internships, research, campus jobs, and clubs.</p>
+        </a>
+
+        <p class="dashboard-footnote disclaimer-text">
+          Planned feature: import a degree audit to personalize requirement
+          tracking.<br />
+          Plan4Eagles is an independent student project and is not affiliated
+          with Boston College. Your data stays in this browser.
+        </p>
       </main>
     </div>
 
+    <script src="project/js/storage.js"></script>
+    <script src="project/js/ui.js"></script>
     <script src="project/js/main.js"></script>
   </body>
 </html>

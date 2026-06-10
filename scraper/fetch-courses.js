@@ -32,14 +32,6 @@ const API_URLS = {
   summer: "https://bcweb.bc.edu/aem/coursessumm.json",
 };
 
-// Departments relevant to our app (can be expanded)
-const TARGET_DEPTS = [
-  "CSCI", "MATH", "ECON", "PHYS", "BIOL", "CHEM",
-  "PSYC", "POLI", "ENGL", "PHIL", "THEO", "HIST",
-  "SOCY", "COMM", "ARTS", "SPAN", "FREN", "GERM",
-  "ITAL", "MUSA", "MUSP", "FILM", "AADS",
-];
-
 // Output path
 const OUTPUT_PATH = path.join(__dirname, "..", "project", "data", "courses.json");
 
@@ -50,8 +42,8 @@ const OUTPUT_PATH = path.join(__dirname, "..", "project", "data", "courses.json"
 function parseArgs() {
   const args = process.argv.slice(2);
   const config = {
-    semesters: ["fall", "spring"],
-    depts: null, // null = use TARGET_DEPTS
+    semesters: ["fall", "spring", "summer"],
+    depts: null, // null = all departments
     undergraduateOnly: true,
   };
 
@@ -132,12 +124,25 @@ async function fetchSemesterData(semester) {
  *   "Stokes Hall 133S MW 01:00PM-01:50PM"
  *   "On-line Asynchronous"
  *
- * Returns { days: ["M","W","F"], startTime: "10:00", endTime: "10:50", room: "Fulton Hall 423" }
- * or null if can't parse
+ * Returns one of:
+ *   { type: "async" }                       - online asynchronous, no meeting times
+ *   { type: "arranged" }                    - "By Arrangement" (independent study, lessons, etc.)
+ *   { type: "tba" }                         - meeting time/room to be announced or unparseable
+ *   { type: "scheduled", days, startTime, endTime, room, additionalMeetings }
+ *
+ * When a section has multiple meeting patterns (e.g. lecture + evening
+ * discussion), the segment with the most meeting days is treated as primary
+ * and the remaining patterns are preserved verbatim in additionalMeetings.
  */
 function parseRoomSchedule(roomSchedule) {
-  if (!roomSchedule || roomSchedule.includes("Asynchronous") || roomSchedule.includes("TBA")) {
-    return null;
+  if (!roomSchedule || roomSchedule.includes("TBA")) {
+    return { type: "tba" };
+  }
+  if (/arrangement/i.test(roomSchedule)) {
+    return { type: "arranged" };
+  }
+  if (roomSchedule.includes("Asynchronous")) {
+    return { type: "async" };
   }
 
   // Normalize "12:00 Noon" to "12:00PM" so the regex can parse it
@@ -146,27 +151,42 @@ function parseRoomSchedule(roomSchedule) {
   // Some entries have notes or split room/schedule separated by semicolons, e.g.:
   //   "Stokes Hall 121N TuTh 01:30PM-02:45PM;US Residents Section"
   //   "McGuinn Hall B-14;W 12:30PM-01:00PM"
-  // Try each segment until one parses successfully
-  const segments = roomSchedule.split(";").map((s) => s.trim());
+  // Parse every segment; non-parseable segments may hold room info or notes.
+  const segments = roomSchedule.split(";").map((s) => s.trim()).filter(Boolean);
 
+  const parsed = [];
+  const unparsed = [];
   for (const segment of segments) {
     const result = parseScheduleSegment(segment);
     if (result) {
-      // If parsed without a room, check other segments for room info
-      if (!result.room) {
-        for (const other of segments) {
-          const trimmed = other.trim();
-          if (trimmed !== segment && !parseScheduleSegment(trimmed)) {
-            result.room = trimmed;
-            break;
-          }
-        }
-      }
-      return result;
+      parsed.push({ ...result, raw: segment });
+    } else {
+      unparsed.push(segment);
     }
   }
 
-  return null;
+  if (parsed.length === 0) {
+    return { type: "tba" };
+  }
+
+  // Primary pattern = the one meeting on the most days (lecture over lab/discussion)
+  parsed.sort((a, b) => b.days.length - a.days.length);
+  const primary = parsed[0];
+
+  // If the primary segment had no room of its own, an unparsed segment is
+  // often the room (e.g. "Devlin 008;M 07:15PM-08:45PM")
+  if (!primary.room && unparsed.length > 0) {
+    primary.room = unparsed[0];
+  }
+
+  return {
+    type: "scheduled",
+    days: primary.days,
+    startTime: primary.startTime,
+    endTime: primary.endTime,
+    room: primary.room,
+    additionalMeetings: parsed.slice(1).map((p) => p.raw),
+  };
 }
 
 /**
@@ -298,29 +318,57 @@ function parsePrerequisites(prereqStr) {
 function transformCourse(bcCourse) {
   const schedule = parseRoomSchedule(bcCourse.room_schedule);
 
-  // Skip courses we can't parse schedule for
-  if (!schedule) return null;
-
-  // Skip weekend classes
-  if (schedule.days.some((d) => d === "Sa" || d === "Su")) return null;
-
-  // Skip if no days
-  if (schedule.days.length === 0) return null;
-
-  return {
+  const base = {
     code: `${bcCourse.dept_code}${bcCourse.crs_number}`,
     name: bcCourse.title,
-    section: bcCourse.section.padStart(2, "0"),
+    section: (bcCourse.section || "").padStart(2, "0"),
     credits: parseInt(bcCourse.credits) || 3,
-    days: schedule.days,
-    startTime: schedule.startTime,
-    endTime: schedule.endTime,
     professor: formatProfessorName(bcCourse.instructors),
     description: cleanDescription(bcCourse.crs_desc),
     prerequisites: parsePrerequisites(bcCourse.prereq),
     coreRequirement: bcCourse.core_list || null,
-    room: schedule.room,
     semester: bcCourse.term,
+  };
+
+  // Asynchronous / arranged / TBA sections have no placeable meeting time.
+  // Keep them, clearly typed, so the app can list them honestly instead of
+  // hiding them.
+  if (schedule.type === "async" || schedule.type === "arranged" || schedule.type === "tba") {
+    return {
+      ...base,
+      scheduleType: schedule.type,
+      days: [],
+      startTime: null,
+      endTime: null,
+      room: "",
+      additionalMeetings: [],
+    };
+  }
+
+  if (schedule.days.length === 0) {
+    return {
+      ...base,
+      scheduleType: "tba",
+      days: [],
+      startTime: null,
+      endTime: null,
+      room: schedule.room || "",
+      additionalMeetings: [],
+    };
+  }
+
+  // Weekend sections keep their real meeting info but are flagged: the
+  // weekly calendar only renders Monday-Friday.
+  const isWeekend = schedule.days.some((d) => d === "Sa" || d === "Su");
+
+  return {
+    ...base,
+    scheduleType: isWeekend ? "weekend" : "scheduled",
+    days: schedule.days,
+    startTime: schedule.startTime,
+    endTime: schedule.endTime,
+    room: schedule.room,
+    additionalMeetings: schedule.additionalMeetings || [],
   };
 }
 
@@ -343,6 +391,26 @@ function cleanDescription(desc) {
     .replace(/\s+/g, " ")
     .trim()
     .substring(0, 300); // Truncate long descriptions
+}
+
+/**
+ * Converts a BC term code like "2026FALL" to a label like "Fall 2026"
+ */
+function termLabel(termCode) {
+  const match = /^(\d{4})(FALL|SPRG|SUMM)$/.exec(termCode || "");
+  if (!match) return termCode || "Unknown term";
+  const seasons = { FALL: "Fall", SPRG: "Spring", SUMM: "Summer" };
+  return `${seasons[match[2]]} ${match[1]}`;
+}
+
+/**
+ * Sort key so terms order chronologically: Spring (~Jan) < Summer < Fall
+ */
+function termSortKey(termCode) {
+  const match = /^(\d{4})(FALL|SPRG|SUMM)$/.exec(termCode || "");
+  if (!match) return 0;
+  const seasonOrder = { SPRG: 1, SUMM: 2, FALL: 3 };
+  return parseInt(match[1]) * 10 + seasonOrder[match[2]];
 }
 
 // ==========================================
@@ -378,12 +446,21 @@ async function main() {
     console.log(`After undergraduate filter: ${filtered.length}`);
   }
 
-  // Transform to app format
+  // Build department code -> name map from the registrar data itself
+  const departments = {};
+  filtered.forEach((c) => {
+    if (c.dept_code && c.dept_name && !departments[c.dept_code]) {
+      departments[c.dept_code] = c.dept_name;
+    }
+  });
+
+  // Transform to app format (nothing is silently dropped anymore;
+  // async/TBA/weekend sections are kept and typed)
   const transformed = filtered
     .map(transformCourse)
     .filter((c) => c !== null);
 
-  console.log(`After schedule parsing: ${transformed.length}`);
+  console.log(`After transform: ${transformed.length}`);
 
   // Sort by department, course number, section
   transformed.sort((a, b) => {
@@ -393,10 +470,20 @@ async function main() {
 
   // Stats
   const deptCounts = {};
+  const typeCounts = {};
+  let multiPattern = 0;
   transformed.forEach((c) => {
     const dept = c.code.replace(/[0-9]/g, "");
     deptCounts[dept] = (deptCounts[dept] || 0) + 1;
+    typeCounts[c.scheduleType] = (typeCounts[c.scheduleType] || 0) + 1;
+    if (c.additionalMeetings.length > 0) multiPattern++;
   });
+
+  console.log("\n--- Schedule types ---");
+  Object.entries(typeCounts).forEach(([type, count]) => {
+    console.log(`  ${type}: ${count} sections`);
+  });
+  console.log(`  (with additional meeting patterns: ${multiPattern})`);
 
   console.log("\n--- Courses per Department ---");
   Object.entries(deptCounts)
@@ -405,13 +492,28 @@ async function main() {
       console.log(`  ${dept}: ${count} sections`);
     });
 
-  // Write output
+  // Collect the terms actually present in the data
+  const termCodes = [...new Set(transformed.map((c) => c.semester))].sort(
+    (a, b) => termSortKey(a) - termSortKey(b)
+  );
+  const terms = termCodes.map((code) => ({ code, label: termLabel(code) }));
+  console.log(`\nTerms in output: ${terms.map((t) => t.label).join(", ") || "none"}`);
+
+  // Write output (wrapper object with refresh metadata)
+  const output = {
+    generatedAt: new Date().toISOString(),
+    terms,
+    departments,
+    courseCount: transformed.length,
+    courses: transformed,
+  };
+
   const outputDir = path.dirname(OUTPUT_PATH);
   if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir, { recursive: true });
   }
 
-  fs.writeFileSync(OUTPUT_PATH, JSON.stringify(transformed, null, 2));
+  fs.writeFileSync(OUTPUT_PATH, JSON.stringify(output, null, 2));
   console.log(`\nWrote ${transformed.length} courses to ${OUTPUT_PATH}`);
   console.log("Done!\n");
 }

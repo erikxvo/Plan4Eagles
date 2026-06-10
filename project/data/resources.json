@@ -1,0 +1,156 @@
+{
+  "lastVerified": "2026-06-10",
+  "handshakeSearchTerms": {
+    "cs-ba": ["Software engineering", "Data analyst", "Product management", "Cybersecurity", "Technology consulting", "Research assistant"],
+    "cs-bs": ["Software engineering", "Data analyst", "Machine learning", "Cybersecurity", "Technology consulting", "Research assistant"],
+    "math-ba": ["Data analyst", "Actuarial", "Quantitative analyst", "Statistics", "Teaching"],
+    "math-bs": ["Quantitative analyst", "Data scientist", "Actuarial", "Research assistant", "Statistics"],
+    "econ-ba": ["Financial analyst", "Economic research", "Consulting", "Investment banking", "Data analyst"],
+    "biology-ba": ["Research assistant", "Lab technician", "Biotech", "Clinical research", "Pharmaceutical"],
+    "psych-ba": ["Research assistant", "Behavioral health", "Human resources", "UX research", "Social services"],
+    "poli-sci-ba": ["Policy research", "Legislative intern", "Government affairs", "Legal assistant", "Nonprofit"]
+  },
+  "resources": [
+    {
+      "id": "handshake-bc",
+      "name": "Handshake",
+      "description": "Boston College's official platform for browsing jobs and internships available to BC students, scheduling career-coach appointments, and finding career fairs.",
+      "category": "jobs",
+      "relevantMajors": [],
+      "url": "https://app.joinhandshake.com/stu/postings",
+      "source": "Boston College Career Center",
+      "loginRequired": true,
+      "featured": true
+    },
+    {
+      "id": "bc-career-center",
+      "name": "BC Career Center",
+      "description": "Career coaching, career-path guides, recruiting events, and application resources from the Division of Student Affairs.",
+      "category": "jobs",
+      "relevantMajors": [],
+      "url": "https://www.bc.edu/bc-web/offices/studentaffairs/sites/careers.html",
+      "source": "bc.edu",
+      "loginRequired": false
+    },
+    {
+      "id": "bc-handshake-guide",
+      "name": "Handshake Guide",
+      "description": "The Career Center's guide to setting up your Handshake profile and using it to find jobs, internships, and employer events.",
+      "category": "jobs",
+      "relevantMajors": [],
+      "url": "https://www.bc.edu/bc-web/offices/studentaffairs/sites/careers/find-apply/handshake.html",
+      "source": "bc.edu",
+      "loginRequired": false
+    },
+    {
+      "id": "bc-undergrad-research",
+      "name": "Undergraduate Research Opportunities",
+      "description": "Boston College's central overview of undergraduate research programs and how to get involved in faculty research.",
+      "category": "research",
+      "relevantMajors": [],
+      "url": "https://www.bc.edu/bc-web/research/undergrad-research-opps.html",
+      "source": "bc.edu",
+      "loginRequired": false
+    },
+    {
+      "id": "bc-urf",
+      "name": "Undergraduate Research Support (URF & Grants)",
+      "description": "The Undergraduate Research Fellowship program, Advanced Study Grants, conference travel grants, and thesis research support.",
+      "category": "research",
+      "relevantMajors": [],
+      "url": "https://www.bc.edu/bc-web/academics/sites/office-of-provost/about/provost-committees/university-fellowship-committee/undergraduate-research-support.html",
+      "source": "bc.edu (Office of the Provost)",
+      "loginRequired": false
+    },
+    {
+      "id": "bc-fellowships",
+      "name": "University Fellowships Committee",
+      "description": "Guidance for competing for major fellowships and scholarships such as the Rhodes, Fulbright, Marshall, and Truman.",
+      "category": "research",
+      "relevantMajors": [],
+      "url": "https://www.bc.edu/bc-web/academics/sites/office-of-provost/about/provost-committees/university-fellowship-committee.html",
+      "source": "bc.edu (Office of the Provost)",
+      "loginRequired": false
+    },
+    {
+      "id": "cs-research",
+      "name": "Computer Science: Research",
+      "description": "Faculty research areas in the CS department, with undergraduate involvement through independent studies and honors projects.",
+      "category": "research",
+      "relevantMajors": ["cs-ba", "cs-bs"],
+      "url": "https://www.bc.edu/bc-web/schools/mcas/departments/computer-science/research.html",
+      "source": "bc.edu (Computer Science Department)",
+      "loginRequired": false
+    },
+    {
+      "id": "econ-research",
+      "name": "Economics: Research Opportunities & Internships",
+      "description": "The Economics department's page on undergraduate research assistant positions and internships.",
+      "category": "research",
+      "relevantMajors": ["econ-ba"],
+      "url": "https://www.bc.edu/bc-web/schools/morrissey/departments/economics/undergraduate/research.html",
+      "source": "bc.edu (Economics Department)",
+      "loginRequired": false
+    },
+    {
+      "id": "bio-summer-research",
+      "name": "Biology: Summer Research Experiences",
+      "description": "Summer research options for Biology students, including NSF REU programs and NIH summer internships.",
+      "category": "research",
+      "relevantMajors": ["biology-ba"],
+      "url": "https://www.bc.edu/bc-web/schools/mcas/departments/biology/undergraduate/careers-and-professional-development/summer-research-experiences.html",
+      "source": "bc.edu (Biology Department)",
+      "loginRequired": false
+    },
+    {
+      "id": "psych-dept",
+      "name": "Psychology & Neuroscience Department",
+      "description": "Department home page with faculty labs, colloquia, and information on joining undergraduate research projects.",
+      "category": "research",
+      "relevantMajors": ["psych-ba"],
+      "url": "https://www.bc.edu/bc-web/schools/morrissey/departments/psychology-neuroscience.html",
+      "source": "bc.edu (Psychology & Neuroscience)",
+      "loginRequired": false
+    },
+    {
+      "id": "bc-student-employment",
+      "name": "Student Employment",
+      "description": "The Office of Student Services hub for hourly paid student employment, including Federal Work-Study information.",
+      "category": "on-campus",
+      "relevantMajors": [],
+      "url": "https://www.bc.edu/bc-web/offices/student-services/student-employment.html",
+      "source": "bc.edu (Office of Student Services)",
+      "loginRequired": false
+    },
+    {
+      "id": "bc-job-listings",
+      "name": "On-Campus Job Listings",
+      "description": "Active on-campus student job postings for the academic year and summer, with application instructions.",
+      "category": "on-campus",
+      "relevantMajors": [],
+      "url": "https://www.bc.edu/bc-web/offices/student-services/student-employment/job-listings.html",
+      "source": "bc.edu (Office of Student Services)",
+      "loginRequired": false
+    },
+    {
+      "id": "mybc-orgs",
+      "name": "MyBC Organization Directory",
+      "description": "Browse Boston College's 300+ active student organizations, see upcoming events, and join groups.",
+      "category": "clubs",
+      "relevantMajors": [],
+      "url": "https://bc.campuslabs.com/engage/organizations",
+      "source": "MyBC (Engage)",
+      "loginRequired": false
+    },
+    {
+      "id": "bc-student-involvement",
+      "name": "Office of Student Involvement",
+      "description": "Programs, leadership opportunities, the annual Involvement Fair, and resources for joining or starting a student organization.",
+      "category": "clubs",
+      "relevantMajors": [],
+      "url": "https://www.bc.edu/bc-web/offices/studentaffairs/sites/student-involvement.html",
+      "source": "bc.edu (Student Affairs)",
+      "loginRequired": false
+    }
+  ]
+}

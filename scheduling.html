@@ -24,21 +24,31 @@
     <div class="schedule-container">
       <!-- LEFT: COURSE SEARCH -->
       <aside class="course-search">
-        <h2>Course List</h2>
-        <input id="search-box" type="text" placeholder="Search courses..." />
+        <h2>Find Courses</h2>
+        <p id="data-freshness" class="hint-text"></p>
+        <p id="archive-note" class="archive-note hint-text" hidden></p>
+        <input
+          id="search-box"
+          type="search"
+          placeholder="Search by code, title, or professor"
+          aria-label="Search courses by code, title, or professor"
+        />
         <div class="filter-row">
+          <label class="filter-label" for="semester-data-filter">Term</label>
           <select id="semester-data-filter" class="semester-data-filter">
-            <option value="">All Semesters</option>
-            <option value="2026FALL">Fall 2026</option>
-            <option value="2026SPRG">Spring 2026</option>
+            <option value="">All terms</option>
           </select>
+          <label class="filter-label" for="dept-filter">Department</label>
           <select id="dept-filter" class="dept-filter">
             <option value="">All Departments</option>
           </select>
         </div>
-        <button id="export-schedule-btn" class="btn-secondary" style="width:100%; margin-bottom:10px;">Export to 4-Year Plan</button>
-        <button id="reset-schedule-btn" class="btn-primary" style="width:100%; margin-bottom:15px;">Reset Schedule</button>
+        <p id="results-count" class="hint-text" role="status"></p>
         <ul id="course-list"></ul>
+        <p class="disclaimer-text">
+          Confirm availability, professors, rooms, and registration details in
+          Boston College's official registration system.
+        </p>
       </aside>
 
       <!-- RIGHT: TIME GRID -->
@@ -46,8 +56,9 @@
         <div class="schedule-header">
           <h2 class="title">Weekly Schedule</h2>
           <div class="schedule-controls">
+            <label class="filter-label" for="semester-select">Plan semester</label>
             <select id="semester-select" class="semester-select">
-              <option value="">Select Semester</option>
+              <option value="">Select semester</option>
               <option value="freshman-fall">Freshman Fall</option>
               <option value="freshman-spring">Freshman Spring</option>
               <option value="sophomore-fall">Sophomore Fall</option>
@@ -63,6 +74,15 @@
           </div>
         </div>
 
+        <div class="schedule-actions">
+          <button id="export-schedule-btn" class="btn-secondary">Export to 4-Year Plan</button>
+          <button id="reset-schedule-btn" class="btn-primary">Reset Schedule</button>
+          <p id="export-hint" class="hint-text"></p>
+        </div>
+
+        <p id="grid-status" class="grid-status" hidden></p>
+
+        <div class="schedule-grid-scroll">
         <div class="schedule-grid">
           <!-- Time labels column -->
           <div class="time-column" id="time-column">
@@ -100,8 +120,21 @@
             <div class="day-slots" data-day="F"></div>
           </div>
         </div>
+        </div>
+
+        <section id="unscheduled-section" class="unscheduled-section" hidden>
+          <h3>Not shown on the weekly grid</h3>
+          <p class="hint-text">
+            These courses are on your schedule but have no fixed weekday
+            meeting time (online asynchronous, by arrangement, or TBA), so
+            they can't be placed on the calendar.
+          </p>
+          <ul id="unscheduled-list"></ul>
+        </section>
       </main>
     </div>
+    <script src="project/js/storage.js"></script>
+    <script src="project/js/ui.js"></script>
     <script src="project/js/scheduling.js"></script>
   </body>
 </html>

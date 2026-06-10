@@ -24,35 +24,56 @@
       <!-- Header -->
       <div class="opp-header">
         <div>
-          <h2>Career Opportunities</h2>
-          <p class="opp-subtitle">Internships, research, clubs, and jobs tailored to your major.</p>
+          <h2>Opportunity Hub</h2>
+          <p class="opp-subtitle">
+            Curated official Boston College resources for jobs, research,
+            campus work, and student organizations.
+          </p>
         </div>
-        <a id="handshake-btn" href="https://app.joinhandshake.com/stu/postings" target="_blank" class="btn-primary handshake-link">
-          Open Handshake
-        </a>
+      </div>
+
+      <!-- Category tabs -->
+      <div class="opp-tabs" role="tablist" aria-label="Opportunity categories">
+        <button class="opp-tab is-active" role="tab" aria-selected="true" data-category="jobs">
+          Jobs &amp; Internships
+        </button>
+        <button class="opp-tab" role="tab" aria-selected="false" data-category="research">
+          Research
+        </button>
+        <button class="opp-tab" role="tab" aria-selected="false" data-category="on-campus">
+          On-Campus
+        </button>
+        <button class="opp-tab" role="tab" aria-selected="false" data-category="clubs">
+          Student Orgs
+        </button>
       </div>
 
       <!-- Filters -->
       <div class="filter-bar">
-        <select id="type-filter" class="opp-filter">
-          <option value="">All Types</option>
-          <option value="Internship">Internships</option>
-          <option value="Research">Research</option>
-          <option value="On-Campus Job">On-Campus Jobs</option>
-          <option value="Club">Clubs</option>
-        </select>
-        <label class="major-filter-label">
+        <label class="major-filter-label" id="major-filter-wrap">
           <input type="checkbox" id="major-filter-toggle" checked />
-          Show only my major
+          <span id="major-filter-text">Show resources relevant to my major</span>
         </label>
       </div>
 
-      <!-- Opportunity Cards -->
-      <div id="opp-list" class="opp-list">
-        <p class="loading-text">Loading opportunities...</p>
+      <!-- Featured Handshake card (Jobs tab) -->
+      <div id="featured-card"></div>
+
+      <!-- Resource cards -->
+      <div id="opp-list" class="opp-list" aria-live="polite">
+        <p class="loading-text">Loading resources…</p>
       </div>
+
+      <p class="disclaimer-text opp-disclaimer">
+        <span id="last-verified"></span>
+        External resources can change — confirm details on the linked official
+        platform. Plan4Eagles links to Handshake; it does not access or display
+        private Handshake postings. Not affiliated with Boston College.
+      </p>
     </div>
 
+    <script src="project/js/storage.js"></script>
+    <script src="project/js/ui.js"></script>
     <script src="project/js/opportunities.js"></script>
   </body>
 </html>
