@@ -5,7 +5,8 @@
   "main": "index.html",
   "scripts": {
     "start": "serve",
-    "scrape": "node scraper/fetch-courses.js"
+    "scrape": "node scraper/fetch-courses.js",
+    "scrape:evals": "node scraper/fetch-evaluations.js"
   },
   "keywords": [
     "boston-college",

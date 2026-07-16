@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ratings | Plan4Eagles</title>
+
+    <link rel="stylesheet" href="project/style/global.css" />
+    <link rel="stylesheet" href="project/style/ratings.css" />
+  </head>
+
+  <body>
+    <header class="navbar">
+      <h1 class="logo">Plan4Eagles</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="scheduling.html">Scheduling</a>
+        <a href="ratings.html" class="active">Ratings</a>
+        <a href="plan.html">4-Year Plan</a>
+        <a href="opportunities.html">Opportunities</a>
+      </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <div class="ratings-container">
+      <!-- LEFT: COURSE & PROFESSOR SEARCH -->
+      <aside class="course-search">
+        <h2>Course & Professor Ratings</h2>
+        <p id="ratings-freshness" class="hint-text"></p>
+        <input
+          id="ratings-search-box"
+          type="search"
+          placeholder="Search by course code, title, or professor"
+          aria-label="Search ratings by course code, title, or professor"
+        />
+        <div class="filter-row">
+          <label class="filter-label" for="ratings-dept-filter">Department</label>
+          <select id="ratings-dept-filter" class="dept-filter">
+            <option value="">All Departments</option>
+          </select>
+        </div>
+        <p id="ratings-results-count" class="hint-text" role="status"></p>
+        <ul id="ratings-course-list"></ul>
+        <p class="disclaimer-text">
+          This is an unofficial, student-built tool. Scores come from Boston
+          College's published course evaluation reports, converted from the
+          1-5 scale to 0-100. Not affiliated with Boston College.
+        </p>
+      </aside>
+
+      <!-- RIGHT: RATING DETAIL -->
+      <main id="ratings-detail-panel" class="ratings-detail-panel">
+        <p class="hint-text ratings-empty-state">
+          Search for a course on the left to see how students rated it.
+        </p>
+      </main>
+    </div>
+
+    <script src="project/js/storage.js"></script>
+    <script src="project/js/ui.js"></script>
+    <script src="project/js/ratings-data.js"></script>
+    <script src="project/js/ratings.js"></script>
+  </body>
+</html>

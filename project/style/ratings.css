@@ -1,0 +1,527 @@
+/* ============================
+   RATINGS PAGE STYLES
+   ============================ */
+
+/* MAIN LAYOUT (mirrors .schedule-container's two-pane approach) */
+.ratings-container {
+  display: flex;
+  min-height: calc(100vh - 60px);
+  align-items: stretch;
+}
+
+/* LEFT: COURSE & PROFESSOR SEARCH (reuses .course-search for visual
+   consistency with the Scheduling page; this stylesheet defines its own
+   copy of the rules since ratings.html doesn't load scheduling.css).
+   Rules copied from scheduling.css are scoped under .ratings-container —
+   this file is also loaded on scheduling.html (for the modal), and
+   unscoped copies would override scheduling.css there. The ratings-*
+   prefixed rules below are intentionally global: the modal on
+   scheduling.html needs them. */
+.ratings-container .course-search {
+  width: 360px;
+  max-width: 360px;
+  padding: 22px;
+  background: var(--bg-card);
+  border-right: 2px solid var(--border-warm-strong);
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+
+.ratings-container .course-search h2 {
+  color: var(--maroon);
+  margin-bottom: 6px;
+  font-size: 20px;
+}
+
+#ratings-freshness {
+  margin: 0 0 12px;
+}
+
+#ratings-search-box {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-input);
+  margin-bottom: 10px;
+  font-size: 14px;
+  background: var(--bg-soft);
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+}
+
+#ratings-search-box:focus {
+  outline: var(--focus-ring);
+  border-color: var(--maroon);
+}
+
+/* FILTERS */
+.ratings-container .filter-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.ratings-container .filter-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ratings-container .dept-filter {
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 6px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-input);
+  background: var(--bg-soft);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-soft);
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+}
+
+#ratings-results-count {
+  margin: 0 0 10px;
+  font-weight: 600;
+}
+
+/* COURSE LIST */
+#ratings-course-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 14px;
+}
+
+#ratings-course-list li {
+  margin-bottom: 8px;
+}
+
+.ratings-container .course-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px;
+  background: var(--bg-cream);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-warm);
+  font-size: 13px;
+  font-family: 'Nunito', sans-serif;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.ratings-container .course-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+  border-color: #c6b784;
+}
+
+.ratings-container .course-item-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.ratings-container .course-item-top strong {
+  color: var(--maroon);
+  font-size: 13px;
+}
+
+.ratings-container .course-item-name {
+  display: block;
+  font-weight: 600;
+  margin: 1px 0 2px;
+}
+
+.ratings-container .course-list-message {
+  padding: 18px 10px;
+  font-size: 13px;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* Selected state on a ratings list item */
+.ratings-list-item.is-selected {
+  background: var(--bg-cream);
+  border-color: var(--gold);
+  box-shadow: var(--shadow-sm);
+}
+
+.ratings-list-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.ratings-tag-noeval,
+.ratings-tag-historical {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: var(--bg-soft);
+  border: 1px solid var(--border-warm);
+}
+
+.ratings-tag-historical {
+  color: var(--text-faint);
+}
+
+/* RIGHT: RATING DETAIL PANEL */
+.ratings-detail-panel {
+  flex: 1;
+  padding: 28px;
+  overflow-y: auto;
+  background: var(--bg-soft);
+}
+
+.ratings-detail-panel > * {
+  max-width: 720px;
+}
+
+.ratings-empty-state,
+.ratings-loading {
+  text-align: center;
+  margin: 60px auto;
+  max-width: 420px;
+}
+
+/* COURSE HEADER */
+.ratings-course-header {
+  background: var(--bg-card);
+  border: 1px solid var(--border-warm);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 20px 22px;
+  margin-bottom: 20px;
+}
+
+.ratings-course-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.ratings-detail-heading {
+  color: var(--maroon);
+  font-size: 20px;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.ratings-coverage-line {
+  margin-top: 4px;
+}
+
+/* SCORE BADGES */
+.ratings-score-badge {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2px;
+  border-radius: var(--radius-md);
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.ratings-score-badge strong {
+  font-size: 1em;
+  font-weight: 700;
+}
+
+.ratings-score-badge small {
+  font-size: 0.55em;
+  font-weight: 600;
+  opacity: 0.85;
+}
+
+.ratings-score-great {
+  color: var(--success);
+  background: var(--success-bg);
+}
+
+.ratings-score-good {
+  color: var(--gold-dark);
+  background: #fbf3df;
+}
+
+.ratings-score-mid {
+  color: var(--warning);
+  background: var(--warning-bg);
+}
+
+.ratings-score-low {
+  color: var(--error);
+  background: var(--error-bg);
+}
+
+/* Score suppressed/unreported by BC — neutral, never alarming */
+.ratings-score-none {
+  color: var(--text-muted);
+  background: var(--bg-soft);
+  border: 1px dashed var(--border-input);
+}
+
+/* Large variant: course header */
+.ratings-score-badge-lg {
+  padding: 8px 16px;
+  font-size: 26px;
+}
+
+/* Small variant: professor rows */
+.ratings-score-badge-sm {
+  padding: 4px 10px;
+  font-size: 15px;
+}
+
+/* Compact inline variant: search results list */
+.ratings-inline-score {
+  padding: 2px 8px;
+  font-size: 11px;
+  border-radius: 20px;
+}
+
+/* PROFESSOR LIST */
+.ratings-professor-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border-warm);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 20px 22px;
+}
+
+.ratings-professor-section h3 {
+  color: var(--maroon);
+  font-size: 16px;
+  margin: 0 0 12px;
+}
+
+.ratings-professor-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  counter-reset: none;
+}
+
+.ratings-professor-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--bg-cream);
+  border: 1px solid var(--border-warm);
+  border-radius: var(--radius-md);
+}
+
+.ratings-professor-item.is-current {
+  border-color: var(--gold);
+  background: var(--bg-cream);
+  box-shadow: 0 0 0 1px var(--gold);
+}
+
+.ratings-professor-rank {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--bg-soft);
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 700;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.ratings-professor-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ratings-professor-name {
+  font-weight: 700;
+  color: var(--text-main);
+  font-size: 14px;
+}
+
+.ratings-professor-hint {
+  margin: 0;
+}
+
+.ratings-current-badge {
+  align-self: flex-start;
+  margin-top: 2px;
+  padding: 2px 9px;
+  border-radius: 20px;
+  background: var(--gold);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.ratings-no-current-data {
+  margin: 14px 2px 0;
+  padding: 10px 14px;
+  background: var(--bg-cream);
+  border: 1px dashed var(--border-input);
+  border-radius: var(--radius-md);
+}
+
+/* SCHEDULING LINK */
+.ratings-scheduling-link {
+  display: inline-block;
+  margin-top: 16px;
+  color: var(--maroon);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.ratings-scheduling-link:hover {
+  text-decoration: underline;
+}
+
+/* ============================
+   RATINGS MODAL
+   (markup lives in scheduling.html; styled here per the shared contract)
+   ============================ */
+
+.ratings-modal {
+  border: none;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  background: var(--bg-card);
+  padding: 20px 24px;
+  width: min(560px, calc(100vw - 32px));
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.ratings-modal::backdrop {
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.ratings-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.ratings-modal-close:hover {
+  background: var(--bg-soft);
+  color: var(--text-main);
+}
+
+#ratings-modal-body .ratings-detail-panel {
+  padding: 0;
+  background: transparent;
+  overflow-y: visible;
+}
+
+#ratings-modal-body .ratings-course-header,
+#ratings-modal-body .ratings-professor-section {
+  box-shadow: none;
+}
+
+/* RESPONSIVE - TABLET (<=900px) */
+@media (max-width: 900px) {
+  .ratings-container {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .ratings-container .course-search {
+    width: 100%;
+    max-width: 100%;
+    border-right: none;
+    border-bottom: 2px solid var(--border-warm-strong);
+    max-height: 45vh;
+  }
+
+  .ratings-detail-panel {
+    padding: 16px;
+  }
+
+  .ratings-detail-panel > * {
+    max-width: 100%;
+  }
+}
+
+/* RESPONSIVE - PHONE (<=640px) */
+@media (max-width: 640px) {
+  .ratings-container .course-search {
+    max-height: 40vh;
+    padding: 14px;
+  }
+
+  .ratings-container .course-search h2 {
+    font-size: 17px;
+    margin-bottom: 10px;
+  }
+
+  .ratings-detail-panel {
+    padding: 12px;
+  }
+
+  .ratings-course-header,
+  .ratings-professor-section {
+    padding: 16px;
+  }
+
+  .ratings-course-title-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .ratings-score-badge-lg {
+    font-size: 22px;
+    padding: 6px 14px;
+  }
+
+  .ratings-professor-item {
+    flex-wrap: wrap;
+  }
+}
+
+/* ============================
+   DARK-MODE-SAFE FALLBACK
+   (global.css has no dark theme yet; this keeps the ratings page from
+   fighting a system dark-mode override, matching a plain-light design)
+   ============================ */
+@media (prefers-color-scheme: dark) {
+  .ratings-container {
+    color-scheme: light;
+  }
+}
