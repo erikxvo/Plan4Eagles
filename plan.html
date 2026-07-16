@@ -15,6 +15,7 @@
       <nav>
         <a href="index.html">Home</a>
         <a href="scheduling.html">Scheduling</a>
+        <a href="ratings.html">Ratings</a>
         <a href="plan.html" class="active">4-Year Plan</a>
         <a href="opportunities.html">Opportunities</a>
       </nav>
@@ -22,31 +23,21 @@
 
     <div class="planner-container">
       <aside class="requirements">
-        <h2>BC Core (MCAS)</h2>
+        <h2 id="core-title">BC Core</h2>
         <button id="reset-plan-btn" class="btn-primary btn-block reset-plan-btn">
           Reset 4-Year Plan
         </button>
 
         <div class="req-progress"></div>
 
-        <ul>
-          <li><label><input type="checkbox" /><span>Writing</span></label></li>
-          <li><label><input type="checkbox" /><span>Literature</span></label></li>
-          <li><label><input type="checkbox" /><span>Arts</span></label></li>
-          <li><label><input type="checkbox" /><span>Math</span></label></li>
-          <li><label><input type="checkbox" /><span>History I</span></label></li>
-          <li><label><input type="checkbox" /><span>History II</span></label></li>
-          <li><label><input type="checkbox" /><span>Philosophy I</span></label></li>
-          <li><label><input type="checkbox" /><span>Philosophy II</span></label></li>
-          <li><label><input type="checkbox" /><span>Social Science</span></label></li>
-          <li><label><input type="checkbox" /><span>Social Science II</span></label></li>
-          <li><label><input type="checkbox" /><span>Natural Science</span></label></li>
-          <li><label><input type="checkbox" /><span>Natural Science II</span></label></li>
-          <li><label><input type="checkbox" /><span>Theology (CT)</span></label></li>
-          <li><label><input type="checkbox" /><span>Theology (STT)</span></label></li>
-          <li><label><input type="checkbox" /><span>Cultural Diversity</span></label></li>
-          <li><label><input type="checkbox" /><span>Language Proficiency</span></label></li>
-        </ul>
+        <label class="major-label" for="school-select">Select your school:</label>
+        <select id="school-select" class="major-select">
+          <option value="">-- choose your school --</option>
+        </select>
+
+        <ul id="core-req-list"></ul>
+
+        <div id="core-req-footer" class="major-req-footer"></div>
 
         <hr class="req-divider" />
 
@@ -56,14 +47,19 @@
           <option value="">-- choose a major --</option>
         </select>
 
+        <div id="major-req-header" class="major-req-header"></div>
+
         <ul id="major-req-list" class="major-req-list">
           <li class="empty">Choose a major to see its classes.</li>
         </ul>
 
+        <div id="major-req-footer" class="major-req-footer"></div>
+
         <p class="disclaimer-text">
           Unofficial planning templates for selected programs. Always confirm
-          graduation requirements with your academic advisor and the official
-          Boston College catalog.
+          graduation requirements with your academic advisor, the official
+          Boston College catalog, and any linked sources above before
+          registering.
         </p>
 
         <hr class="req-divider" />

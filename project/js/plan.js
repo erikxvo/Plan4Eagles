@@ -8,7 +8,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // 1. SETUP
   // ==========================================
   const majorSelect = document.getElementById("major-select");
+  const majorReqHeader = document.getElementById("major-req-header");
   const majorReqList = document.getElementById("major-req-list");
+  const majorReqFooter = document.getElementById("major-req-footer");
+  const schoolSelect = document.getElementById("school-select");
+  const coreTitleElem = document.getElementById("core-title");
+  const coreReqList = document.getElementById("core-req-list");
+  const coreReqFooter = document.getElementById("core-req-footer");
   const reqContainer = document.querySelector(".requirements");
   const reqProgress = document.querySelector(".req-progress");
   const resetPlanBtn = document.getElementById("reset-plan-btn");
@@ -18,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const planStatus = document.getElementById("plan-status");
 
   let majorsData = [];
+  let schoolsData = [];
 
   // Each semester shows this many editable rows by default. Blank rows are
   // visual slots only — they are never persisted. Extra rows beyond the
@@ -27,6 +34,52 @@ document.addEventListener("DOMContentLoaded", () => {
   const GRADE_OPTIONS = [
     "", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "D-", "F",
   ];
+
+  // Used only when project/data/cores.json fails to load (e.g. it 404s
+  // while the curation pipeline is still generating it), so the BC Core
+  // checklist never disappears. Labels match the legacy hardcoded MCAS
+  // list exactly — checkbox persistence for this fallback keys off the
+  // plain span text, same as before this feature existed.
+  const FALLBACK_CORE_SCHOOL = {
+    id: "mcas",
+    name: "Morrissey College of Arts & Sciences",
+    coreTitle: "BC Core (MCAS)",
+    provenance: null,
+    requirements: [
+      { label: "Writing" },
+      { label: "Literature" },
+      { label: "Arts" },
+      { label: "Math" },
+      { label: "History I" },
+      { label: "History II" },
+      { label: "Philosophy I" },
+      { label: "Philosophy II" },
+      { label: "Social Science" },
+      { label: "Social Science II" },
+      { label: "Natural Science" },
+      { label: "Natural Science II" },
+      { label: "Theology (CT)" },
+      { label: "Theology (STT)" },
+      { label: "Cultural Diversity" },
+      { label: "Language Proficiency" },
+    ],
+  };
+
+  // Maps a major's `school` field (majors.json) to a cores.json school id.
+  const MAJOR_SCHOOL_TO_ID = {
+    "MCAS": "mcas",
+    "CSOM": "csom",
+    "Lynch": "lynch",
+    "CSON": "cson",
+    "MCAS/Schiller": "mcas",
+  };
+
+  const SCHOOL_SHORT_NAMES = {
+    mcas: "MCAS",
+    csom: "CSOM",
+    lynch: "the Lynch School",
+    cson: "CSON",
+  };
 
   // ==========================================
   // 2. GRID GENERATION
@@ -254,6 +307,144 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ==========================================
+  // 2B. BC CORE CHECKLIST (SCHOOL-AWARE)
+  // ==========================================
+
+  function populateSchoolDropdown() {
+    if (!schoolSelect) return;
+    schoolSelect.innerHTML = '<option value="">-- choose your school --</option>';
+    schoolsData.forEach((school) => {
+      const option = document.createElement("option");
+      option.value = school.id;
+      option.textContent = school.name;
+      schoolSelect.appendChild(option);
+    });
+  }
+
+  /** Reads the persisted school id, falling back to "mcas" (or the first
+   *  loaded school) when nothing valid is stored — this preserves the
+   *  page's original MCAS-only behavior for everyone until they pick a
+   *  different school. */
+  function getPersistedSchoolId() {
+    let stored = null;
+    try {
+      stored = localStorage.getItem(STORAGE_KEYS.SELECTED_SCHOOL);
+    } catch (e) {
+      /* storage unavailable */
+    }
+    if (stored && schoolsData.some((s) => s.id === stored)) return stored;
+    if (schoolsData.some((s) => s.id === "mcas")) return "mcas";
+    return schoolsData.length > 0 ? schoolsData[0].id : "mcas";
+  }
+
+  function persistSelectedSchool(schoolId) {
+    try {
+      localStorage.setItem(STORAGE_KEYS.SELECTED_SCHOOL, schoolId);
+    } catch (e) {
+      /* storage unavailable */
+    }
+  }
+
+  function schoolShortName(school) {
+    if (!school) return "your school";
+    return SCHOOL_SHORT_NAMES[school.id] || school.name;
+  }
+
+  /** Builds one <li><label><input><span></label></label> row for a core
+   *  requirement. MCAS keeps the legacy persistence path (checked state
+   *  keyed off the span's text, matching previously-saved plans); every
+   *  other school gets a stable data-req-key of "core::<schoolId>::<label>"
+   *  so collectPlanFromDOM/loadPlan's existing reqKey branch persists it. */
+  function buildCoreItemRow(schoolId, isLegacySchool, req) {
+    const li = document.createElement("li");
+    li.className = "core-req-item";
+
+    const label = document.createElement("label");
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    if (!isLegacySchool) {
+      checkbox.dataset.reqKey = `core::${schoolId}::${req.label}`;
+    }
+    const span = document.createElement("span");
+    span.textContent = req.label;
+    label.appendChild(checkbox);
+    label.appendChild(span);
+    li.appendChild(label);
+
+    // The detail text is available as a tooltip on hover/focus rather than
+    // as always-visible copy — keeps the checklist scannable while the
+    // fuller wording is still one hover away.
+    if (req.detail) {
+      label.title = req.detail;
+    }
+
+    return li;
+  }
+
+  /** Renders the BC Core checklist for one school into #core-req-list,
+   *  updates the section title, restores that school's previously-saved
+   *  checked state (reading storage directly so this works both at initial
+   *  load and on interactive school switches), and reuses
+   *  renderProvenanceFooter() for the source/needs-review line under the
+   *  list. */
+  function renderCoreChecklist(schoolId) {
+    if (!coreReqList) return;
+    coreReqList.innerHTML = "";
+    if (coreReqFooter) coreReqFooter.innerHTML = "";
+
+    const school =
+      schoolsData.find((s) => s.id === schoolId) ||
+      schoolsData.find((s) => s.id === "mcas") ||
+      schoolsData[0];
+
+    if (!school) {
+      updateReqProgress();
+      return;
+    }
+
+    if (coreTitleElem) coreTitleElem.textContent = school.coreTitle || "BC Core";
+
+    const isLegacySchool = school.id === "mcas";
+    const requirements = Array.isArray(school.requirements) ? school.requirements : [];
+    requirements.forEach((req) => {
+      coreReqList.appendChild(buildCoreItemRow(school.id, isLegacySchool, req));
+    });
+
+    const stored = loadPlanData();
+    applyCheckedReqs(coreReqList, stored ? stored.checkedReqs : []);
+
+    renderProvenanceFooter(school.provenance, coreReqFooter);
+    updateReqProgress();
+  }
+
+  /** Looks up the selected major's `school` field and, if it maps to a
+   *  different school than the one currently shown, switches the core
+   *  checklist and notifies the user. Only called from the major-select
+   *  change handler — manual school-select changes are never overridden. */
+  function autoSyncSchoolFromMajor(majorId) {
+    if (!schoolSelect) return;
+    const major = majorsData.find((m) => m.id === majorId);
+    if (!major || !major.school) return;
+
+    const mappedSchoolId = MAJOR_SCHOOL_TO_ID[major.school];
+    if (!mappedSchoolId) return;
+    if (!schoolsData.some((s) => s.id === mappedSchoolId)) return;
+
+    const currentSchoolId = schoolSelect.value || getPersistedSchoolId();
+    if (mappedSchoolId === currentSchoolId) return;
+
+    schoolSelect.value = mappedSchoolId;
+    persistSelectedSchool(mappedSchoolId);
+    renderCoreChecklist(mappedSchoolId);
+
+    const school = schoolsData.find((s) => s.id === mappedSchoolId);
+    showToast(
+      `Core checklist switched to ${schoolShortName(school)} (based on your major).`,
+      { type: "info" }
+    );
+  }
+
+  // ==========================================
   // 3. MAJOR REQUIREMENTS
   // ==========================================
 
@@ -271,6 +462,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderMajorRequirements(majorId) {
     if (!majorReqList) return;
     majorReqList.innerHTML = "";
+    if (majorReqHeader) majorReqHeader.innerHTML = "";
+    if (majorReqFooter) majorReqFooter.innerHTML = "";
 
     const selectedMajor = majorsData.find((m) => m.id === majorId);
 
@@ -283,7 +476,20 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    selectedMajor.requirements.forEach((reqName) => {
+    if (Array.isArray(selectedMajor.requirementGroups)) {
+      renderGroupedRequirements(selectedMajor);
+    } else {
+      renderFlatRequirements(selectedMajor);
+    }
+
+    updateReqProgress();
+  }
+
+  /** OLD SCHEMA: flat list of requirement strings. Unchanged from the
+   *  original implementation so previously-saved checkedReqs (keyed by the
+   *  requirement's display text) keep matching. */
+  function renderFlatRequirements(selectedMajor) {
+    (selectedMajor.requirements || []).forEach((reqName) => {
       const li = document.createElement("li");
       const label = document.createElement("label");
       const checkbox = document.createElement("input");
@@ -295,8 +501,124 @@ document.addEventListener("DOMContentLoaded", () => {
       li.appendChild(label);
       majorReqList.appendChild(li);
     });
+  }
 
-    updateReqProgress();
+  /** NEW SCHEMA: requirementGroups of { id, title, type, items, description }.
+   *  Group-item checkboxes get a stable data-req-key of
+   *  "<majorId>::<groupId>::<itemIndex>" so persistence doesn't depend on
+   *  label text (which can repeat or change between catalog refreshes). */
+  function renderGroupedRequirements(selectedMajor) {
+    const majorId = selectedMajor.id;
+
+    if (majorReqHeader && typeof selectedMajor.totalCredits === "number") {
+      const totalLine = document.createElement("p");
+      totalLine.className = "hint-text major-total-credits";
+      totalLine.textContent = `Minimum ${selectedMajor.totalCredits} credits in the major`;
+      majorReqHeader.appendChild(totalLine);
+    }
+
+    const groups = Array.isArray(selectedMajor.requirementGroups)
+      ? selectedMajor.requirementGroups
+      : [];
+
+    groups.forEach((group) => {
+      const groupLi = document.createElement("li");
+      groupLi.className = "req-group";
+
+      const titleRow = document.createElement("div");
+      titleRow.className = "req-group-title";
+      const titleText = document.createElement("span");
+      titleText.textContent = group.title || "Requirements";
+      titleRow.appendChild(titleText);
+      if (group.type === "chooseN" && typeof group.count === "number") {
+        const countBadge = document.createElement("span");
+        countBadge.className = "req-group-count";
+        countBadge.textContent = `choose ${group.count}`;
+        titleRow.appendChild(countBadge);
+      }
+
+      // Group rule text stays out of the layout entirely; hover the group
+      // title to see it.
+      if (group.description) {
+        titleRow.title = group.description;
+      }
+      groupLi.appendChild(titleRow);
+
+      const items = Array.isArray(group.items) ? group.items : [];
+      const itemsList = document.createElement("ul");
+      itemsList.className = "req-group-items";
+
+      if (items.length > 0) {
+        items.forEach((item, index) => {
+          itemsList.appendChild(
+            buildGroupItemRow(
+              majorId,
+              group.id,
+              index,
+              item.label || "",
+              item.credits
+            )
+          );
+        });
+      } else if (group.type === "chooseN" && group.count > 0) {
+        // Pool is described in prose (hover the group title) rather than as
+        // individual items — still give students N rows to track progress.
+        for (let i = 0; i < group.count; i++) {
+          itemsList.appendChild(
+            buildGroupItemRow(majorId, group.id, i, `Elective ${i + 1}`, undefined)
+          );
+        }
+      }
+
+      groupLi.appendChild(itemsList);
+      majorReqList.appendChild(groupLi);
+    });
+
+    renderProvenanceFooter(selectedMajor.provenance);
+  }
+
+  function buildGroupItemRow(majorId, groupId, itemIndex, labelText, credits) {
+    const li = document.createElement("li");
+    li.className = "req-item";
+    const label = document.createElement("label");
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.dataset.reqKey = `${majorId}::${groupId}::${itemIndex}`;
+    const span = document.createElement("span");
+    span.className = "req-item-label";
+    span.textContent = labelText;
+    label.appendChild(checkbox);
+    label.appendChild(span);
+    if (typeof credits === "number") {
+      const creditSpan = document.createElement("span");
+      creditSpan.className = "req-item-credits";
+      creditSpan.textContent = `${credits} cr`;
+      label.appendChild(creditSpan);
+    }
+    li.appendChild(label);
+    return li;
+  }
+
+  /** Renders the requirement footer into the given container. Defaults to
+   *  majorReqFooter; the core checklist passes coreReqFooter.
+   *
+   *  Sources, catalog year, and curation notes are intentionally NOT
+   *  rendered (user preference: keep the planner scannable) — they live in
+   *  majors.json / cores.json for anyone who needs to audit the data. Only
+   *  the one-line needs-review warning survives, since it changes what a
+   *  student should do (confirm with their advisor). */
+  function renderProvenanceFooter(provenance, footerElem = majorReqFooter) {
+    if (!footerElem) return;
+    footerElem.innerHTML = "";
+    if (!provenance) return;
+
+    if (provenance.confidence === "needs-review") {
+      const warning = document.createElement("p");
+      warning.className = "archive-note hint-text";
+      warning.textContent =
+        "Some sources disagree here — double-check with your advisor.";
+      footerElem.appendChild(warning);
+    }
   }
 
   function updateReqProgress() {
@@ -423,6 +745,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const semesterId = exportData.semester;
     const courses = Array.isArray(exportData.courses) ? exportData.courses : [];
+    const skippedDiscussions =
+      typeof exportData.skippedDiscussions === "number" ? exportData.skippedDiscussions : 0;
 
     const semesterElem = document.querySelector(
       `.semester[data-semester="${semesterId}"]`
@@ -466,6 +790,13 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
+    if (skippedDiscussions > 0) {
+      showToast(
+        "Discussion sections aren't exported — they're part of the lecture course.",
+        { duration: 5000 }
+      );
+    }
+
     semesterElem.scrollIntoView({ behavior: "smooth", block: "center" });
     semesterElem.classList.add("import-highlight");
     setTimeout(() => {
@@ -476,6 +807,34 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==========================================
   // 6. SAVE & LOAD
   // ==========================================
+
+  /** Identity string for a requirements checkbox, matching the keys stored
+   *  in planData.checkedReqs: its data-req-key when present (new-schema
+   *  major group items "<majorId>::<groupId>::<itemIndex>", non-MCAS core
+   *  items "core::<schoolId>::<label>"), otherwise the adjacent label's
+   *  span text (MCAS core items + old-schema flat major requirements). */
+  function checkboxIdentity(checkbox) {
+    if (checkbox.dataset.reqKey) return checkbox.dataset.reqKey;
+    const span = checkbox.nextElementSibling;
+    return span ? span.textContent : null;
+  }
+
+  /** Checks every rendered checkbox under rootElem whose identity is in
+   *  checkedReqs. Used both at initial page load (major + core together)
+   *  and whenever the core checklist is (re-)rendered for one school, so
+   *  that school's previously-saved checked state comes back immediately
+   *  instead of only being restored once at load time. */
+  function applyCheckedReqs(rootElem, checkedReqs) {
+    if (!rootElem || !Array.isArray(checkedReqs) || checkedReqs.length === 0) return;
+    rootElem.querySelectorAll("label").forEach((label) => {
+      const checkbox = label.querySelector("input[type='checkbox']");
+      if (!checkbox) return;
+      const identity = checkboxIdentity(checkbox);
+      if (identity && checkedReqs.includes(identity)) {
+        checkbox.checked = true;
+      }
+    });
+  }
 
   function collectPlanFromDOM() {
     const planData = emptyPlanData();
@@ -494,12 +853,34 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
+    // Only checkboxes currently in the DOM (the active school's core list
+    // + the active major's list) are authoritative for their own checked
+    // state below. Anything previously saved whose checkbox isn't rendered
+    // right now — e.g. a different school's core items after switching, or
+    // a since-switched major's items — keeps its last-saved value instead
+    // of being silently dropped, so switching back restores it.
+    const renderedIdentities = new Set();
+    document.querySelectorAll(".requirements input[type='checkbox']").forEach((checkbox) => {
+      const identity = checkboxIdentity(checkbox);
+      if (identity) renderedIdentities.add(identity);
+    });
+
+    const previousStored = readStoredJSON(STORAGE_KEYS.PLAN);
+    const previousChecked =
+      previousStored && Array.isArray(previousStored.checkedReqs)
+        ? previousStored.checkedReqs
+        : [];
+    const preserved = previousChecked.filter((key) => !renderedIdentities.has(key));
+
+    const currentlyChecked = [];
     document
       .querySelectorAll(".requirements input:checked")
       .forEach((checkbox) => {
-        const span = checkbox.nextElementSibling;
-        if (span) planData.checkedReqs.push(span.textContent);
+        const identity = checkboxIdentity(checkbox);
+        if (identity) currentlyChecked.push(identity);
       });
+
+    planData.checkedReqs = preserved.concat(currentlyChecked);
 
     return planData;
   }
@@ -509,6 +890,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function loadPlan(planData) {
+    // Render the BC Core checklist for the persisted school first (this is
+    // independent of planData — it's its own storage key) so the checkbox
+    // rows exist before the checkedReqs restoration loop below runs.
+    const initialSchoolId = getPersistedSchoolId();
+    if (schoolSelect) schoolSelect.value = initialSchoolId;
+    renderCoreChecklist(initialSchoolId);
+
     if (!planData) {
       updateReqProgress();
       updateSemesterAndYearTotals();
@@ -520,15 +908,7 @@ document.addEventListener("DOMContentLoaded", () => {
       renderMajorRequirements(planData.major);
     }
 
-    if (Array.isArray(planData.checkedReqs) && planData.checkedReqs.length > 0) {
-      document.querySelectorAll(".requirements label").forEach((label) => {
-        const span = label.querySelector("span");
-        const checkbox = label.querySelector("input");
-        if (span && checkbox && planData.checkedReqs.includes(span.textContent)) {
-          checkbox.checked = true;
-        }
-      });
-    }
+    applyCheckedReqs(reqContainer, planData.checkedReqs);
 
     updateReqProgress();
     updateSemesterAndYearTotals();
@@ -640,6 +1020,17 @@ document.addEventListener("DOMContentLoaded", () => {
   if (majorSelect) {
     majorSelect.addEventListener("change", (e) => {
       renderMajorRequirements(e.target.value);
+      autoSyncSchoolFromMajor(e.target.value);
+      savePlan();
+    });
+  }
+
+  if (schoolSelect) {
+    schoolSelect.addEventListener("change", (e) => {
+      const schoolId = e.target.value;
+      if (!schoolId) return;
+      persistSelectedSchool(schoolId);
+      renderCoreChecklist(schoolId);
       savePlan();
     });
   }
@@ -687,25 +1078,52 @@ document.addEventListener("DOMContentLoaded", () => {
   renderGrid(planData);
   updatePlanStatus();
 
-  fetch("project/data/majors.json")
-    .then((response) => {
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      return response.json();
-    })
-    .then((data) => {
-      majorsData = Array.isArray(data) ? data : [];
-      populateMajorDropdown();
-      loadPlan(planData);
-      importSchedule();
-    })
-    .catch((error) => {
-      console.error("Error loading majors:", error);
-      if (majorReqList) {
-        majorReqList.innerHTML =
-          '<li class="empty">Could not load major data. Refresh to try again.</li>';
-      }
-      // Still restore the user's plan grid even if majors fail to load
-      loadPlan(planData);
-      importSchedule();
-    });
+  function fetchMajorsData() {
+    return fetch("project/data/majors.json")
+      .then((response) => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json();
+      })
+      .then((data) => (Array.isArray(data) ? data : []))
+      .catch((error) => {
+        console.error("Error loading majors:", error);
+        if (majorReqList) {
+          majorReqList.innerHTML =
+            '<li class="empty">Could not load major data. Refresh to try again.</li>';
+        }
+        return [];
+      });
+  }
+
+  function fetchCoresData() {
+    return fetch("project/data/cores.json")
+      .then((response) => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json();
+      })
+      .then((data) =>
+        data && Array.isArray(data.schools) && data.schools.length > 0
+          ? data.schools
+          : [FALLBACK_CORE_SCHOOL]
+      )
+      .catch((error) => {
+        // cores.json is generated by a separate curation pipeline and may
+        // 404 (not built yet) — fall back to the legacy hardcoded MCAS
+        // core list so the checklist never disappears.
+        console.warn("Could not load cores.json, using fallback BC Core list:", error);
+        return [FALLBACK_CORE_SCHOOL];
+      });
+  }
+
+  Promise.all([fetchMajorsData(), fetchCoresData()]).then(([majors, cores]) => {
+    majorsData = majors;
+    schoolsData = cores;
+    populateMajorDropdown();
+    populateSchoolDropdown();
+    // Still restore the user's plan grid + core/major checklists even if
+    // one of the two data sources failed to load (each fetch above
+    // resolves with a safe fallback rather than rejecting).
+    loadPlan(planData);
+    importSchedule();
+  });
 });

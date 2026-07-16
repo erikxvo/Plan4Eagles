@@ -115,20 +115,71 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  fetch("project/data/majors.json")
-    .then((response) => {
+  // Number of BC Core requirement rows for the currently selected school,
+  // read from cores.json (same shape/keys plan.js expects). Falls back to
+  // the legacy hardcoded count of 16 (the MCAS core) if cores.json hasn't
+  // been generated yet or the persisted school can't be found in it.
+  const FALLBACK_CORE_COUNT = 16;
+
+  function getPersistedSchoolId() {
+    let stored = null;
+    try {
+      stored = localStorage.getItem(STORAGE_KEYS.SELECTED_SCHOOL);
+    } catch (e) {
+      /* storage unavailable */
+    }
+    return stored || "mcas";
+  }
+
+  function fetchCoreCount() {
+    return fetch("project/data/cores.json")
+      .then((response) => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json();
+      })
+      .then((data) => {
+        const schools = data && Array.isArray(data.schools) ? data.schools : [];
+        const schoolId = getPersistedSchoolId();
+        const school =
+          schools.find((s) => s.id === schoolId) || schools.find((s) => s.id === "mcas");
+        return school && Array.isArray(school.requirements) && school.requirements.length > 0
+          ? school.requirements.length
+          : FALLBACK_CORE_COUNT;
+      })
+      .catch(() => FALLBACK_CORE_COUNT);
+  }
+
+  Promise.all([
+    fetch("project/data/majors.json").then((response) => {
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       return response.json();
-    })
-    .then((allMajors) => {
-      renderMajorPanel(allMajors, userMajorId);
+    }),
+    fetchCoreCount(),
+  ])
+    .then(([allMajors, coreCount]) => {
+      renderMajorPanel(allMajors, userMajorId, coreCount);
     })
     .catch((err) => {
       console.error("Failed to load majors:", err);
       if (statReqs) statReqs.textContent = checkedCount > 0 ? checkedCount : "--";
     });
 
-  function renderMajorPanel(allMajors, selectedId) {
+  function majorRequirementRowCount(major) {
+    if (Array.isArray(major.requirementGroups)) {
+      return major.requirementGroups.reduce((sum, group) => {
+        if (Array.isArray(group.items) && group.items.length > 0) {
+          return sum + group.items.length;
+        }
+        if (group.type === "chooseN" && typeof group.count === "number") {
+          return sum + group.count;
+        }
+        return sum;
+      }, 0);
+    }
+    return Array.isArray(major.requirements) ? major.requirements.length : 0;
+  }
+
+  function renderMajorPanel(allMajors, selectedId, coreCount) {
     const userMajor = Array.isArray(allMajors)
       ? allMajors.find((major) => major.id === selectedId)
       : null;
@@ -142,11 +193,16 @@ document.addEventListener("DOMContentLoaded", () => {
       majorListContainer.appendChild(li);
     }
 
-    // Requirement progress: 16 core checkboxes + the major's requirements
+    // Requirement progress: the selected school's core checkboxes + the
+    // major's requirements. Supports both majors.json schemas: the grouped
+    // schema counts one row per group item (or `count` rows for a chooseN
+    // group with no listed pool), matching how plan.js renders checkboxes;
+    // the legacy schema counts its flat requirements array.
     if (statReqs) {
-      const CORE_COUNT = 16;
-      if (userMajor && Array.isArray(userMajor.requirements)) {
-        const total = CORE_COUNT + userMajor.requirements.length;
+      const CORE_COUNT = typeof coreCount === "number" ? coreCount : FALLBACK_CORE_COUNT;
+      const majorRows = userMajor ? majorRequirementRowCount(userMajor) : 0;
+      if (majorRows > 0) {
+        const total = CORE_COUNT + majorRows;
         statReqs.textContent = `${checkedCount}/${total}`;
       } else {
         statReqs.textContent = checkedCount > 0 ? checkedCount : "--";

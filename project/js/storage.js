@@ -11,6 +11,7 @@ const STORAGE_KEYS = {
   SCHEDULE_PREFIX: "bc_career_planner_schedule_",
   SCHEDULE_META: "bc_career_planner_schedule_meta",
   SELECTED_SEMESTER: "bc_career_planner_selected_semester",
+  SELECTED_SCHOOL: "bc_career_planner_selected_school",
   EXPORT: "bc_career_planner_export",
 };
 

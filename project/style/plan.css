@@ -71,6 +71,15 @@
   margin: 10px 0 0;
 }
 
+/* BC CORE — SCHOOL-AWARE CHECKLIST */
+#school-select {
+  margin-top: 2px;
+}
+
+#core-req-footer {
+  margin-bottom: 14px;
+}
+
 /* GPA DISPLAY */
 .gpa-display {
   text-align: center;
@@ -372,6 +381,82 @@
 .major-req-list .empty {
   font-size: 13px;
   color: var(--text-muted);
+}
+
+/* NEW-SCHEMA REQUIREMENT GROUPS */
+.major-req-header {
+  margin-bottom: 6px;
+}
+
+.major-total-credits {
+  font-weight: 600;
+  color: var(--text-soft);
+}
+
+.major-req-list li.req-group {
+  margin-bottom: 16px;
+}
+
+.req-group-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--maroon);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-bottom: 4px;
+}
+
+.req-group-count {
+  flex-shrink: 0;
+  padding: 2px 8px;
+  border-radius: 20px;
+  background: rgba(181, 154, 87, 0.18);
+  color: var(--gold-dark);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.req-group-items {
+  margin: 0;
+  padding-left: 2px;
+}
+
+.req-group-items li.req-item {
+  margin-bottom: 6px;
+}
+
+.req-item-label {
+  flex: 1;
+}
+
+.req-item-credits {
+  flex-shrink: 0;
+  margin-left: auto;
+  padding-left: 8px;
+  font-size: 12px;
+  color: var(--text-faint);
+  text-align: right;
+}
+
+/* REQUIREMENT FOOTER (needs-review warning only; sources/notes live in the
+   data files, not the page) */
+.major-req-footer {
+  margin: 6px 0 10px;
+}
+
+.major-req-footer .archive-note {
+  color: var(--warning);
+  background: var(--warning-bg);
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+  margin: 0;
 }
 
 /* Responsive */

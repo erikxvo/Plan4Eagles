@@ -1,0 +1,485 @@
+{
+  "generatedAt": "2026-07-15T00:00:00.000Z",
+  "schools": [
+    {
+      "id": "mcas",
+      "name": "Morrissey College of Arts and Sciences",
+      "coreTitle": "BC Core \u2014 MCAS",
+      "provenance": {
+        "sources": [
+          {
+            "label": "University Catalog \u2014 MCAS Undergraduate Programs",
+            "url": "https://www.bc.edu/content/bc-web/academics/sites/university-catalog/undergraduate/mcas.html"
+          },
+          {
+            "label": "University Catalog \u2014 Undergraduate Academic Regulations (University Core Curriculum + Language Proficiency Requirements sections)",
+            "url": "https://www.bc.edu/content/bc-web/academics/sites/university-catalog/policies-procedures/undergraduate-academic-regulations.html"
+          },
+          {
+            "label": "University Catalog home (confirms 2026\u20132027 catalog year)",
+            "url": "https://www.bc.edu/bc-web/academics/sites/university-catalog.html"
+          }
+        ],
+        "catalogYear": "2026-2027",
+        "lastVerified": "2026-07-15",
+        "confidence": "verified",
+        "notes": [
+          "MCAS students complete the full, unmodified 15-category University Core (the standard/baseline version) \u2014 the Academic Regulations page's course substitutions for the 15 Core categories (e.g., CSOM's BZAN1135 for Math, ECON1101 for Social Science; CSON's NURS courses; LSEHD's APSY/EDUC/FORM courses) apply to OTHER schools, not MCAS, so MCAS rows carry no special course substitution.",
+          "Language Proficiency is confirmed MCAS-specific: the Academic Regulations page states 'students in the Morrissey College of Arts and Sciences will demonstrate intermediate-level proficiency in a foreign or classical language in order to graduate' and it is the only school called out with this requirement in the 'University Degree Requirements' summary (CSOM/LSEHD/CSON entries there do not mention it). It is NOT one of the 15 University Core categories \u2014 it is a separate, additional MCAS degree requirement.",
+          "No additional MCAS-wide required-course sequence exists beyond the Core + Language Proficiency (unlike, e.g., CSOM's Portico/business-core sequence). 'Capstone' and 'Cornerstone' course listings in the catalog are elective/department offerings, not a school-wide required sequence for all MCAS students \u2014 confirmed by absence of any 'all students must complete Capstone/Cornerstone' language on the MCAS or Academic Regulations pages.",
+          "Complex Problem and Enduring Question courses (first-year only) can fulfill certain Core categories (one Philosophy course; Theology courses) but are not a separate checkbox-able requirement \u2014 they're an alternate way to satisfy an existing category.",
+          "Major requirements (30+ credits, 39 majors offered) are intentionally excluded per instructions; they belong in majors.json.",
+          "Open question: the Language Proficiency detail's AP-score table and Seal-of-Biliteracy option are summarized here; exact per-language score thresholds are in the source page if the app ever needs to render them.",
+          "Independent re-verification (2026-07-15): re-fetched all three provenance sources plus cross-checked the Academic Regulations page's verbatim text ('The following fifteen requirements comprise the University Core Curriculum...'). Confirmed: (a) every row maps to source text on the cited pages; (b) all 15 Core categories named on the MCAS page (Arts, Cultural Diversity, History x2, Literature, Mathematics, Natural Science x2, Philosophy x2, Social Science x2, Theology x2, Writing) plus Language Proficiency are present in this file \u2014 nothing school-wide is missing; (c) no row is major-specific \u2014 all 16 rows are University Core or the MCAS-wide Language Proficiency requirement, confirmed by the MCAS page's own 'All Morrissey College of Arts and Sciences students must complete...' framing, distinct from the separate major-selection/30-credit-major language; (d) the Language Proficiency scope claim is verified verbatim \u2014 the Academic Regulations page states it applies to 'students in the Morrissey College of Arts and Sciences' and is absent from the CSOM/CSON/LSEHD entries in the same section.",
+          "Minor observation (not a fix): the catalog's source footnote reads 'One course in Writing*\u2014...' and 'One course in Literature*' sharing one footnote ('*Students for whom English is not their first language have special options for meeting these requirements.') \u2014 i.e. the ESL-options note applies to BOTH Writing and Literature, not just Writing. The Literature row detail was updated to include it (see fix log).",
+          "Minor observation (not a fix): unlike History I/II, Philosophy I/II, and Theology CT/STT, the catalog does not give 'Social Science II' or 'Natural Science II' as officially named sub-categories \u2014 it just states 'Two courses in Social Science' / 'Two courses in Natural Science'. Splitting each into two rows here is a reasonable UI/data-modeling choice by the curator (mirrors the two-course requirement for checklist purposes) and is not a factual error, but the 'II' suffix should not be read as official catalog terminology for those two categories."
+        ]
+      },
+      "requirements": [
+        {
+          "label": "Writing",
+          "detail": "One course, required in the student's first year. Students for whom English is not their first language have special options for meeting this requirement."
+        },
+        {
+          "label": "Literature",
+          "detail": "One course. Students for whom English is not their first language have special options for meeting this requirement."
+        },
+        {
+          "label": "Arts",
+          "detail": "One course."
+        },
+        {
+          "label": "Math",
+          "detail": "One course. (No MCAS-specific course is prescribed; the catalog only lists substitute courses for CSOM, CSON, and LSEHD students.)"
+        },
+        {
+          "label": "History I",
+          "detail": "One History course covering the pre-1800 period."
+        },
+        {
+          "label": "History II",
+          "detail": "One History course covering the post-1800 period."
+        },
+        {
+          "label": "Philosophy I",
+          "detail": "One Philosophy I course \u2014 e.g., PHIL1070 Philosophy of the Person I, or the paired PHIL/THEO1088 Person and Social Responsibility I (PULSE) / PHIL/THEO1090 Perspectives on Western Culture I (taken in sequence with Philosophy II). A Complex Problem or Enduring Question course may fulfill one of the two Philosophy Core courses."
+        },
+        {
+          "label": "Philosophy II",
+          "detail": "One Philosophy II course \u2014 e.g., PHIL1071 Philosophy of the Person II, or the paired PHIL/THEO1089 Person and Social Responsibility II (PULSE) / PHIL/THEO1091 Perspectives on Western Culture II (taken in sequence with Philosophy I)."
+        },
+        {
+          "label": "Social Science",
+          "detail": "First of two Social Science courses. (No MCAS-specific course is prescribed; CSOM/CSON/LSEHD have designated substitute courses instead.)"
+        },
+        {
+          "label": "Social Science II",
+          "detail": "Second of two Social Science courses."
+        },
+        {
+          "label": "Natural Science",
+          "detail": "First of two Natural Science courses."
+        },
+        {
+          "label": "Natural Science II",
+          "detail": "Second of two Natural Science courses."
+        },
+        {
+          "label": "Theology (CT)",
+          "detail": "One Christian Theology (CT) course \u2014 or fulfilled via the THEO/PHIL1088 Person and Social Responsibility I (PULSE) or THEO/PHIL1090 Perspectives on Western Culture I sequence, or a Complex Problem/Enduring Question Theology course."
+        },
+        {
+          "label": "Theology (STT)",
+          "detail": "One Sacred Texts and Traditions (STT) course \u2014 or fulfilled via the THEO/PHIL1089 Person and Social Responsibility II (PULSE) or THEO/PHIL1091 Perspectives on Western Culture II sequence, or a Complex Problem/Enduring Question Theology course."
+        },
+        {
+          "label": "Cultural Diversity",
+          "detail": "One approved course; may be a course also used to satisfy another University Core category, a major/minor requirement, or an elective."
+        },
+        {
+          "label": "Language Proficiency",
+          "detail": "MCAS-specific requirement (not one of the 15 University Core categories): demonstrate intermediate-level proficiency (through the 4th semester) in a foreign or classical language. May be satisfied by BC coursework (2nd semester of an intermediate-level language, or one course beyond intermediate level), qualifying AP/IB/A-level/DELE scores, documented native proficiency, or a Global/State Seal of Biliteracy. Language courses used to meet it count as MCAS electives, not Core credit. Students with documented learning disabilities may petition the Connors Family Learning Center for exemption."
+        }
+      ]
+    },
+    {
+      "id": "csom",
+      "name": "Carroll School of Management",
+      "coreTitle": "BC Core \u2014 CSOM",
+      "provenance": {
+        "sources": [
+          {
+            "label": "University Catalog home",
+            "url": "https://www.bc.edu/bc-web/academics/sites/university-catalog.html"
+          },
+          {
+            "label": "Carroll School of Management, Undergraduate Programs - University Catalog",
+            "url": "https://www.bc.edu/bc-web/academics/sites/university-catalog/undergraduate/csom.html"
+          },
+          {
+            "label": "Undergraduate Academic Regulations - University Catalog (\"University Core Curriculum\u2014Undergraduate Requirements\" and \"Language Proficiency Requirements\" sections)",
+            "url": "https://www.bc.edu/bc-web/academics/sites/university-catalog/policies-procedures/undergraduate-academic-regulations.html"
+          },
+          {
+            "label": "Core Requirements - Morrissey College of Arts and Sciences (category descriptions used university-wide)",
+            "url": "https://www.bc.edu/bc-web/schools/morrissey/undergraduate/core-curriculum/core-requirements.html"
+          },
+          {
+            "label": "Student FAQ - Core Curriculum - Morrissey College of Arts and Sciences (confirms language requirement applies to CSOM, not just MCAS; not required for Lynch/Connell)",
+            "url": "https://www.bc.edu/bc-web/schools/mcas/undergraduate/core-curriculum/student-faq.html"
+          },
+          {
+            "label": "Academics - Carroll School of Management (concentrations/co-concentration context)",
+            "url": "https://www.bc.edu/bc-web/schools/carroll-school/undergraduate/academics.html"
+          }
+        ],
+        "catalogYear": "2026-2027",
+        "lastVerified": "2026-07-15",
+        "confidence": "needs-review",
+        "notes": [
+          "CSOM students complete the FULL 15-category University Core Curriculum used by all BC undergraduates (Arts, Cultural Diversity, History I/II, Literature, Math, Natural Science x2, Philosophy I/II, Social Science x2, Theology CT/STT, Writing) \u2014 it is not reduced for CSOM. Source: Undergraduate Academic Regulations, 'University Core Curriculum\u2014Undergraduate Requirements'.",
+          "Two Core categories are filled by specific, named courses for CSOM students rather than free choice: Mathematics is fulfilled specifically by BZAN1135 Statistical Analysis, and one of the two Social Science courses is fulfilled specifically by ECON1101 Principles of Economics. Both of these courses are ALSO listed on the CSOM catalog page as required 'Management Core' courses \u2014 i.e. they are the SAME single courses doing double duty, not extra courses on top of the Core. To avoid double-counting, this file does not list 'Statistics' or 'Economics' as separate Business Core checklist rows; instead the Math and Social Science rows note the specific course, and the corresponding Business Core rows (BZAN1135, ECON1101) are cross-referenced. If the app wants literal 1:1 parity with the catalog's own 'Management Core Courses' bullet list, BZAN1135 and ECON1101 can be surfaced there too, but they should be treated as already-satisfied once Math/Social Science-I are checked, not as additional distinct courses.",
+          "Language Proficiency: the Undergraduate Academic Regulations page's 'Language Proficiency Requirements' section is written mentioning only 'students in the Morrissey College of Arts and Sciences' by name, and later says language courses 'count as Morrissey College of Arts and Sciences electives' \u2014 read in isolation this could suggest MCAS-only. However, the official Core Curriculum Student FAQ page explicitly states: 'students in the Morrissey College of Arts and Sciences and the Carroll School of Management are required to demonstrate intermediate-level proficiency in a foreign or classical language in order to graduate from Boston College... Students in the Lynch School of Education and the Connell School of Nursing do not have a language requirement.' This file follows the FAQ (more explicit and specifically addresses CSOM), i.e. CSOM DOES have the Language Proficiency requirement, contrary to a 'MCAS-only' assumption. Flagging this as an open question worth a human sanity-check given the conflicting phrasing on the regulations page itself.",
+          "The CSOM catalog page's own remark \u2014 'Students contemplating study abroad should be aware that some programs require a language proficiency' \u2014 is a separate, narrower point about some individual study-abroad programs having their own language prerequisites; it is not evidence against the graduation-wide requirement confirmed by the FAQ.",
+          "Portico (PRTO1000) is stated by the catalog to 'fulfill the Carroll School ethics requirement' \u2014 CSOM's ethics requirement is not a separate checklist slot in this file; it is satisfied automatically by Portico, which all CSOM students already take.",
+          "CSOM concentration-specific courses (4-6 courses) and the optional 'Managing for Social Impact and the Public Good' minor are NOT included here \u2014 concentration requirements belong in majors.json; the minor is optional, not school-wide-required.",
+          "'15 credits of non-CSOM electives' is listed as its own row because the catalog states it as a required, distinct component of the Management Core credit distribution for all CSOM students, not a leftover/free elective count.",
+          "AUDIT UPDATE (adversarial verifier pass, 2026-07-15): The 'Language Proficiency applies to CSOM' claim is NOT settled \u2014 it is a live three-way conflict across official BC pages, not just an ambiguity in one page as previously noted. (1) The Undergraduate Academic Regulations page's 'Language Proficiency Requirements' section, verbatim, names ONLY 'students in the Morrissey College of Arts and Sciences' and never mentions CSOM anywhere in that section. (2) The Core Curriculum Student FAQ page explicitly includes CSOM: 'students in the Morrissey College of Arts and Sciences and the Carroll School of Management are required to demonstrate intermediate-level proficiency... Students in the Lynch School of Education and the Connell School of Nursing do not have a language requirement.' (3) A third official BC page, not previously in this file's provenance \u2014 Romance Languages and Literatures Dept, 'Language Requirement' (https://www.bc.edu/bc-web/schools/morrissey/departments/romance-languages/undergraduate-programs/language-requirement.html) \u2014 directly CONTRADICTS the FAQ: 'The Carroll School of Management, the Lynch School of Education and Human Development, and the Connell School of Nursing do not have a language requirement.' Two official BC sources now directly disagree on whether CSOM has this requirement, so the Language Proficiency row cannot be marked verified as-is; a human should confirm with CSOM/Registrar which page is current before trusting this row.",
+          "AUDIT UPDATE (adversarial verifier pass, 2026-07-15): Possible MISSING required Management Core course \u2014 ISYS1021 'Digital Technology: Strategy & Use' (recommended first year) is listed as a required course in the Carroll School of Management's own 'Academics' page (already cited in provenance.sources), in its Management Core 'Course Name / Recommended Year' table alongside Portico, BZAN1135, ECON1101, etc. It does NOT appear anywhere on the University Catalog CSOM page's 'Management Core Courses' list (also cited in provenance.sources), and it is not represented as a row in this file. This is an unresolved conflict between two of this file's own cited sources: either (a) the Catalog is the current, authoritative list and the Academics page is stale/outdated, or (b) ISYS1021 is a real current requirement missing from both the Catalog page and this file. Needs a human check against a current CSOM degree-audit or advising worksheet before adding or dismissing this course.",
+          "AUDIT UPDATE (adversarial verifier pass, 2026-07-15): Two rows contain specific factual details not found on any of the 6 pages listed in provenance.sources: the 'Introduction to Law' row's parenthetical '(Law I \u2014 Introduction to Law and Legal Process)' and its description of legal-system/business-ethics/regulatory/securities/contract-law topics; and the 'Fundamentals of Finance' row's 'Prerequisite: ACCT1021'. Both were independently spot-checked via BC's Business Law and Society and Finance course-catalog pages (https://www.bc.edu/bc-web/academics/sites/university-catalog/undergraduate/csom/business-law-society.html and https://www.bc.edu/bc-web/academics/sites/university-catalog/undergraduate/csom/finance.html) and appear accurate, but those URLs are not in provenance.sources. If these details are kept, add those two URLs as sources \u2014 as written, the file cites sources that don't actually support these specific claims.",
+          "AUDIT UPDATE (adversarial verifier pass, 2026-07-15), minor/no fix needed: The Carroll School 'Academics' page (cited source) shows the non-CSOM elective requirement was '12 Morrissey College of Arts and Sciences elective credits' for the Class of 2025/2026, rising to '15 credits of non-CSOM electives' starting with a more recent class (matching this file's row and the current University Catalog CSOM page). This file's '15 credits' figure is consistent with the current Catalog and is not an error \u2014 noting the historical figure here only so a future reviewer doesn't mistake the 12-credit figure elsewhere on bc.edu for a contradiction."
+        ]
+      },
+      "requirements": [
+        {
+          "label": "Writing",
+          "detail": "One course: First-Year Writing Seminar (FWS), 3+ credits, taken first year. Same University Core requirement as all BC undergraduates."
+        },
+        {
+          "label": "Literature",
+          "detail": "One 3-credit course in Literature (Classical Studies, English, Romance Languages and Literatures, or Eastern/Slavic/German Studies). Catalog recommends CSOM students complete this in freshman year."
+        },
+        {
+          "label": "Arts",
+          "detail": "One 3-credit course in art history, studio art, film, music, or theater."
+        },
+        {
+          "label": "Math",
+          "detail": "One 3-credit Mathematics Core course. CSOM students specifically fulfill this with BZAN1135 Statistical Analysis (also listed as a required CSOM Management Core course \u2014 the same single course satisfies both)."
+        },
+        {
+          "label": "History I",
+          "detail": "One 3-credit History course covering the period pre-1800, in a global/world-regional context."
+        },
+        {
+          "label": "History II",
+          "detail": "One 3-credit History course covering the period post-1800, in a global/world-regional context."
+        },
+        {
+          "label": "Philosophy I",
+          "detail": "First of two sequential 3-credit Philosophy courses. May be satisfied via PHIL1070, or via the first course of the year-long PULSE (PHIL1088) or Perspectives on Western Culture (PHIL1090) sequences, which jointly fulfill Philosophy and Theology."
+        },
+        {
+          "label": "Philosophy II",
+          "detail": "Second of two sequential 3-credit Philosophy courses (PHIL1071, or PHIL1089/PULSE, or PHIL1091/Perspectives)."
+        },
+        {
+          "label": "Social Science",
+          "detail": "First of two 3-credit Social Science courses (economics, political science, psychology, or sociology). CSOM students specifically fulfill this course with ECON1101 Principles of Economics (also listed as a required CSOM Management Core course \u2014 the same single course satisfies both)."
+        },
+        {
+          "label": "Social Science II",
+          "detail": "Second of two 3-credit Social Science courses, freely chosen from economics, political science, psychology, or sociology Core offerings."
+        },
+        {
+          "label": "Natural Science",
+          "detail": "First of two 3-4 credit Natural Science courses (Biology, Chemistry, Earth and Environmental Sciences, or Physics)."
+        },
+        {
+          "label": "Natural Science II",
+          "detail": "Second of two 3-4 credit Natural Science courses (Biology, Chemistry, Earth and Environmental Sciences, or Physics)."
+        },
+        {
+          "label": "Theology (CT)",
+          "detail": "One 3-credit Christian Theology-designated course, or the corresponding course in the PULSE (THEO1088/1089) or Perspectives on Western Culture (THEO1090/1091) sequence."
+        },
+        {
+          "label": "Theology (STT)",
+          "detail": "One 3-credit Sacred Texts and Traditions-designated course, or the corresponding course in the PULSE/Perspectives sequence."
+        },
+        {
+          "label": "Cultural Diversity",
+          "detail": "One approved course emphasizing cultural diversity (may double-count with another Core, major/minor, or elective course). No CSOM-specific substitute course is named in the catalog."
+        },
+        {
+          "label": "Language Proficiency",
+          "detail": "Required of CSOM students (per the Core Curriculum Student FAQ): demonstrate intermediate-level proficiency in a foreign or classical language, defined as completing the 4th semester of a language (or equivalent via AP/IB score, native-proficiency documentation, or Seal of Biliteracy). Not part of the 15-course University Core count, but a separate graduation requirement. Not required for Lynch School or Connell School students."
+        },
+        {
+          "label": "Portico",
+          "detail": "PRTO1000 Portico, 3 credits, fall semester of first year. Required of all CSOM students; combines an introduction to business with ethics and globalization, and fulfills the Carroll School's ethics requirement."
+        },
+        {
+          "label": "Excel for Business Analytics",
+          "detail": "BZAN1037 Excel for Business Analytics, 1 credit, freshman year."
+        },
+        {
+          "label": "Financial Accounting",
+          "detail": "ACCT1021 Financial Accounting, freshman or sophomore year."
+        },
+        {
+          "label": "Coding for Business",
+          "detail": "BZAN2021 Coding for Business, freshman or sophomore year."
+        },
+        {
+          "label": "Introduction to Law",
+          "detail": "BSLW1021 Introduction to Law (Law I \u2014 Introduction to Law and Legal Process), sophomore or junior year. Covers the legal system, business ethics, regulatory environment, securities/corporate governance, and contract law."
+        },
+        {
+          "label": "Organizational Behavior",
+          "detail": "MGMT1021 Organizational Behavior, sophomore or junior year."
+        },
+        {
+          "label": "Operations Management",
+          "detail": "BZAN1021 Operations Management, sophomore or junior year."
+        },
+        {
+          "label": "Fundamentals of Finance",
+          "detail": "MFIN1021 Fundamentals of Finance (formerly Basic Finance), sophomore or junior year. Prerequisite: ACCT1021."
+        },
+        {
+          "label": "Principles of Marketing",
+          "detail": "MKTG1021 Principles of Marketing, sophomore or junior year."
+        },
+        {
+          "label": "Strategic Management",
+          "detail": "MGMT3099 Strategic Management, senior year. Capstone Management Core course; usually the last Management Core course completed."
+        },
+        {
+          "label": "Non-CSOM Electives",
+          "detail": "15 credits of coursework taken outside CSOM departments (any year), required as part of the Management Core credit distribution for all CSOM students, toward the 120 total credits for the degree."
+        }
+      ]
+    },
+    {
+      "id": "lynch",
+      "name": "Lynch School of Education and Human Development",
+      "coreTitle": "BC Core \u2014 Lynch School",
+      "provenance": {
+        "sources": [
+          {
+            "label": "University Catalog \u2014 Undergraduate (start page)",
+            "url": "https://www.bc.edu/bc-web/academics/sites/university-catalog.html"
+          },
+          {
+            "label": "Lynch School of Education and Human Development, Undergraduate Programs \u2014 University Catalog",
+            "url": "https://www.bc.edu/content/bc-web/academics/sites/university-catalog/undergraduate/lynch.html"
+          },
+          {
+            "label": "Morrissey College of Arts and Sciences, Undergraduate Programs \u2014 University Catalog (used to cross-check what is University-Core-wide vs. MCAS-specific)",
+            "url": "https://www.bc.edu/content/bc-web/academics/sites/university-catalog/undergraduate/mcas.html"
+          },
+          {
+            "label": "Core Requirements & Courses \u2014 Morrissey College of Arts and Sciences",
+            "url": "https://www.bc.edu/bc-web/schools/morrissey/undergraduate/core-curriculum/core-requirements.html"
+          },
+          {
+            "label": "Student FAQ \u2014 Core Curriculum \u2014 Morrissey College of Arts and Sciences (confirms language requirement applicability by school)",
+            "url": "https://www.bc.edu/bc-web/schools/morrissey/undergraduate/core-curriculum/student-faq.html"
+          }
+        ],
+        "catalogYear": "2026-2027",
+        "lastVerified": "2026-07-15",
+        "confidence": "verified",
+        "notes": [
+          "Lynch School (LSEHD) undergraduates complete the FULL University Core Curriculum, unreduced: the Lynch catalog page states degree requirements 'must include the full BC Core curriculum course requirements' and that students 'may satisfy BC Common Core curriculum requirements (42 credits)' during any of their four years. No categories are dropped or substituted for Lynch students.",
+          "Language Proficiency is NOT part of the University Core itself \u2014 it is a separate graduation requirement that only Morrissey College of Arts and Sciences (MCAS) and Carroll School of Management (CSOM) students have. The Core Curriculum Student FAQ states verbatim: 'No, there is no foreign language requirement as part of the Core Curriculum. However, students in the Morrissey College of Arts and Sciences and the Carroll School of Management are required to demonstrate intermediate-level proficiency in a foreign or classical language in order to graduate from Boston College... Students in the Lynch School of Education and the Connell School of Nursing do not have a language requirement.' Accordingly, Language Proficiency is EXCLUDED from this Lynch requirements list.",
+          "The University Core is nominally a 'fifteen-course program' (15 checkbox-able requirement slots) but only 42 credits / effectively 14 physical courses, because the Cultural Diversity requirement is typically satisfied by a course that simultaneously fulfills another Core category (e.g., the Lynch catalog notes EDUC1031/FORM1051 each 'satisfy one BC Core Social Science and the BC Core Cultural Diversity requirement' at once) rather than requiring an additional, separate course.",
+          "History = two 3-credit courses: one pre-1800 (History I Core) and one post-1800 (History II Core), per the Core Requirements page.",
+          "Philosophy = two sequential 3-credit courses; may be completed jointly with the Theology Core via the year-long PULSE (PHIL1088/1089 + THEO1088/1089) or Perspectives on Western Culture (PHIL1090/1091 + THEO1090/1091) sequences.",
+          "Theology = 6 credit hours, satisfied by one Sacred Texts and Traditions (STT)-designated course and one Christian Theology (CT)-designated course.",
+          "Social Science = two 3-credit courses from economics, political science, psychology, or sociology (the Lynch catalog also treats EDUC/APSY1030 Child Development and similar education-department courses as Core Social Science-designated for Lynch students).",
+          "Natural Science = two 3- or 4-credit courses from Biology, Chemistry, Earth and Environmental Sciences, or Physics.",
+          "School-specific addition beyond the Core: ERAL1100 First Year Experience, Reflection, and Action (ERA-FYP) Program \u2014 a 3-credit, two-semester course (1 credit fall / 2 credits spring) that the Lynch catalog explicitly calls 'a requirement for all LSEHD undergraduate students,' taken as a sixth course during the first year, independent of major choice (Elementary Education, Secondary Education, Transformative Educational Studies, or Applied Psychology and Human Development).",
+          "NOT included here (belongs in majors.json instead): second-major requirements for Secondary/Elementary Education majors, pre-practicum/practicum teaching requirements, and any major-specific course sequences \u2014 these vary by major, not by school as a whole.",
+          "Open question: whether any Lynch majors (e.g., Applied Psychology and Human Development) have degree-audit nuances that substitute specific department courses for generic Core slots (the catalog hints at this for Social Science) \u2014 flagged for spot-checking against a live degree audit if precision below the school-wide level is later needed.",
+          "ADVERSARIAL VERIFICATION (2026-07-15): Independently re-fetched all five listed sources plus the University Catalog start page. All quoted/paraphrased facts check out verbatim against live pages: the 'full BC Core curriculum course requirements' and 'BC Common Core curriculum requirements (42 credits)' language on the Lynch catalog page; the ERAL1100 description ('a requirement for all LSEHD undergraduate students,' 3 credits, 1 credit fall / 2 credits spring, taken as a sixth course) on the Lynch catalog page; the foreign-language FAQ verbatim quote (MCAS + CSOM require it, Lynch + Connell do not) on the Core Curriculum Student FAQ page; and every Core category's credit/course count, department list, and special-sequence detail (Writing=FWS; Literature depts = Classical Studies, English, Romance Languages and Literatures, Eastern/Slavic and German Studies; Arts = art history/studio art/film/music/theater; History = pre-1800 'History I Core' + post-1800 'History II Core'; Philosophy PULSE PHIL1088/1089+THEO1088/1089 and Perspectives PHIL1090/1091+THEO1090/1091; Theology = one STT + one CT course; Social Science depts = economics/political science/psychology/sociology, with 'Psychology in Education' also listed as a Core-eligible department on the Morrissey Core Requirements page, supporting the Lynch-specific EDUC/APSY examples; Natural Science depts = Biology/Chemistry/Earth and Environmental Sciences/Physics; Cultural Diversity's three pathways) on the Core Requirements page. Checked the Lynch catalog page in full for any other school-wide requirement beyond the University Core and ERA-FYP (searched every 'requirement' occurrence) \u2014 found none; all other requirement language on the page (practicum, licensure, second-major, GPA/credit-pace rules) is explicitly major-specific and correctly excluded per this file's own scope note. No requirement row in this file is actually major-specific \u2014 all 15 University Core rows apply to every BC undergraduate and ERA-FYP is explicitly stated to apply to 'all LSEHD undergraduate students' regardless of major. No school-wide requirement is missing from this file relative to the catalog's own Lynch page.",
+          "Minor precision caveat (not corrected, since it is not inaccurate, just slightly broad): the Social Science row's detail cites 'EDUC/APSY1030 Child Development or FORM1051 Reimagining School and Society' as Lynch examples. EDUC/APSY1030 is genuinely offered to all LSEHD first-year students regardless of intended major (per the catalog's general 'Information for LSEHD First-Year Students' section). FORM1051, however, is only explicitly named in the catalog's major-specific advising for Elementary Education, Secondary Education, and Transformative Educational Studies pathways \u2014 it is not explicitly mentioned in the Applied Psychology and Human Development major's own description. It remains a valid open-enrollment Social-Science/Cultural-Diversity-designated course any Lynch student could take, so the example is not wrong, just drawn from teacher-education-track advising rather than being confirmed as advised across all four majors."
+        ]
+      },
+      "requirements": [
+        {
+          "label": "Writing",
+          "detail": "One course (3 credits): the First-Year Writing Seminar (FWS)."
+        },
+        {
+          "label": "Literature",
+          "detail": "One course (3 credits), from Classical Studies, English, Romance Languages and Literatures, or Eastern, Slavic and German Studies."
+        },
+        {
+          "label": "Arts",
+          "detail": "One course (3 credits) in art history, studio art, film, music, or theater."
+        },
+        {
+          "label": "Math",
+          "detail": "One course (3 credits)."
+        },
+        {
+          "label": "History I",
+          "detail": "First of two required History Core courses (3 credits): a pre-1800 course."
+        },
+        {
+          "label": "History II",
+          "detail": "Second of two required History Core courses (3 credits): a post-1800 course."
+        },
+        {
+          "label": "Philosophy I",
+          "detail": "First of two sequential Philosophy Core courses (3 credits). May be fulfilled jointly with Theology via the year-long PULSE or Perspectives on Western Culture sequence."
+        },
+        {
+          "label": "Philosophy II",
+          "detail": "Second of two sequential Philosophy Core courses (3 credits)."
+        },
+        {
+          "label": "Social Science",
+          "detail": "First of two Social Science Core courses (3 credits) chosen from economics, political science, psychology, or sociology; for Lynch students, courses such as EDUC/APSY1030 Child Development or FORM1051 Reimagining School and Society also carry this designation."
+        },
+        {
+          "label": "Social Science II",
+          "detail": "Second of two Social Science Core courses (3 credits)."
+        },
+        {
+          "label": "Natural Science",
+          "detail": "First of two Natural Science Core courses (3-4 credits) in Biology, Chemistry, Earth and Environmental Sciences, or Physics."
+        },
+        {
+          "label": "Natural Science II",
+          "detail": "Second of two Natural Science Core courses (3-4 credits)."
+        },
+        {
+          "label": "Theology (CT)",
+          "detail": "One Christian Theology-designated course, part of the 6-credit Theology Core."
+        },
+        {
+          "label": "Theology (STT)",
+          "detail": "One Sacred Texts and Traditions-designated course, part of the 6-credit Theology Core."
+        },
+        {
+          "label": "Cultural Diversity",
+          "detail": "One course (3 credits) satisfying the Cultural Diversity requirement via one of three approaches (Engaging Difference and Justice; Difference, Justice, and the Common Good; or Cultural Diversity); commonly double-counted with another Core category rather than an additional course (e.g., a Social Science course that is also Cultural Diversity-designated)."
+        },
+        {
+          "label": "ERA-FYP",
+          "detail": "ERAL1100 First Year Experience, Reflection, and Action Program \u2014 a school-wide, 3-credit requirement for ALL Lynch School (LSEHD) undergraduates regardless of major, taken as a sixth course over both semesters of the first year (1 credit fall, 2 credits spring)."
+        }
+      ]
+    },
+    {
+      "id": "cson",
+      "name": "Connell School of Nursing",
+      "coreTitle": "BC Core \u2014 CSON",
+      "provenance": {
+        "sources": [
+          {
+            "label": "University Catalog \u2014 Undergraduate Programs (school directory)",
+            "url": "https://www.bc.edu/bc-web/academics/sites/university-catalog/undergraduate.html"
+          },
+          {
+            "label": "University Catalog \u2014 Connell School of Nursing, Undergraduate Programs",
+            "url": "https://www.bc.edu/bc-web/academics/sites/university-catalog/undergraduate/cson.html"
+          },
+          {
+            "label": "University Catalog \u2014 Undergraduate Academic Regulations (contains the authoritative \"University Core Curriculum \u2014 Undergraduate Requirements\" list with school-specific course substitutions, the \"Language Proficiency Requirements\" section, and the 117-credit CSON graduation requirement)",
+            "url": "https://www.bc.edu/bc-web/academics/sites/university-catalog/policies-procedures/undergraduate-academic-regulations.html"
+          },
+          {
+            "label": "Morrissey College of Arts & Sciences \u2014 Core Curriculum: Core Requirements (per-category definitions, credit counts, course sequences)",
+            "url": "https://www.bc.edu/bc-web/schools/morrissey/undergraduate/core-curriculum/core-requirements.html"
+          },
+          {
+            "label": "Morrissey College of Arts & Sciences \u2014 Core Curriculum: Student FAQ (confirms CSON has no language requirement)",
+            "url": "https://www.bc.edu/bc-web/schools/morrissey/undergraduate/core-curriculum/student-faq.html"
+          },
+          {
+            "label": "Morrissey College of Arts & Sciences \u2014 Core Curriculum overview",
+            "url": "https://www.bc.edu/bc-web/schools/morrissey/undergraduate/core-curriculum.html"
+          }
+        ],
+        "catalogYear": "2026-2027",
+        "lastVerified": "2026-07-15",
+        "confidence": "verified",
+        "notes": [
+          "The University Core Curriculum ('the fifteen requirements') is explicitly university-wide: the Undergraduate Academic Regulations page states 'The following fifteen requirements comprise the University Core Curriculum and must be completed by all students at Boston College to graduate.' The CSON catalog page itself directs students to '(See Core Curriculum under the University Policies section of this catalog)' and encourages completing art, history, philosophy, theology, and English Core courses in years 1-2 \u2014 confirming CSON students take the same 15 categories as every other school.",
+          "REDUCTION: Unlike MCAS (and, per the Core Curriculum Student FAQ, also Carroll School of Management), CSON students do NOT have a foreign/classical language proficiency requirement. The FAQ states verbatim: 'Students in the Lynch School of Education and the Connell School of Nursing do not have a language requirement.' The dedicated 'Language Proficiency Requirements' section of the Undergraduate Academic Regulations page likewise only obligates 'students in the Morrissey College of Arts and Sciences' (Carroll School's own inclusion is asserted only on the FAQ page, not in the Regulations page's Language section \u2014 a minor internal inconsistency in BC's own materials, but both sources agree CSON is excluded). Language Proficiency is therefore omitted entirely from this school's requirement list rather than modeled as a reduced/zero-course version.",
+          "SUBSTITUTIONS: The Undergraduate Academic Regulations' Core list gives CSON-specific designated courses for three categories, quoted verbatim: Cultural Diversity \u2014 'CSON students take NURS4264 or PHCG3600.' Mathematics \u2014 'CSON students take MATH1180.' Social Science \u2014 'CSON students take NURS2122 and NURS4264.' Note NURS4264 (Actualizing the Role of the Professional Nurse, a senior capstone) appears as an option for BOTH Cultural Diversity and Social Science II in the source text; the catalog does not clarify whether one course can double-count for both simultaneously or whether choosing it for one forces the alternate option for the other. Flagged as an open question below.",
+          "No other school-wide (non-major) required courses beyond the University Core were found for CSON \u2014 the school offers a single major (Nursing) with no formal concentration tracks, so the extensive science/clinical sequence (Anatomy & Physiology, Life Science Chemistry, Microbiology, Pathophysiology, Pharmacology, Nutrition, all NURS courses, etc.) documented on the CSON catalog page's 'Typical Plan of Study' is treated as major-curriculum content for majors.json, not a separate school-wide 'core' layer, per task instructions.",
+          "CSON's minimum credits for graduation is 117 (vs. 120 for MCAS/Carroll/Lynch), per the Undergraduate Academic Regulations page. This is a total-credit figure, not a checkbox-able Core category, so it is not included as a requirements row.",
+          "AUDIT (2026-07-15): Independently re-fetched all 6 provenance sources plus raw HTML of the CSON catalog page and Undergraduate Academic Regulations page. Every quoted string in this file's notes and every substitution ('CSON students take NURS4264 or PHCG3600' for Cultural Diversity; 'CSON students take MATH1180' for Mathematics; 'CSON students take NURS2122 and NURS4264' for Social Science) was verified verbatim against the live Regulations page's Core list (the paragraph beginning 'The following fifteen requirements comprise the University Core Curriculum...'). The FAQ-vs-Regulations inconsistency on whether Carroll School of Management has a language requirement was independently confirmed: the Regulations page's 'Language Proficiency Requirements' section names only 'students in the Morrissey College of Arts and Sciences' and never mentions Carroll anywhere in that section, while the FAQ page states 'students in the Morrissey College of Arts and Sciences and the Carroll School of Management are required to demonstrate intermediate-level proficiency...' \u2014 both sources agree CSON itself is exempt, which is the only fact this file relies on. All 14 requirement rows and the Language exclusion together account for exactly the University's 'fifteen requirements' (Writing 1 + Literature 1 + Arts 1 + Math 1 + History 2 + Philosophy 2 + Social Science 2 + Natural Science 2 + Theology 2 + Cultural Diversity 1 = 15); no school-wide category is missing and no row is major-specific (MATH1180/NURS2122/NURS4264 are Core-list-sanctioned substitutions, not ordinary major requirements, even though they are also nursing-major courses). The CSON catalog page's own 'Typical Plan of Study' table corroborates this structurally: MATH1180 is listed as a distinct required course in Freshman Spring alongside \u2014 not inside \u2014 the two 'Core or elective' flex slots each semester, consistent with it being the designated Math Core substitute rather than an ordinary major course. No transcription errors were found in any requirement row; no fixes were necessary. Confidence raised from draft to verified.",
+          "OPEN ITEM (not a transcription error, left as-is): the Natural Science / Natural Science II rows' hedge that no CSON-specific substitution is documented remains correct as of this audit \u2014 the Regulations page's Core list gives explicit CSON substitutions only for Cultural Diversity, Mathematics, and Social Science, with no equivalent clause for Natural Science. The rows' text does not overclaim BIOL1300's Core status and should stay hedged as written."
+        ]
+      },
+      "requirements": [
+        {
+          "label": "Writing",
+          "detail": "One course \u2014 the First-Year Writing Seminar (FWS), required in the first year. Must be 3+ credits and cannot be taken pass/fail (applies to all University Core courses)."
+        },
+        {
+          "label": "Literature",
+          "detail": "One course (3+ credits), drawn from Classical Studies, English, Romance Languages and Literatures, or Eastern/Slavic/German Studies."
+        },
+        {
+          "label": "Arts",
+          "detail": "One course (3 credits) in art history, studio art, film, music, or theater."
+        },
+        {
+          "label": "Math",
+          "detail": "One course. Per the Undergraduate Academic Regulations' Core list, 'CSON students take MATH1180' (Principles of Statistics for the Health Sciences) \u2014 matches the required freshman-spring course on CSON's typical plan of study."
+        },
+        {
+          "label": "History I",
+          "detail": "One pre-1800 History course (3 credits), part of the required two-course History Core."
+        },
+        {
+          "label": "History II",
+          "detail": "One post-1800 History course (3 credits), part of the required two-course History Core."
+        },
+        {
+          "label": "Philosophy I",
+          "detail": "First of two sequential 3-credit Philosophy Core courses. May be completed via the PULSE (PHIL/THEO1088-1089) or Perspectives on Western Culture (PHIL/THEO1090-1091) year-long sequences, which simultaneously satisfy Theology."
+        },
+        {
+          "label": "Philosophy II",
+          "detail": "Second of two sequential 3-credit Philosophy Core courses."
+        },
+        {
+          "label": "Social Science",
+          "detail": "First of two required Social Science Core courses (3 credits each, from economics, political science, psychology, or sociology). Per the Undergraduate Academic Regulations' Core list, 'CSON students take NURS2122 and NURS4264' \u2014 i.e., this and the next row are satisfied by NURS2122 (Nursing Health Assessment Across the Life Span)."
+        },
+        {
+          "label": "Social Science II",
+          "detail": "Second required Social Science Core course. Per the Undergraduate Academic Regulations' Core list, CSON students use NURS4264 (Actualizing the Role of the Professional Nurse) here \u2014 the same course is separately listed as an option for the Cultural Diversity requirement below, and the catalog does not specify whether it can satisfy both at once."
+        },
+        {
+          "label": "Natural Science",
+          "detail": "First of two required Natural Science Core courses (3-4 credits each, from Biology, Chemistry, Earth & Environmental Sciences, or Physics). No CSON-specific substitution is documented in the catalog's Core list (unlike Math/Social Science/Cultural Diversity); BIOL1300 (Anatomy & Physiology I, required of all CSON freshmen) appears as a Natural-Science-Core-flagged course in the University Core course listings, so it likely fulfills this in practice, but this is not explicitly stated for CSON students."
+        },
+        {
+          "label": "Natural Science II",
+          "detail": "Second required Natural Science Core course. See note on Natural Science above; not explicitly documented as CSON-substituted."
+        },
+        {
+          "label": "Theology (CT)",
+          "detail": "One Christian Theology-designated course, part of the 6-credit, two-course Theology Core. May be completed via PULSE or Perspectives on Western Culture sequences."
+        },
+        {
+          "label": "Theology (STT)",
+          "detail": "One Sacred Texts and Traditions-designated course, part of the 6-credit, two-course Theology Core."
+        },
+        {
+          "label": "Cultural Diversity",
+          "detail": "One approved course. Per the Undergraduate Academic Regulations' Core list, 'CSON students take NURS4264 or PHCG3600' (both cross-listed as satisfying Cultural Diversity for CSON students)."
+        }
+      ]
+    }
+  ]
+}
