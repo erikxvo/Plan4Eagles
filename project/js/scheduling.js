@@ -43,6 +43,11 @@ let dataMeta = { generatedAt: null, terms: [], departments: {} };
 const scheduledCourses = new Set();
 const scheduledCourseIndices = new Map(); // uniqueId -> courseData index
 
+// "CODE-TERM" -> array of courseData indices sharing that course+term
+// family (lecture + discussion sections of the same course/semester).
+// Rebuilt whenever courseData is (re)loaded.
+let courseFamilies = new Map();
+
 // Cap on how many list items are rendered at once (full catalog is ~4,000)
 const MAX_RENDERED_COURSES = 300;
 
@@ -92,6 +97,74 @@ function courseTimeText(course) {
 function termLabelFor(termCode) {
   const term = dataMeta.terms.find((t) => t.code === termCode);
   return term ? term.label : termCode;
+}
+
+// ==========================
+// COMPONENT / PAIRING HELPERS (lecture/discussion)
+// ==========================
+
+/**
+ * "lecture" | "discussion" | null, tolerating old-schema/archived data
+ * where course.component may be missing entirely.
+ */
+function componentOf(course) {
+  return course && (course.component === "lecture" || course.component === "discussion")
+    ? course.component
+    : null;
+}
+
+function familyKeyFor(course) {
+  return `${course.code}-${course.semester}`;
+}
+
+/** Rebuilds the course+term family index; call whenever courseData changes. */
+function buildCourseFamilies() {
+  courseFamilies = new Map();
+  courseData.forEach((course, index) => {
+    const key = familyKeyFor(course);
+    if (!courseFamilies.has(key)) courseFamilies.set(key, []);
+    courseFamilies.get(key).push(index);
+  });
+}
+
+/** All catalog sections sharing this course's code + term (incl. itself). */
+function familySections(course) {
+  const indices = courseFamilies.get(familyKeyFor(course));
+  return indices ? indices.map((i) => courseData[i]).filter(Boolean) : [course];
+}
+
+/** Currently-scheduled sections with a given code, optionally filtered to one component. */
+function scheduledSectionsOfCourse(code, component) {
+  const results = [];
+  scheduledCourseIndices.forEach((index) => {
+    const c = courseData[index];
+    if (!c || c.code !== code) return;
+    if (component !== undefined && componentOf(c) !== component) return;
+    results.push(c);
+  });
+  return results;
+}
+
+/**
+ * Discussion sections in `course`'s family that belong under this lecture's
+ * menu: unrestricted (pairsWith null/empty — "any lecture") or explicitly
+ * paired with this lecture's section. Sorted by section. Returns
+ * { index, course } pairs so callers can address the courseData entry
+ * directly without re-searching for it.
+ */
+function discussionsForLecture(course) {
+  const indices = courseFamilies.get(familyKeyFor(course)) || [];
+  const entries = indices
+    .map((index) => ({ index, course: courseData[index] }))
+    .filter(({ course: c }) => c && componentOf(c) === "discussion")
+    .filter(({ course: c }) => {
+      const pairsWith = Array.isArray(c.pairsWith) ? c.pairsWith : null;
+      return !pairsWith || pairsWith.length === 0 || pairsWith.includes(course.section);
+    });
+  entries.sort((a, b) =>
+    a.course.section.localeCompare(b.course.section, undefined, { numeric: true })
+  );
+  return entries;
 }
 
 // ==========================
@@ -257,6 +330,7 @@ async function loadCourseData() {
       };
     }
 
+    buildCourseFamilies();
     refreshGrid();
     renderFreshness();
     populateTermFilter();
@@ -345,6 +419,13 @@ function populateTermFilter() {
     termFilter.value = terms[terms.length - 1].code;
   }
 
+  // A ?search= deep link (e.g. from the Ratings page) should never land on
+  // a false-empty list because the default term hides the course.
+  const deepLinkSearch = document.getElementById("search-box");
+  if (deepLinkSearch && deepLinkSearch.value.trim()) {
+    termFilter.value = "";
+  }
+
   termFilter.addEventListener("change", renderCourseList);
   termFilter.addEventListener("change", () => renderArchiveNote(termFilter.value));
   renderArchiveNote(termFilter.value);
@@ -423,9 +504,15 @@ function renderCourseList() {
 
   const matches = [];
   courseData.forEach((course, index) => {
-    if (courseMatchesFilters(course, searchTerm, dept, termCode)) {
-      matches.push(index);
+    if (!courseMatchesFilters(course, searchTerm, dept, termCode)) return;
+    // Discussion sections are only reachable through their lecture's
+    // discussion menu — unless the family has no lecture at all (shouldn't
+    // happen, but a discussion would otherwise be permanently invisible).
+    if (componentOf(course) === "discussion") {
+      const hasLecture = familySections(course).some((c) => componentOf(c) === "lecture");
+      if (hasLecture) return;
     }
+    matches.push(index);
   });
 
   if (resultsCount) {
@@ -517,6 +604,30 @@ function buildCourseListItem(index) {
     btn.appendChild(prereqEl);
   }
 
+  if (Array.isArray(course.corequisites) && course.corequisites.length > 0) {
+    const coreqEl = document.createElement("span");
+    coreqEl.className = "coreq-text";
+    coreqEl.textContent = `Coreq: ${course.corequisites.join(", ")}`;
+    btn.appendChild(coreqEl);
+  }
+
+  // Component chip: only lecture sections whose family actually has
+  // discussions get the "Lecture" chip; every discussion gets "Discussion".
+  const component = componentOf(course);
+  let chipComponent = null;
+  if (component === "discussion") {
+    chipComponent = "discussion";
+  } else if (component === "lecture") {
+    const hasDiscussion = familySections(course).some((c) => componentOf(c) === "discussion");
+    if (hasDiscussion) chipComponent = "lecture";
+  }
+  if (chipComponent) {
+    const chipEl = document.createElement("span");
+    chipEl.className = `component-chip component-${chipComponent}`;
+    chipEl.textContent = chipComponent === "lecture" ? "Lecture" : "Discussion";
+    btn.appendChild(chipEl);
+  }
+
   const badge = document.createElement("span");
   badge.className = "scheduled-badge";
   badge.textContent = "On schedule ✓";
@@ -528,8 +639,118 @@ function buildCourseListItem(index) {
 
   btn.addEventListener("click", () => addCourseToSchedule(index, true));
 
-  li.appendChild(btn);
+  // Wrap the (unchanged) add-to-schedule button with a sibling "view
+  // ratings" button — a button can't nest inside a button, so this lives
+  // in a flex row next to it instead of inside it.
+  const row = document.createElement("div");
+  row.className = "course-item-row";
+  row.appendChild(btn);
+
+  const infoBtn = document.createElement("button");
+  infoBtn.type = "button";
+  infoBtn.className = "ratings-info-btn";
+  infoBtn.textContent = "ⓘ";
+  infoBtn.dataset.courseCode = course.code;
+  infoBtn.dataset.professor = course.professor;
+  infoBtn.dataset.courseName = course.name;
+  infoBtn.setAttribute("aria-label", `View ratings for ${course.code}`);
+  infoBtn.title = "View course & professor ratings";
+  row.appendChild(infoBtn);
+
+  li.appendChild(row);
+
+  // Discussion menu: attached AFTER the row (sibling of it, never nested
+  // inside the course-item button) so a lecture's discussions live under
+  // its own card, mirroring BC's official portal grouping.
+  if (component === "lecture") {
+    const discussions = discussionsForLecture(course);
+    if (discussions.length > 0) {
+      li.appendChild(buildDiscussionMenu(course, uniqueId, discussions));
+    }
+  }
+
   return li;
+}
+
+/**
+ * Builds the <div class="discussion-menu"> for a lecture: a toggle button
+ * plus a hidden <ul> of its relevant discussion sections (see
+ * discussionsForLecture). Expand/collapse and option clicks are handled by
+ * the #course-list delegated listener, not here.
+ */
+function buildDiscussionMenu(lecture, lectureUniqueId, discussions) {
+  const menuId = `disc-menu-${lectureUniqueId.replace(/[^a-zA-Z0-9]/g, "-")}`;
+
+  const menu = document.createElement("div");
+  menu.className = "discussion-menu";
+
+  const toggle = document.createElement("button");
+  toggle.type = "button";
+  toggle.className = "discussion-toggle";
+  toggle.setAttribute("aria-expanded", "false");
+  toggle.setAttribute("aria-controls", menuId);
+  toggle.textContent = `▸ ${discussions.length} discussion section${discussions.length === 1 ? "" : "s"}`;
+  menu.appendChild(toggle);
+
+  const list = document.createElement("ul");
+  list.className = "discussion-list";
+  list.id = menuId;
+  list.hidden = true;
+
+  discussions.forEach(({ index, course: discussion }) => {
+    const optionLi = document.createElement("li");
+
+    const optionBtn = document.createElement("button");
+    optionBtn.type = "button";
+    optionBtn.className = "discussion-option";
+    optionBtn.dataset.courseId = index;
+    const discussionUniqueId = uniqueIdFor(discussion);
+    optionBtn.dataset.uniqueId = discussionUniqueId;
+    optionBtn.setAttribute(
+      "aria-label",
+      `Add ${discussion.code} discussion section ${discussion.section} to schedule`
+    );
+
+    const sectionEl = document.createElement("strong");
+    sectionEl.textContent = discussion.section;
+    optionBtn.appendChild(sectionEl);
+
+    const pairsWith = Array.isArray(discussion.pairsWith) ? discussion.pairsWith : null;
+    const isAnyLecture = !pairsWith || pairsWith.length === 0;
+    let detailText = ` · ${courseTimeText(discussion)}`;
+    if (discussion.room) detailText += ` · ${discussion.room}`;
+    if (isAnyLecture) detailText += " · any lecture";
+    optionBtn.appendChild(document.createTextNode(detailText));
+
+    if (scheduledCourses.has(discussionUniqueId)) {
+      optionBtn.classList.add("is-scheduled");
+      const check = document.createElement("span");
+      check.className = "discussion-check";
+      check.textContent = "✓";
+      optionBtn.appendChild(check);
+    }
+
+    optionLi.appendChild(optionBtn);
+    list.appendChild(optionLi);
+  });
+
+  menu.appendChild(list);
+  return menu;
+}
+
+/**
+ * Opens/closes a discussion-menu: toggles the list's hidden state, the
+ * toggle button's aria-expanded, and swaps the ▸/▾ glyph in its label.
+ * Shared by the delegated toggle-click handler and the guided-pairing
+ * auto-expand in addCourseToSchedule.
+ */
+function setDiscussionMenuOpen(menu, open) {
+  const toggle = menu.querySelector(".discussion-toggle");
+  const list = menu.querySelector(".discussion-list");
+  if (!toggle || !list) return;
+  list.hidden = !open;
+  toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  toggle.textContent = toggle.textContent.replace(/^[▸▾]/, open ? "▾" : "▸");
 }
 
 /** Refresh the "On schedule" marks on currently rendered list items */
@@ -540,6 +761,63 @@ function updateScheduledMarks() {
       scheduledCourses.has(btn.dataset.uniqueId)
     );
   });
+  document.querySelectorAll("#course-list .discussion-option").forEach((btn) => {
+    const scheduled = scheduledCourses.has(btn.dataset.uniqueId);
+    btn.classList.toggle("is-scheduled", scheduled);
+    const existingCheck = btn.querySelector(".discussion-check");
+    if (scheduled && !existingCheck) {
+      const check = document.createElement("span");
+      check.className = "discussion-check";
+      check.textContent = "✓";
+      btn.appendChild(check);
+    } else if (!scheduled && existingCheck) {
+      existingCheck.remove();
+    }
+  });
+}
+
+// ==========================
+// RATINGS MODAL
+// ==========================
+
+/**
+ * Opens the shared ratings modal (markup lives in scheduling.html, styling
+ * in ratings.css) for a course, scoped to whichever professor/semester
+ * sections currently appear in the catalog. Never throws — if the ratings
+ * module failed to load, this just informs the user instead of crashing
+ * the scheduler.
+ */
+function openRatingsModal(code, courseName, professor) {
+  const dialog = document.getElementById("ratings-modal");
+  if (!dialog) return;
+
+  if (typeof renderCourseRatingsInto !== "function") {
+    showToast("Ratings module failed to load.", { type: "error" });
+    return;
+  }
+
+  const seen = new Set();
+  const catalogSections = [];
+  courseData.forEach((c) => {
+    if (c.code !== code) return;
+    const key = `${c.professor}-${c.semester}`;
+    if (seen.has(key)) return;
+    seen.add(key);
+    catalogSections.push({
+      professor: c.professor,
+      semester: c.semester,
+      semesterLabel: termLabelFor(c.semester),
+    });
+  });
+
+  renderCourseRatingsInto(document.getElementById("ratings-modal-body"), code, {
+    courseName,
+    currentProfessorString: professor,
+    catalogSections,
+    showSchedulingLink: false,
+  });
+
+  dialog.showModal();
 }
 
 // ==========================
@@ -639,6 +917,9 @@ function addCourseToSchedule(courseId, save = true) {
   const course = courseData[courseId];
   if (!course) return;
   const uniqueId = uniqueIdFor(course);
+  // Declared at function scope (not inside an `if (save)` block) because
+  // it's read again further down in a second, separate `if (save)` block.
+  const newComponent = componentOf(course);
 
   if (save) {
     const semesterSelect = document.getElementById("semester-select");
@@ -654,14 +935,24 @@ function addCourseToSchedule(courseId, save = true) {
       return;
     }
 
-    // Block a second section of the same course
-    const existingSection = Array.from(scheduledCourseIndices.keys()).find(
-      (id) => id !== uniqueId && id.startsWith(`${course.code}-`)
-    );
-    if (existingSection) {
-      const existing = courseData[scheduledCourseIndices.get(existingSection)];
+    // Block a second section of the same course AND same component — two
+    // lecture sections of CHEM2231, or two discussion sections of it. A
+    // lecture + one discussion of the same course may both be scheduled.
+    const existingSectionId = Array.from(scheduledCourseIndices.keys()).find((id) => {
+      if (id === uniqueId || !id.startsWith(`${course.code}-`)) return false;
+      const other = courseData[scheduledCourseIndices.get(id)];
+      return other && componentOf(other) === newComponent;
+    });
+    if (existingSectionId) {
+      const existing = courseData[scheduledCourseIndices.get(existingSectionId)];
+      const sectionLabel =
+        newComponent === "lecture"
+          ? "a lecture section"
+          : newComponent === "discussion"
+          ? "a discussion section"
+          : "a section";
       showToast(
-        `${course.code} is already on your schedule (section ${existing.section}). Remove it first to switch sections.`,
+        `${course.code} already has ${sectionLabel} on your schedule (${existing.section}). Remove it first to switch.`,
         { type: "error", duration: 6000 }
       );
       return;
@@ -697,6 +988,56 @@ function addCourseToSchedule(courseId, save = true) {
       );
     } else {
       showToast(`${course.code} added to your schedule.`, { type: "success", duration: 2500 });
+    }
+
+    // Guided pairing: a newly-added lecture whose family has discussions,
+    // with none scheduled yet, filters the list to this course so the
+    // learner can immediately pick a discussion section.
+    if (newComponent === "lecture") {
+      const hasDiscussions = familySections(course).some((c) => componentOf(c) === "discussion");
+      const alreadyHasDiscussion = scheduledSectionsOfCourse(course.code, "discussion").length > 0;
+      if (hasDiscussions && !alreadyHasDiscussion) {
+        const lectureBtn = document.querySelector(
+          `#course-list button.course-item[data-unique-id="${uniqueId}"]`
+        );
+        const row = lectureBtn ? lectureBtn.closest(".course-item-row") : null;
+        const menu =
+          row && row.nextElementSibling && row.nextElementSibling.classList.contains("discussion-menu")
+            ? row.nextElementSibling
+            : null;
+        if (menu) {
+          setDiscussionMenuOpen(menu, true);
+          menu.scrollIntoView({ block: "nearest" });
+        }
+        showToast(`${course.code} also has discussion sections — pick one below.`, {
+          duration: 6000,
+        });
+      }
+    } else if (newComponent === "discussion") {
+      // Reverse hint: added a discussion with no lecture of this course
+      // scheduled yet (only when the family actually has lectures).
+      const hasLectures = familySections(course).some((c) => componentOf(c) === "lecture");
+      const alreadyHasLecture = scheduledSectionsOfCourse(course.code, "lecture").length > 0;
+      if (hasLectures && !alreadyHasLecture) {
+        showToast(`Don't forget ${course.code}'s lecture section.`, { duration: 6000 });
+      }
+    }
+
+    // Corequisite hint: none of the coreq codes are on the schedule yet.
+    // Shown after the pairing/reverse hint above (showToast stacks).
+    if (Array.isArray(course.corequisites) && course.corequisites.length > 0) {
+      const scheduledCodes = new Set();
+      scheduledCourseIndices.forEach((index) => {
+        const c = courseData[index];
+        if (c) scheduledCodes.add(c.code);
+      });
+      const anyCoreqScheduled = course.corequisites.some((code) => scheduledCodes.has(code));
+      if (!anyCoreqScheduled) {
+        showToast(
+          `${course.code} has a corequisite: ${course.corequisites.join(", ")} — search for it to add a section.`,
+          { duration: 6000 }
+        );
+      }
     }
   }
 
@@ -1008,10 +1349,19 @@ function restoreSelectedSemester() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  // ?search= deep link (e.g. from a "View sections in Scheduling" link on
+  // the ratings page) — set the box before the first loadCourseData() so
+  // its initial renderCourseList() call picks the term up immediately.
+  const searchBox = document.getElementById("search-box");
+  const params = new URLSearchParams(location.search);
+  const preSearch = params.get("search");
+  if (preSearch && searchBox) {
+    searchBox.value = preSearch;
+  }
+
   loadCourseData();
 
   // Search input (debounced re-render)
-  const searchBox = document.getElementById("search-box");
   if (searchBox) {
     let debounceTimer = null;
     searchBox.addEventListener("input", () => {
@@ -1097,18 +1447,87 @@ document.addEventListener("DOMContentLoaded", () => {
         courses: [],
       };
 
+      // Discussion sections carry 0 credits and share their lecture's
+      // course name — exporting them too would create a duplicate-name
+      // 0-credit row in the 4-Year Plan, so only lecture/standalone
+      // sections are exported; discussions are implicitly part of the
+      // lecture course.
+      let skippedDiscussions = 0;
       scheduledCourseIndices.forEach((index) => {
         const course = courseData[index];
-        if (course) {
-          exportData.courses.push({
-            name: course.name,
-            credits: course.credits,
-          });
+        if (!course) return;
+        if (componentOf(course) === "discussion") {
+          skippedDiscussions++;
+          return;
         }
+        exportData.courses.push({
+          name: course.name,
+          credits: course.credits,
+        });
       });
+
+      if (exportData.courses.length === 0) {
+        showToast(
+          "Nothing to export yet — discussion sections aren't exported on their own. Add a lecture section too.",
+          { type: "error", duration: 6000 }
+        );
+        return;
+      }
+
+      if (skippedDiscussions > 0) {
+        exportData.skippedDiscussions = skippedDiscussions;
+      }
 
       writeStoredJSON(STORAGE_KEYS.EXPORT, exportData);
       window.location.href = "plan.html";
+    });
+  }
+
+  // Ratings info button + discussion menu (event delegation — list items
+  // are re-rendered often, so listeners are bound once on the container).
+  const courseList = document.getElementById("course-list");
+  if (courseList) {
+    courseList.addEventListener("click", (e) => {
+      const ratingsBtn = e.target.closest(".ratings-info-btn");
+      if (ratingsBtn) {
+        e.stopPropagation();
+        openRatingsModal(ratingsBtn.dataset.courseCode, ratingsBtn.dataset.courseName, ratingsBtn.dataset.professor);
+        return;
+      }
+
+      const toggleBtn = e.target.closest(".discussion-toggle");
+      if (toggleBtn) {
+        const menu = toggleBtn.closest(".discussion-menu");
+        const list = menu ? menu.querySelector(".discussion-list") : null;
+        if (menu && list) {
+          setDiscussionMenuOpen(menu, list.hidden);
+        }
+        return;
+      }
+
+      const optionBtn = e.target.closest(".discussion-option");
+      if (optionBtn) {
+        addCourseToSchedule(Number(optionBtn.dataset.courseId), true);
+      }
+    });
+  }
+
+  // Ratings modal close wiring (close button + backdrop click; ESC works natively)
+  const ratingsModal = document.getElementById("ratings-modal");
+  if (ratingsModal) {
+    const closeBtn = ratingsModal.querySelector(".ratings-modal-close");
+    if (closeBtn) {
+      closeBtn.addEventListener("click", () => ratingsModal.close());
+    }
+    ratingsModal.addEventListener("click", (e) => {
+      // e.target is the dialog both for true backdrop clicks and clicks on
+      // the dialog's own padding — only close when outside the dialog box.
+      if (e.target !== ratingsModal) return;
+      const rect = ratingsModal.getBoundingClientRect();
+      const outside =
+        e.clientX < rect.left || e.clientX > rect.right ||
+        e.clientY < rect.top || e.clientY > rect.bottom;
+      if (outside) ratingsModal.close();
     });
   }
 });

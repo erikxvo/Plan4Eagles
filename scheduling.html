@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="project/style/global.css" />
     <link rel="stylesheet" href="project/style/scheduling.css" />
+    <link rel="stylesheet" href="project/style/ratings.css" />
   </head>
 
   <body>
@@ -15,6 +16,7 @@
       <nav>
         <a href="index.html">Home</a>
         <a href="scheduling.html" class="active">Scheduling</a>
+        <a href="ratings.html">Ratings</a>
         <a href="plan.html">4-Year Plan</a>
         <a href="opportunities.html">Opportunities</a>
       </nav>
@@ -133,8 +135,16 @@
         </section>
       </main>
     </div>
+
+    <!-- RATINGS MODAL (populated by project/js/ratings-data.js) -->
+    <dialog id="ratings-modal" class="ratings-modal" aria-label="Course and professor ratings">
+      <button type="button" class="ratings-modal-close" aria-label="Close ratings">✕</button>
+      <div id="ratings-modal-body"></div>
+    </dialog>
+
     <script src="project/js/storage.js"></script>
     <script src="project/js/ui.js"></script>
+    <script src="project/js/ratings-data.js"></script>
     <script src="project/js/scheduling.js"></script>
   </body>
 </html>
